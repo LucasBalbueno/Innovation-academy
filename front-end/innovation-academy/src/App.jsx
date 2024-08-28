@@ -1,13 +1,16 @@
-import Login from "./Pages/Login"
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import CoursesView from './Pages/Courses/CoursesView';
 
-function App() {
-  
 
+const App = () => {
   return (
-    <>
-    <Login/>
-    </>
-  )
-}
+    <Router>
+      <Routes>
+        <Route path="/courses" element={<CoursesView />} />
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;
