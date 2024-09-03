@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import CoursesView from './Pages/Courses/CoursesView';
+import "./Styles/Global.css"
 
 
 const App = () => {
