@@ -1,6 +1,6 @@
 import React from 'react';
 import './assets/styles/style.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { Input, Card, CardBody, CardFooter, CardHeader } from "reactstrap"
 
 import LogoHTML from "./assets/images/logo-html.png"
@@ -70,33 +70,43 @@ const CoursesView = () => {
         <div className="recent-access">
           <h2>Acesso recente</h2>
           <div className="courses-access d-flex align-items-center justify-content-between">
-            <Card className='recent-access-card d-flex align-items-stretch'>
-              <CardHeader>
+            <Card className='recent-access-card d-flex align-items-stretch border-0'>
+              <CardHeader className='border-0 d-flex align-items-center'>
                 <img src={LogoJS} alt="Logo JavaScript" />
-                JavaScript
+                <h3 className='m-0'>JavaScript</h3>
               </CardHeader>
-              <CardBody>
-                <strong>CARGA 60 HORAS</strong>
-                <p>Aula 8 - Arrow Funcions em JS</p>
+              <CardBody className='card-body'>
+                <p>CARGA 60 HORAS</p>
+                <strong>Aula 8 - Arrow Funcions em JS</strong>
               </CardBody>
-              <CardFooter>
+              <CardFooter className='border-0 footer py-0 m-0 d-flex align-items-center'>
                 <div className="states"></div>
+                <p className='number-status m-0'>80%</p>
               </CardFooter>
             </Card>
-            <Card className='recent-access-card d-flex align-items-stretch'>
-              <CardHeader>
+            <Card className='recent-access-card d-flex align-items-stretch border-0'>
+              <CardHeader className='border-0 d-flex align-items-center'>
                 <img src={LogoHTML} alt="Logo HTML" />
-                HTML
+                <h3 className='m-0'>HTML</h3>
               </CardHeader>
-              <CardBody>
-                <strong>CARGA 30 HORAS</strong>
-                <p>Aula 10 - Semântica</p>
+              <CardBody className='card-body'>
+                <p>CARGA 30 HORAS</p>
+                <strong>Aula 10 - Semântica</strong>
               </CardBody>
-              <CardFooter>
+              <CardFooter className='border-0 footer py-0 m-0 d-flex align-items-center'>
                 <div className="states"></div>
+                <p className='number-status m-0'>80%</p>
               </CardFooter>
             </Card>
           </div>
+        </div>
+
+        <div className="courses-recomended">
+          <h2>Recomendados</h2>
+        </div>
+
+        <div className="events">
+          <h2>Eventos online</h2>
         </div>
       </div>
     </div>

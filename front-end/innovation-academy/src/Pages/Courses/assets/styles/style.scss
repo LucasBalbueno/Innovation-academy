@@ -56,19 +56,52 @@
         }
       }
 
-      .card-body:hover{
+      .card-body:hover {
         transform: scale(1.1);
       }
 
     }
   }
 
-  .recent-access{
+  .recent-access {
     margin-top: 5rem;
     gap: 10px;
 
-    .recent-access-card{
+    .recent-access-card {
+      border-radius: 15px;
       width: 45%;
+      background: #29292A;
+      padding: 10px;
+
+      img {
+        width: 3rem;
+        margin-right: 1rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      .card-body {
+        p {
+          font-size: 0.8rem;
+          margin: 0 0 20px;
+          color: #f5f5ffb7;
+        }
+
+        strong {
+          font-weight: 400;
+          font-size: 1.2rem;
+        }
+
+      }
+
+      .states {
+        width: 80%;
+        background: #00FF7E;
+        height: 3px;
+        margin-right: 20px;
+      }
     }
   }
 }
