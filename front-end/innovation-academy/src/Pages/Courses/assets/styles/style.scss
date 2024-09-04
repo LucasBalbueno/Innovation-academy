@@ -3,7 +3,7 @@
 .layout {
   font-family: "Poppins", sans-serif;
   background: #121214;
-  height: 100vh;
+  height: auto;
   color: white;
   padding: 50px 0;
 
@@ -65,11 +65,11 @@
 
   .recent-access {
     margin-top: 5rem;
-    gap: 10px;
+    gap: 50px;
 
     .recent-access-card {
       border-radius: 15px;
-      width: 45%;
+      width: 48%;
       background: #29292A;
       padding: 10px;
 
@@ -101,6 +101,93 @@
         background: #00FF7E;
         height: 3px;
         margin-right: 20px;
+      }
+    }
+  }
+
+  .courses-recomended {
+    margin-top: 5rem;
+
+    .container-cards-recomended {
+      gap: 50px;
+      flex-wrap: wrap;
+
+      .courses-recomended-card {
+        border-radius: 15px;
+        width: 48%;
+        background: #29292A;
+        padding: 10px;
+
+        img {
+          width: 3rem;
+          margin-right: 1rem;
+        }
+
+        h3 {
+          font-size: 1.5rem;
+        }
+
+        .card-body {
+          p {
+            font-size: 0.8rem;
+            margin: 0 0 20px;
+            color: #f5f5ffb7;
+          }
+
+          strong {
+            font-weight: 400;
+            font-size: 1.2rem;
+          }
+        }
+
+      }
+    }
+  }
+
+  .events {
+    margin-top: 5rem;
+
+    .container-cards-events {
+      gap: 50px;
+      flex-wrap: wrap;
+
+      .card-event {
+        border-radius: 15px;
+        width: 48%;
+        background: #29292A;
+        padding: 10px;
+
+        .header-logo {
+          width: 3rem;
+          margin-right: 1rem;
+        }
+
+        .live-logo {
+          width: 2rem;
+        }
+
+        h3 {
+          font-size: 1rem;
+        }
+
+        .card-body {
+          p {
+            font-size: 0.8rem;
+            margin: 0 0 20px;
+            color: #f5f5ffb7;
+          }
+
+          strong {
+            font-weight: 400;
+            font-size: 1rem;
+          }
+        }
+
+      }
+
+      span {
+        color: #00FF7E;
+        font-size: 0.9rem;
       }
     }
   }

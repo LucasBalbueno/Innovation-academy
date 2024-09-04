@@ -10,6 +10,8 @@ import LogoNode from "./assets/images/logo-node.png"
 import LogoReact from "./assets/images/logo-react.png"
 import LogoJava from "./assets/images/logo-java.png"
 import LogoPython from "./assets/images/logo-python.png"
+import LogoYoutube from "./assets/images/logo-youtube.png"
+import LiveLogo from "./assets/images/live-icon.png"
 
 const CoursesView = () => {
   return (
@@ -22,6 +24,7 @@ const CoursesView = () => {
           className='form-input'
           placeholder="Pesquisar"
         />
+
         <div className='container-card'>
           <Card className='card d-flex align-items-center justify-content-center text-center'>
             <CardBody className='card-body w-100 d-flex align-items-center justify-content-center text-center'><img src={LogoHTML} alt='logo HTML' /></CardBody>
@@ -68,7 +71,7 @@ const CoursesView = () => {
         </div>
 
         <div className="recent-access">
-          <h2>Acesso recente</h2>
+          <h2 className='mb-5'>Acesso recente</h2>
           <div className="courses-access d-flex align-items-center justify-content-between">
             <Card className='recent-access-card d-flex align-items-stretch border-0'>
               <CardHeader className='border-0 d-flex align-items-center'>
@@ -102,11 +105,109 @@ const CoursesView = () => {
         </div>
 
         <div className="courses-recomended">
-          <h2>Recomendados</h2>
+          <h2 className='mb-5'>Recomendados</h2>
+          <div className='container-cards-recomended d-flex align-items-center justify-content-between'>
+            <Card className='courses-recomended-card d-flex align-items-stretch border-0'>
+              <CardHeader className='border-0 d-flex align-items-center'>
+                <img src={LogoReact} alt="Logo React" />
+                <h3 className='m-0'>React</h3>
+              </CardHeader>
+              <CardBody className='card-body'>
+                <p>CARGA 60 HORAS</p>
+                <strong>Iniciante</strong>
+              </CardBody>
+            </Card>
+            <Card className='courses-recomended-card d-flex align-items-stretch border-0'>
+              <CardHeader className='border-0 d-flex align-items-center'>
+                <img src={LogoNode} alt="Logo Node" />
+                <h3 className='m-0'>NodeJs</h3>
+              </CardHeader>
+              <CardBody className='card-body'>
+                <p>CARGA 80 HORAS</p>
+                <strong>Iniciante</strong>
+              </CardBody>
+            </Card>
+            <Card className='courses-recomended-card d-flex align-items-stretch border-0'>
+              <CardHeader className='border-0 d-flex align-items-center'>
+                <img src={LogoJS} alt="Logo JavaScript" />
+                <h3 className='m-0'>JavaScript</h3>
+              </CardHeader>
+              <CardBody className='card-body'>
+                <p>CARGA 60 HORAS</p>
+                <strong>Avançado</strong>
+              </CardBody>
+            </Card>
+          </div>
         </div>
 
         <div className="events">
-          <h2>Eventos online</h2>
+          <h2 className='mb-5'>Eventos online</h2>
+          <div className='container-cards-events d-flex align-items-center justify-content-between'>
+            <Card className='card-event d-flex align-items-stretch border-0'>
+              <CardHeader className='border-0 d-flex align-items-center justify-content-between'>
+                <div className="d-flex align-items-center">
+                  <img className='header-logo' src={LogoYoutube} alt="Logo Youtube" />
+                  <h3 className='m-0'>Aula sobre IA</h3>
+                </div>
+                <img className='live-logo' src={LiveLogo} alt="Live Logo" />
+              </CardHeader>
+              <CardBody className='card-body'>
+                <p>28 DE AGOSTO - 19 HORAS</p>
+                <div className='d-flex align-items-center justify-content-between'>
+                  <strong>Avançado</strong>
+                  <span>ACESSAR</span>
+                </div>
+              </CardBody>
+            </Card>
+            <Card className='card-event d-flex align-items-stretch border-0'>
+              <CardHeader className='border-0 d-flex align-items-center justify-content-between'>
+                <div className="d-flex align-items-center">
+                  <img className='header-logo' src={LogoYoutube} alt="Logo Youtube" />
+                  <h3 className='m-0'>Algoritmos</h3>
+                </div>
+                <img className='live-logo' src={LiveLogo} alt="Live Logo" />
+              </CardHeader>
+              <CardBody className='card-body'>
+                <p>28 DE AGOSTO - 19 HORAS</p>
+                <div className='d-flex align-items-center justify-content-between'>
+                  <strong>Avançado</strong>
+                  <span>ACESSAR</span>
+                </div>
+              </CardBody>
+            </Card>
+            <Card className='card-event d-flex align-items-stretch border-0'>
+              <CardHeader className='border-0 d-flex align-items-center justify-content-between'>
+                <div className="d-flex align-items-center">
+                  <img className='header-logo' src={LogoYoutube} alt="Logo Youtube" />
+                  <h3 className='m-0'>React Routers</h3>
+                </div>
+                <img className='live-logo' src={LiveLogo} alt="Live Logo" />
+              </CardHeader>
+              <CardBody className='card-body'>
+                <p>28 DE AGOSTO - 19 HORAS</p>
+                <div className='d-flex align-items-center justify-content-between'>
+                  <strong>Avançado</strong>
+                  <span>ACESSAR</span>
+                </div>
+              </CardBody>
+            </Card>
+            <Card className='card-event d-flex align-items-stretch border-0'>
+              <CardHeader className='border-0 d-flex align-items-center justify-content-between'>
+                <div className="d-flex align-items-center">
+                  <img className='header-logo' src={LogoYoutube} alt="Logo Youtube" />
+                  <h3 className='m-0'>Orientação a Objetos</h3>
+                </div>
+                <img className='live-logo' src={LiveLogo} alt="Live Logo" />
+              </CardHeader>
+              <CardBody className='card-body'>
+                <p>28 DE AGOSTO - 19 HORAS</p>
+                <div className='d-flex align-items-center justify-content-between'>
+                  <strong>Avançado</strong>
+                  <span>ACESSAR</span>
+                </div>
+              </CardBody>
+            </Card>
+          </div>
         </div>
       </div>
     </div>
