@@ -12,6 +12,7 @@ import LogoJava from "./assets/images/logo-java.png"
 import LogoPython from "./assets/images/logo-python.png"
 import LogoYoutube from "./assets/images/logo-youtube.png"
 import LiveLogo from "./assets/images/live-icon.png"
+import SASSLogo from "./assets/images/sass-logo.png"
 
 const CoursesView = () => {
   return (
@@ -26,53 +27,59 @@ const CoursesView = () => {
         />
 
         <div className='container-card'>
-          <Card className='card d-flex align-items-center justify-content-center text-center'>
-            <CardBody className='card-body w-100 d-flex align-items-center justify-content-center text-center'><img src={LogoHTML} alt='logo HTML' /></CardBody>
+          <Card className='card-div d-flex align-items-center justify-content-center text-center'>
+            <CardBody className='card-body d-flex align-items-center justify-content-center text-center'><img src={LogoHTML} alt='logo HTML' /></CardBody>
             <CardFooter className='text-white'>
               HTML
             </CardFooter>
           </Card>
-          <Card className='card d-flex align-items-center justify-content-center text-center'>
-            <CardBody className='card-body w-100 d-flex align-items-center justify-content-center text-center'><img src={LogoCSS} alt='logo CSS' /></CardBody>
+          <Card className='card-div d-flex align-items-center justify-content-center text-center'>
+            <CardBody className='card-body d-flex align-items-center justify-content-center text-center'><img src={LogoCSS} alt='logo CSS' /></CardBody>
             <CardFooter className='text-white'>
               CSS
             </CardFooter>
           </Card>
-          <Card className='card d-flex align-items-center justify-content-center text-center'>
-            <CardBody className='card-body w-100 d-flex align-items-center justify-content-center text-center'><img src={LogoJS} alt='logo javascript' /></CardBody>
+          <Card className='card-div d-flex align-items-center justify-content-center text-center'>
+            <CardBody className='card-body d-flex align-items-center justify-content-center text-center'><img src={LogoJS} alt='logo javascript' /></CardBody>
             <CardFooter className='text-white'>
               JavaScript
             </CardFooter>
           </Card>
-          <Card className='card d-flex align-items-center justify-content-center text-center'>
-            <CardBody className='card-body w-100 d-flex align-items-center justify-content-center text-center'><img src={LogoReact} alt='logo React' /></CardBody>
+          <Card className='card-div d-flex align-items-center justify-content-center text-center'>
+            <CardBody className='card-body d-flex align-items-center justify-content-center text-center'><img src={LogoReact} alt='logo React' /></CardBody>
             <CardFooter className='text-white'>
               React
             </CardFooter>
           </Card>
-          <Card className='card d-flex align-items-center justify-content-center text-center'>
-            <CardBody className='card-body w-100 d-flex align-items-center justify-content-center text-center'><img src={LogoNode} alt='logo Node' /></CardBody>
+          <Card className='card-div d-flex align-items-center justify-content-center text-center'>
+            <CardBody className='card-body d-flex align-items-center justify-content-center text-center'><img src={LogoNode} alt='logo Node' /></CardBody>
             <CardFooter className='text-white'>
               NodeJs
             </CardFooter>
           </Card>
-          <Card className='card d-flex align-items-center justify-content-center text-center'>
-            <CardBody className='card-body w-100 d-flex align-items-center justify-content-center text-center'><img src={LogoJava} alt='logo Java' /></CardBody>
+          <Card className='card-div d-flex align-items-center justify-content-center text-center'>
+            <CardBody className='card-body d-flex align-items-center justify-content-center text-center'><img src={LogoJava} alt='logo Java' /></CardBody>
             <CardFooter className='text-white'>
               Java
             </CardFooter>
           </Card>
-          <Card className='card d-flex align-items-center justify-content-center text-center'>
-            <CardBody className='card-body w-100 d-flex align-items-center justify-content-center text-center'><img src={LogoPython} alt='logo Python' /></CardBody>
+          <Card className='card-div d-flex align-items-center justify-content-center text-center'>
+            <CardBody className='card-body d-flex align-items-center justify-content-center text-center'><img src={LogoPython} alt='logo Python' /></CardBody>
             <CardFooter className='text-white'>
               Python
+            </CardFooter>
+          </Card>
+          <Card className='card-div d-flex align-items-center justify-content-center text-center'>
+            <CardBody className='card-body d-flex align-items-center justify-content-center text-center'><img src={SASSLogo} alt='logo SASS' /></CardBody>
+            <CardFooter className='text-white'>
+              SASS
             </CardFooter>
           </Card>
         </div>
 
         <div className="recent-access">
           <h2 className='mb-5'>Acesso recente</h2>
-          <div className="courses-access d-flex align-items-center justify-content-between">
+          <div className="courses-access d-flex flex-lg-row flex-column align-items-center justify-content-between">
             <Card className='recent-access-card d-flex align-items-stretch border-0'>
               <CardHeader className='border-0 d-flex align-items-center'>
                 <img src={LogoJS} alt="Logo JavaScript" />
@@ -106,7 +113,7 @@ const CoursesView = () => {
 
         <div className="courses-recomended">
           <h2 className='mb-5'>Recomendados</h2>
-          <div className='container-cards-recomended d-flex align-items-center justify-content-between'>
+          <div className='container-cards-recomended d-flex flex-lg-row flex-column align-items-center justify-content-between'>
             <Card className='courses-recomended-card d-flex align-items-stretch border-0'>
               <CardHeader className='border-0 d-flex align-items-center'>
                 <img src={LogoReact} alt="Logo React" />

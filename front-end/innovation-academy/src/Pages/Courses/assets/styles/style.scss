@@ -7,6 +7,10 @@
   color: white;
   padding: 50px 0;
 
+  @media screen and (max-width: 991px) {
+    padding: 50px 20px;
+  }
+
 
   h1 {
     font-size: 1.8rem;
@@ -38,21 +42,27 @@
     gap: 20px;
     margin-top: 60px;
 
-    .card {
+    @media screen and (max-width: 991px) {
+     flex-wrap: wrap;
+     justify-content: normal;
+    }
+
+    .card-div {
+      width: 80px;
+      height: 80px;
       background: transparent;
-      width: 75px;
-      height: 75px;
+
       cursor: pointer;
 
       .card-body {
-        width: 100%;
-        height: 100%;
+        width: 60px;
+        height: 60px;
         border-radius: 5px;
         background: #222226;
         transition: all 0.3s ease-in-out;
 
         img {
-          width: 2rem;
+          width: 1.8rem;
         }
       }
 
@@ -67,40 +77,50 @@
     margin-top: 5rem;
     gap: 50px;
 
-    .recent-access-card {
-      border-radius: 15px;
-      width: 48%;
-      background: #29292A;
-      padding: 10px;
-
-      img {
-        width: 3rem;
-        margin-right: 1rem;
+    .courses-access {
+      @media screen and (max-width: 991px) {
+        gap: 50px;
       }
 
-      h3 {
-        font-size: 1.5rem;
-      }
+      .recent-access-card {
+        border-radius: 15px;
+        width: 48%;
+        background: #29292A;
+        padding: 10px;
 
-      .card-body {
-        p {
-          font-size: 0.8rem;
-          margin: 0 0 20px;
-          color: #f5f5ffb7;
+        @media screen and (max-width: 991px) {
+          width: 100%;
         }
 
-        strong {
-          font-weight: 400;
-          font-size: 1.2rem;
+        img {
+          width: 3rem;
+          margin-right: 1rem;
         }
 
-      }
+        h3 {
+          font-size: 1.5rem;
+        }
 
-      .states {
-        width: 80%;
-        background: #00FF7E;
-        height: 3px;
-        margin-right: 20px;
+        .card-body {
+          p {
+            font-size: 0.8rem;
+            margin: 0 0 20px;
+            color: #f5f5ffb7;
+          }
+
+          strong {
+            font-weight: 400;
+            font-size: 1.2rem;
+          }
+
+        }
+
+        .states {
+          width: 80%;
+          background: #00FF7E;
+          height: 3px;
+          margin-right: 20px;
+        }
       }
     }
   }
@@ -117,6 +137,10 @@
         width: 48%;
         background: #29292A;
         padding: 10px;
+
+        @media screen and (max-width: 991px) {
+          width: 100%;
+        }
 
         img {
           width: 3rem;
@@ -156,6 +180,10 @@
         width: 48%;
         background: #29292A;
         padding: 10px;
+
+        @media screen and (max-width: 991px) {
+          width: 100%;
+        }
 
         .header-logo {
           width: 3rem;
