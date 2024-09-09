@@ -52,6 +52,11 @@
       height: 80px;
       background: transparent;
 
+      @media screen and (max-width: 991px) {
+        width: 90px;
+        height: 90px;
+       }
+
       cursor: pointer;
 
       .card-body {
