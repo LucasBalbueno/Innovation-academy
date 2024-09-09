@@ -1,10 +1,12 @@
+import Footer from "../Components/Footer"
+import '../Styles/Global.css'
 
 function Login() {
   
 
     return (
       <>
-      <h1>Página de Login</h1>
+      <Footer/>
       </>
     )
   }
