@@ -185,7 +185,7 @@ const CoursesView = () => {
               </CardHeader>
               <CardBody className='card-body'>
                 <p>28 DE AGOSTO - 19 HORAS</p>
-                <div className='d-flex align-items-center justify-content-between'>
+                <div className='d-flex align-items-sm-center justify-content-between flex-sm-row flex-column'>
                   <strong>Avançado</strong>
                   <a target='_blank' href='#'>ACESSAR</a>
                 </div>
@@ -201,7 +201,7 @@ const CoursesView = () => {
               </CardHeader>
               <CardBody className='card-body'>
                 <p>28 DE AGOSTO - 19 HORAS</p>
-                <div className='d-flex align-items-center justify-content-between'>
+                <div className='d-flex align-items-sm-center justify-content-between flex-sm-row flex-column'>
                   <strong>Avançado</strong>
                   <a target='_blank' href='#'>ACESSAR</a>
                 </div>
@@ -217,7 +217,7 @@ const CoursesView = () => {
               </CardHeader>
               <CardBody className='card-body'>
                 <p>28 DE AGOSTO - 19 HORAS</p>
-                <div className='d-flex align-items-center justify-content-between'>
+                <div className='d-flex align-items-sm-center justify-content-between flex-sm-row flex-column'>
                   <strong>Avançado</strong>
                   <a target='_blank' href='#'>ACESSAR</a>
                 </div>
@@ -233,7 +233,7 @@ const CoursesView = () => {
               </CardHeader>
               <CardBody className='card-body'>
                 <p>28 DE AGOSTO - 19 HORAS</p>
-                <div className='d-flex align-items-center justify-content-between'>
+                <div className='d-flex align-items-sm-center justify-content-between flex-sm-row flex-column'>
                   <strong>Avançado</strong>
                   <a target='_blank' href='#'>ACESSAR</a>
                 </div>
