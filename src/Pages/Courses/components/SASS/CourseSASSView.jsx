@@ -1,9 +1,9 @@
 import React from 'react';
 
-const CourseNodeView = () => {
+const CourseSASSView = () => {
     return (
         <></>
     );
 };
 
-export default CourseNodeView;
+export default CourseSASSView;

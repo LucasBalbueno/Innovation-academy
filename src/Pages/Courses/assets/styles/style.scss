@@ -137,12 +137,22 @@
       gap: 50px;
       flex-wrap: wrap;
 
+      @media screen and (max-width: 1399px) {
+        gap: 20px;
+      }
+
+      @media screen and (max-width: 991px) {
+        gap: 50px;
+      }
+
       .courses-recomended-card {
         border-radius: 15px;
         width: 48%;
         background: #29292A;
         padding: 10px;
+        cursor: pointer;
 
+       
         @media screen and (max-width: 991px) {
           width: 100%;
         }
@@ -179,6 +189,14 @@
     .container-cards-events {
       gap: 50px;
       flex-wrap: wrap;
+
+      @media screen and (max-width: 1399px) {
+        gap: 20px;
+      }
+
+      @media screen and (max-width: 991px) {
+        gap: 50px;
+      }
 
       .card-event {
         border-radius: 15px;
@@ -218,7 +236,7 @@
 
       }
 
-      span {
+      a {
         color: #00FF7E;
         font-size: 0.9rem;
       }
