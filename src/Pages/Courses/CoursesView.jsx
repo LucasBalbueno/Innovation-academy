@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './assets/styles/style.scss';
 
 import { Input, Card, CardBody, CardFooter, CardHeader } from "reactstrap"
@@ -18,6 +18,36 @@ import SASSLogo from "./assets/images/sass-logo.png"
 const CoursesView = () => {
   const navigate = useNavigate();
 
+  const courses = [
+    { name: 'HTML', image: LogoHTML, description: 'Iniciante', path: '/courses/html' },
+    { name: 'CSS', image: LogoCSS, description: 'Iniciante', path: '/courses/css' },
+    { name: 'JavaScript', image: LogoJS, description: 'Avançado', path: '/courses/javascript' },
+    { name: 'React', image: LogoReact, description: 'Iniciante', path: '/courses/reactjs' },
+    { name: 'NodeJs', image: LogoNode, description: 'Iniciante', path: '/courses/nodejs' },
+    { name: 'Java', image: LogoJava, description: 'Intermediário', path: '/courses/java' },
+    { name: 'Python', image: LogoPython, description: 'Iniciante', path: '/courses/python' },
+    { name: 'SASS', image: SASSLogo, description: 'Intermediário', path: '/courses/sass' }
+  ];
+
+  const coursesRecomended = [
+    { name: 'React', image: LogoReact, description: 'Iniciante', videoUrl: 'https://www.youtube.com/embed/example1' },
+    { name: 'NodeJs', image: LogoNode, description: 'Iniciante', videoUrl: 'https://www.youtube.com/embed/example2' },
+    { name: 'JavaScript', image: LogoJS, description: 'Avançado', videoUrl: 'https://www.youtube.com/embed/example3' }
+  ];
+
+  const events = [
+    { name: 'Aula sobre IA', data: "28 DE AGOSTO - 19 HORAS", description: 'Iniciante' },
+    { name: 'Algoritmos', data: "30 DE AGOSTO - 19 HORAS", description: 'Iniciante' },
+    { name: 'React Routers', data: "28 DE SETEMBRO - 19 HORAS", description: 'Avançado' },
+    { name: 'Orientação a Objetos', data: "28 DE OUTUBRO - 20 HORAS", description: 'Avançado' }
+  ];
+
+  const recentAccess = [
+    { name: 'JavaScript', image: LogoJS, hours: '60 HORAS', lesson: 'Aula 8 - Arrow Functions em JS', progress: '80%' },
+    { name: 'HTML', image: LogoHTML, hours: '30 HORAS', lesson: 'Aula 10 - Semântica', progress: '80%' }
+  ];
+
+
   return (
     <div className='container-fluid layout'>
       <div className="container">
@@ -30,215 +60,83 @@ const CoursesView = () => {
         />
 
         <div className='container-card'>
-          <Card className='card-div d-flex align-items-center justify-content-center text-center'
-            onClick={() => navigate("/courses/hmtl")}
-          >
-            <CardBody className='card-body d-flex align-items-center justify-content-center text-center'><img src={LogoHTML} alt='logo HTML' /></CardBody>
-            <CardFooter className='text-white'>
-              HTML
-            </CardFooter>
-          </Card>
-          <Card className='card-div d-flex align-items-center justify-content-center text-center'
-            onClick={() => navigate("/courses/css")}
-          >
-            <CardBody className='card-body d-flex align-items-center justify-content-center text-center'><img src={LogoCSS} alt='logo CSS' /></CardBody>
-            <CardFooter className='text-white'>
-              CSS
-            </CardFooter>
-          </Card>
-          <Card className='card-div d-flex align-items-center justify-content-center text-center'
-            onClick={() => navigate("/courses/javascript")}
-          >
-            <CardBody className='card-body d-flex align-items-center justify-content-center text-center'><img src={LogoJS} alt='logo javascript' /></CardBody>
-            <CardFooter className='text-white'>
-              JavaScript
-            </CardFooter>
-          </Card>
-          <Card className='card-div d-flex align-items-center justify-content-center text-center'
-            onClick={() => navigate("/courses/reactJs")}
-          >
-            <CardBody className='card-body d-flex align-items-center justify-content-center text-center'><img src={LogoReact} alt='logo React' /></CardBody>
-            <CardFooter className='text-white'>
-              React
-            </CardFooter>
-          </Card>
-          <Card className='card-div d-flex align-items-center justify-content-center text-center'
-            onClick={() => navigate("/courses/node")}
-          >
-            <CardBody className='card-body d-flex align-items-center justify-content-center text-center'><img src={LogoNode} alt='logo Node' /></CardBody>
-            <CardFooter className='text-white'>
-              NodeJs
-            </CardFooter>
-          </Card>
-          <Card className='card-div d-flex align-items-center justify-content-center text-center'
-            onClick={() => navigate("/courses/java")}
-          >
-            <CardBody className='card-body d-flex align-items-center justify-content-center text-center'><img src={LogoJava} alt='logo Java' /></CardBody>
-            <CardFooter className='text-white'>
-              Java
-            </CardFooter>
-          </Card>
-          <Card className='card-div d-flex align-items-center justify-content-center text-center'
-            onClick={() => navigate("/courses/python")}
-          >
-            <CardBody className='card-body d-flex align-items-center justify-content-center text-center'><img src={LogoPython} alt='logo Python' /></CardBody>
-            <CardFooter className='text-white'>
-              Python
-            </CardFooter>
-          </Card>
-          <Card className='card-div d-flex align-items-center justify-content-center text-center'
-            onClick={() => navigate("/courses/sass")}
-          >
-            <CardBody className='card-body d-flex align-items-center justify-content-center text-center'><img src={SASSLogo} alt='logo SASS' /></CardBody>
-            <CardFooter className='text-white'>
-              SASS
-            </CardFooter>
-          </Card>
+          {courses.map((course, index) => (
+            <Card key={index} className='card-div d-flex align-items-center justify-content-center text-center'
+              onClick={() => navigate(course.path)}
+            >
+              <CardBody className='card-body d-flex align-items-center justify-content-center text-center'>
+                <img src={course.image} alt={`logo ${course.name}`} />
+              </CardBody>
+              <CardFooter className='text-white'>
+                {course.name}
+              </CardFooter>
+            </Card>
+          ))}
         </div>
 
         <div className="recent-access">
           <h2 className='mb-5'>Acesso recente</h2>
           <div className="courses-access d-flex flex-lg-row flex-column align-items-center justify-content-between">
-            <Card className='recent-access-card d-flex align-items-stretch border-0'>
-              <CardHeader className='border-0 d-flex align-items-center'>
-                <img src={LogoJS} alt="Logo JavaScript" />
-                <h3 className='m-0'>JavaScript</h3>
-              </CardHeader>
-              <CardBody className='card-body'>
-                <p>CARGA 60 HORAS</p>
-                <strong>Aula 8 - Arrow Funcions em JS</strong>
-              </CardBody>
-              <CardFooter className='border-0 footer py-0 m-0 d-flex align-items-center'>
-                <div className="states"></div>
-                <p className='number-status m-0'>80%</p>
-              </CardFooter>
-            </Card>
-            <Card className='recent-access-card d-flex align-items-stretch border-0'>
-              <CardHeader className='border-0 d-flex align-items-center'>
-                <img src={LogoHTML} alt="Logo HTML" />
-                <h3 className='m-0'>HTML</h3>
-              </CardHeader>
-              <CardBody className='card-body'>
-                <p>CARGA 30 HORAS</p>
-                <strong>Aula 10 - Semântica</strong>
-              </CardBody>
-              <CardFooter className='border-0 footer py-0 m-0 d-flex align-items-center'>
-                <div className="states"></div>
-                <p className='number-status m-0'>80%</p>
-              </CardFooter>
-            </Card>
+            {recentAccess.map((item, index) => (
+              <Card key={index} className='recent-access-card d-flex align-items-stretch border-0'>
+                <CardHeader className='border-0 d-flex align-items-center'>
+                  <img src={item.image} alt={`Logo ${item.name}`} />
+                  <h3 className='m-0'>{item.name}</h3>
+                </CardHeader>
+                <CardBody className='card-body'>
+                  <p>CARGA {item.hours}</p>
+                  <strong>{item.lesson}</strong>
+                </CardBody>
+                <CardFooter className='border-0 footer py-0 m-0 d-flex align-items-center'>
+                  <div className="states"></div>
+                  <p className='number-status m-0'>{item.progress}</p>
+                </CardFooter>
+              </Card>
+            ))}
           </div>
         </div>
 
         <div className="courses-recomended">
           <h2 className='mb-5'>Recomendados</h2>
           <div className='container-cards-recomended d-flex flex-lg-row flex-column align-items-center justify-content-between'>
-            <Card className='courses-recomended-card d-flex align-items-stretch border-0'
-              onClick={() => navigate("/courses/reactJs")}
-            >
-              <CardHeader className='border-0 d-flex align-items-center'>
-                <img src={LogoReact} alt="Logo React" />
-                <h3 className='m-0'>React</h3>
-              </CardHeader>
-              <CardBody className='card-body'>
-                <p>CARGA 60 HORAS</p>
-                <strong>Iniciante</strong>
-              </CardBody>
-            </Card>
-            <Card className='courses-recomended-card d-flex align-items-stretch border-0'
-              onClick={() => navigate("/courses/node")}
-            >
-              <CardHeader className='border-0 d-flex align-items-center'>
-                <img src={LogoNode} alt="Logo Node" />
-                <h3 className='m-0'>NodeJs</h3>
-              </CardHeader>
-              <CardBody className='card-body'>
-                <p>CARGA 80 HORAS</p>
-                <strong>Iniciante</strong>
-              </CardBody>
-            </Card>
-            <Card className='courses-recomended-card d-flex align-items-stretch border-0'
-              onClick={() => navigate("/courses/javascript")}
-            >
-              <CardHeader className='border-0 d-flex align-items-center'>
-                <img src={LogoJS} alt="Logo JavaScript" />
-                <h3 className='m-0'>JavaScript</h3>
-              </CardHeader>
-              <CardBody className='card-body'>
-                <p>CARGA 60 HORAS</p>
-                <strong>Avançado</strong>
-              </CardBody>
-            </Card>
+            {coursesRecomended.map((course, index) => (
+              <Card key={index} className='courses-recomended-card d-flex align-items-stretch border-0'
+                onClick={() => navigate(`/courses/${course.name.toLowerCase()}`)}
+              >
+                <CardHeader className='border-0 d-flex align-items-center'>
+                  <img className="header-logo" src={course.image} alt={`Logo ${course.name}`} />
+                  <h3 className='m-0'>{course.name}</h3>
+                </CardHeader>
+                <CardBody className='card-body'>
+                  <p>CARGA 60 HORAS</p>
+                  <strong>{course.description}</strong>
+                </CardBody>
+              </Card>
+            ))}
           </div>
         </div>
 
         <div className="events">
           <h2 className='mb-5'>Eventos online</h2>
           <div className='container-cards-events d-flex align-items-center justify-content-between'>
-            <Card className='card-event d-flex align-items-stretch border-0'>
-              <CardHeader className='border-0 d-flex align-items-center justify-content-between'>
-                <div className="d-flex align-items-center">
-                  <img className='header-logo' src={LogoYoutube} alt="Logo Youtube" />
-                  <h3 className='m-0'>Aula sobre IA</h3>
-                </div>
-                <img className='live-logo' src={LiveLogo} alt="Live Logo" />
-              </CardHeader>
-              <CardBody className='card-body'>
-                <p>28 DE AGOSTO - 19 HORAS</p>
-                <div className='d-flex align-items-sm-center justify-content-between flex-sm-row flex-column'>
-                  <strong>Avançado</strong>
-                  <a target='_blank' href='#'>ACESSAR</a>
-                </div>
-              </CardBody>
-            </Card>
-            <Card className='card-event d-flex align-items-stretch border-0'>
-              <CardHeader className='border-0 d-flex align-items-center justify-content-between'>
-                <div className="d-flex align-items-center">
-                  <img className='header-logo' src={LogoYoutube} alt="Logo Youtube" />
-                  <h3 className='m-0'>Algoritmos</h3>
-                </div>
-                <img className='live-logo' src={LiveLogo} alt="Live Logo" />
-              </CardHeader>
-              <CardBody className='card-body'>
-                <p>28 DE AGOSTO - 19 HORAS</p>
-                <div className='d-flex align-items-sm-center justify-content-between flex-sm-row flex-column'>
-                  <strong>Avançado</strong>
-                  <a target='_blank' href='#'>ACESSAR</a>
-                </div>
-              </CardBody>
-            </Card>
-            <Card className='card-event d-flex align-items-stretch border-0'>
-              <CardHeader className='border-0 d-flex align-items-center justify-content-between'>
-                <div className="d-flex align-items-center">
-                  <img className='header-logo' src={LogoYoutube} alt="Logo Youtube" />
-                  <h3 className='m-0'>React Routers</h3>
-                </div>
-                <img className='live-logo' src={LiveLogo} alt="Live Logo" />
-              </CardHeader>
-              <CardBody className='card-body'>
-                <p>28 DE AGOSTO - 19 HORAS</p>
-                <div className='d-flex align-items-sm-center justify-content-between flex-sm-row flex-column'>
-                  <strong>Avançado</strong>
-                  <a target='_blank' href='#'>ACESSAR</a>
-                </div>
-              </CardBody>
-            </Card>
-            <Card className='card-event d-flex align-items-stretch border-0'>
-              <CardHeader className='border-0 d-flex align-items-center justify-content-between'>
-                <div className="d-flex align-items-center">
-                  <img className='header-logo' src={LogoYoutube} alt="Logo Youtube" />
-                  <h3 className='m-0'>Orientação a Objetos</h3>
-                </div>
-                <img className='live-logo' src={LiveLogo} alt="Live Logo" />
-              </CardHeader>
-              <CardBody className='card-body'>
-                <p>28 DE AGOSTO - 19 HORAS</p>
-                <div className='d-flex align-items-sm-center justify-content-between flex-sm-row flex-column'>
-                  <strong>Avançado</strong>
-                  <a target='_blank' href='#'>ACESSAR</a>
-                </div>
-              </CardBody>
-            </Card>
+            {events.map((event, index) => (
+              <Card className='card-event d-flex align-items-stretch border-0'>
+                <CardHeader className='border-0 d-flex align-items-center justify-content-between'>
+                  <div className="d-flex align-items-center">
+                    <img className='header-logo' src={LogoYoutube} alt="Logo Youtube" />
+                    <h3 className='m-0'>{event.name}</h3>
+                  </div>
+                  <img className='live-logo' src={LiveLogo} alt="Live Logo" />
+                </CardHeader>
+                <CardBody className='card-body'>
+                  <p>{event.data}</p>
+                  <div className='d-flex align-items-sm-center justify-content-between flex-sm-row flex-column'>
+                    <strong>{event.description}</strong>
+                    <a target='_blank' href='#'>ACESSAR</a>
+                  </div>
+                </CardBody>
+              </Card>
+            ))}
           </div>
         </div>
       </div>
