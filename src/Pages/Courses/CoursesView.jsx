@@ -17,6 +17,7 @@ import SASSLogo from "./assets/images/sass-logo.png"
 
 const CoursesView = () => {
   const navigate = useNavigate();
+  const [hoveredCourse, setHoveredCourse] = useState(null);
 
   const courses = [
     { name: 'HTML', image: LogoHTML, description: 'Iniciante', path: '/courses/html' },
@@ -100,18 +101,47 @@ const CoursesView = () => {
           <h2 className='mb-5'>Recomendados</h2>
           <div className='container-cards-recomended d-flex flex-lg-row flex-column align-items-center justify-content-between'>
             {coursesRecomended.map((course, index) => (
-              <Card key={index} className='courses-recomended-card d-flex align-items-stretch border-0'
-                onClick={() => navigate(`/courses/${course.name.toLowerCase()}`)}
+              <Card
+                key={index}
+                className='courses-recomended-card d-flex align-items-stretch border-0'
+                onMouseEnter={() => setHoveredCourse(index)}
+                onMouseLeave={() => setHoveredCourse(null)}
               >
-                <CardHeader className='border-0 d-flex align-items-center'>
-                  <img className="header-logo" src={course.image} alt={`Logo ${course.name}`} />
-                  <h3 className='m-0'>{course.name}</h3>
-                </CardHeader>
-                <CardBody className='card-body'>
-                  <p>CARGA 60 HORAS</p>
-                  <strong>{course.description}</strong>
-                </CardBody>
+                {hoveredCourse === index ? (
+                  <div className="hovered-card">
+                    <iframe
+                      width="100%"
+                      height="150"
+                      src={course.videoUrl}
+                      title={course.name}
+                      frameBorder="0"
+                      allowFullScreen
+                    />
+                    <CardBody className='card-body d-flex flex-column align-items-center justify-content-center'>
+                      <img src={course.image} alt={`Logo ${course.name}`} className="header-logo" />
+                      <h3 className='m-0'>{course.name}</h3>
+                      <button
+                        className="btn-watch"
+                        onClick={() => navigate(`/courses/${course.name.toLowerCase()}`)}
+                      >
+                        Assistir Aulas
+                      </button>
+                    </CardBody>
+                  </div>
+                ) : (
+                  <div className="default-card">
+                    <CardHeader className='border-0 d-flex align-items-center'>
+                      <img className="header-logo" src={course.image} alt={`Logo ${course.name}`} />
+                      <h3 className='m-0'>{course.name}</h3>
+                    </CardHeader>
+                    <CardBody className='card-body'>
+                      <p>CARGA 60 HORAS</p>
+                      <strong>{course.description}</strong>
+                    </CardBody>
+                  </div>
+                )}
               </Card>
+
             ))}
           </div>
         </div>

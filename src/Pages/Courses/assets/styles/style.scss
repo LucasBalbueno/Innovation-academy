@@ -209,6 +209,29 @@
           width: 100%;
         }
 
+        .hovered-card {
+          iframe {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+          }
+          .header-logo {
+            width: 50px;
+          }
+          .btn-watch {
+            background-color: #f0ad4e;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          .btn-watch:hover {
+            background-color: #ec971f;
+          }
+        }
+
+        
         img {
           width: 3rem;
           margin-right: 1rem;
