@@ -107,39 +107,17 @@ const CoursesView = () => {
                 onMouseEnter={() => setHoveredCourse(index)}
                 onMouseLeave={() => setHoveredCourse(null)}
               >
-                {hoveredCourse === index ? (
-                  <div className="hovered-card">
-                    <iframe
-                      width="100%"
-                      height="150"
-                      src={course.videoUrl}
-                      title={course.name}
-                      frameBorder="0"
-                      allowFullScreen
-                    />
-                    <CardBody className='card-body d-flex flex-column align-items-center justify-content-center'>
-                      <img src={course.image} alt={`Logo ${course.name}`} className="header-logo" />
-                      <h3 className='m-0'>{course.name}</h3>
-                      <button
-                        className="btn-watch"
-                        onClick={() => navigate(`/courses/${course.name.toLowerCase()}`)}
-                      >
-                        Assistir Aulas
-                      </button>
-                    </CardBody>
-                  </div>
-                ) : (
-                  <div className="default-card">
-                    <CardHeader className='border-0 d-flex align-items-center'>
-                      <img className="header-logo" src={course.image} alt={`Logo ${course.name}`} />
-                      <h3 className='m-0'>{course.name}</h3>
-                    </CardHeader>
-                    <CardBody className='card-body'>
-                      <p>CARGA 60 HORAS</p>
-                      <strong>{course.description}</strong>
-                    </CardBody>
-                  </div>
-                )}
+                <div className="default-card">
+                  <CardHeader className='border-0 d-flex align-items-center'>
+                    <img className="header-logo" src={course.image} alt={`Logo ${course.name}`} />
+                    <h3 className='m-0'>{course.name}</h3>
+                  </CardHeader>
+                  <CardBody className='card-body'>
+                    <p>CARGA 60 HORAS</p>
+                    <strong>{course.description}</strong>
+                  </CardBody>
+                </div>
+
               </Card>
 
             ))}

@@ -1,0 +1,146 @@
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$background-color: #000000;
+$text-color: #333;
+$box-shadow-color: rgba(0, 0, 0, 0.1);
+
+.layout-courses {
+    background-color: #121214;
+    padding: 20px;
+    height: 100vh;
+    color: white;
+    box-sizing: border-box;
+
+    .bar {
+        padding: 20px 50px;
+        background-color: #222226;
+        margin-bottom: 20px;
+    }
+
+    .left-side,
+    .right-side {
+        background-color: rgba(59, 58, 58, 0.589);
+        box-shadow: 0px 4px 10px $box-shadow-color;
+        padding: 20px;
+    }
+
+    .row {
+        position: relative;
+
+        .left-side {
+            height: 88vh;
+            overflow-y: scroll;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            iframe {
+                border-radius: 10px;
+                box-shadow: 0px 4px 8px $box-shadow-color;
+                border: none;
+                margin-bottom: 20px;
+            }
+
+            .lesson-description {
+                padding: 15px;
+                border-radius: 8px;
+                color: white;
+                font-size: 1.1rem;
+            }
+        }
+
+        .right-side {
+            border: 2px solid #ffffff10;
+            padding: 10px 0;
+
+            .nav-tabs {
+                border-bottom: none;
+
+                .nav-item {
+                    width: 50%;
+                    text-align: center;
+
+                    .nav-link {
+                        background-color: transparent;
+                        color: white;
+                        border-radius: 8px 8px 0 0;
+                        padding: 10px;
+                        font-weight: bold;
+                        transition: background-color 0.3s ease;
+                        border: none;
+                        cursor: pointer;
+
+                        &.active {
+                            color: #00FF7E;
+                            border-bottom: 1px solid #00FF7E;
+                        }
+                    }
+                }
+
+            }
+
+            .tab-content {
+                padding: 10px;
+                width: 100%;
+                border-bottom: 2px solid #ffffff10;
+                border-top: 2px solid #ffffff10;
+
+                .tab-pane{
+                    padding: 10px;
+                }
+
+                .lesson-list,
+                .materials-list {
+                    list-style: none;
+                    padding: 10px;
+                    margin: 0;
+                    border-radius: 10px;
+                    border: 2px solid #ffffff10;
+
+                    li {
+                        margin: 10px 0;
+                        padding: 10px 15px;
+                        border-radius: 6px;
+                        font-weight: 500;
+                        transition: background-color 0.3s ease;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: #ffffff10;
+                            color: #00FF7E;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+
+    @media (max-width: 768px) {
+
+        .left-side,
+        .right-side {
+            padding: 10px;
+        }
+
+        .left-side {
+            iframe {
+                height: 300px;
+            }
+        }
+
+        .right-side {
+            .tabs {
+                .nav-tabs .nav-item {
+                    .nav-link {
+                        padding: 8px 15px;
+                    }
+                }
+            }
+        }
+    }
+}
