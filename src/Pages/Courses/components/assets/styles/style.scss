@@ -1,13 +1,9 @@
-$primary-color: #3498db;
-$secondary-color: #2ecc71;
-$background-color: #000000;
-$text-color: #333;
 $box-shadow-color: rgba(0, 0, 0, 0.1);
 
 .layout-courses {
     background-color: #121214;
     padding: 20px;
-    height: 100vh;
+    height: auto;
     color: white;
     box-sizing: border-box;
 
@@ -15,6 +11,13 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
         padding: 20px 50px;
         background-color: #222226;
         margin-bottom: 20px;
+        color: #6b6b6b;
+
+        div:hover {
+            cursor: pointer;
+            color: #949393;
+        }
+
     }
 
     .left-side,
@@ -28,7 +31,7 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
         position: relative;
 
         .left-side {
-            height: 88vh;
+            height: auto;
             overflow-y: scroll;
             scrollbar-width: none;
             -ms-overflow-style: none;
@@ -55,6 +58,9 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
         .right-side {
             border: 2px solid #ffffff10;
             padding: 10px 0;
+            position: sticky;
+            height: 100vh;
+            top: 0;
 
             .nav-tabs {
                 border-bottom: none;
@@ -88,8 +94,12 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
                 border-bottom: 2px solid #ffffff10;
                 border-top: 2px solid #ffffff10;
 
-                .tab-pane{
+                .tab-pane {
                     padding: 10px;
+
+                    .material-text {
+                        width: 80%;
+                    }
                 }
 
                 .lesson-list,

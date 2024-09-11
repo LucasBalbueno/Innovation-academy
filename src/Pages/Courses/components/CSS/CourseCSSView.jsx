@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Nav, NavItem, NavLink, Row, TabContent, TabPane } from 'reactstrap';
+import { Badge, Nav, NavItem, NavLink, Row, TabContent, TabPane } from 'reactstrap';
 import "../assets/styles/style.scss";
+import { useNavigate } from 'react-router-dom';
 
 const CourseCSSView = () => {
     const [activeTab, setActiveTab] = useState('1');
-    const [currentLesson, setCurrentLesson] = useState('https://www.youtube.com/embed/dQw4w9WgXcQ');
+    const [currentLesson, setCurrentLesson] = useState('https://www.youtube.com/embed/yjmhSn0j8ac');
+    const navigate = useNavigate();
 
     const toggleTab = (tab) => {
         if (activeTab !== tab) {
@@ -19,7 +21,38 @@ const CourseCSSView = () => {
     return (
         <div className='layout-courses container-fluid'>
             <Row className='bar'>
-                Voltar
+                <div className="d-flex align-items-center w-auto"
+                    onClick={() => navigate('/courses')}
+                >
+                    <i className="fa fa-arrow-left me-2"></i>
+                    <p className='m-0'>Voltar</p>
+                </div>
+
+                <h3 className='my-3 text-white'>CURSO CSS - INICIANTE</h3>
+                <div className="d-flex">
+                    <Badge
+                        className='bg-transparent rounded-pill me-2 px-3 py-2'
+                        style={{ border: '1px solid #94939340', fontSize: '0.7rem' }}
+                    >
+                        <i className='fa fa-code me-2'
+                        style={{
+                            color: "#00FF7E"
+                        }}
+                        ></i>
+                        FRONTEND
+                    </Badge>
+                    <Badge
+                        className='bg-transparent rounded-pill me-2 px-3 py-2'
+                        style={{ border: '1px solid #94939340', fontSize: '0.7rem' }}
+                    >
+                        <i className='fa fa-play me-2'
+                        style={{
+                            color: "#00FF7E"
+                        }}
+                        ></i>
+                        INICIANTE
+                    </Badge>
+                </div>
             </Row>
             <Row className="row">
                 <div className="col-md-9 left-side">
@@ -67,12 +100,13 @@ const CourseCSSView = () => {
                             </ul>
                         </TabPane>
                         <TabPane tabId="2" className='tab-pane'>
-                            <h5 className='mb-3'>Materiais Extras</h5>
-                            <h1 className='text-muted text-center'>
-                                <i class="fa-regular fa-copy"></i>
-                            </h1>
-
-                            <p className='text-center text-muted'>Não existem materiais extras relacionados a esta matéria</p>
+                            <h5 className='mb-5 align-self-start'>Materiais Extras</h5>
+                            <div className='d-flex flex-column align-items-center'>
+                                <h1 className='text-muted text-center'>
+                                    <i class="fa-regular fa-copy"></i>
+                                </h1>
+                                <p className='text-center text-muted material-text'>Não existem materiais extras relacionados a esta matéria</p>
+                            </div>
                         </TabPane>
                     </TabContent>
                 </div>
