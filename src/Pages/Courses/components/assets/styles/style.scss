@@ -3,7 +3,7 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
 .layout-courses {
     background-color: #121214;
     padding: 20px;
-    height: auto;
+    height: 100%;
     color: white;
     box-sizing: border-box;
 
@@ -16,6 +16,16 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
         div:hover {
             cursor: pointer;
             color: #949393;
+        }
+
+        h3 {
+            @media screen and (max-width: 767px) {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media screen and (max-width: 991px) {
+            padding: 20px;
         }
 
     }
@@ -45,6 +55,21 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
                 box-shadow: 0px 4px 8px $box-shadow-color;
                 border: none;
                 margin-bottom: 20px;
+
+                width: 100%;
+                height: 700px;
+
+                @media screen and (max-width: 1500px) {
+                    height: 500px;
+                }
+
+                @media screen and (max-width: 991px) {
+                    max-height: 500px;
+                }
+
+                @media screen and (max-width: 767px) {
+                    max-height: 300px;
+                }
             }
 
             .lesson-description {
@@ -52,21 +77,33 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
                 border-radius: 8px;
                 color: white;
                 font-size: 1.1rem;
-
+                text-align: justify;
             }
 
             .profile {
                 border: 2px solid #ffffff10;
                 border-radius: 10px;
 
+                .profile-photo {
+                    width: 50px;
+                    height: 50px;
+                    background-color: #ffffff10;
+                    border-radius: 100%;
+                }
+
+                .description-p {
+                    font-size: 0.9rem;
+                }
+
                 .accordion {
                     background-color: transparent !important;
                     color: white;
+
                 }
 
                 .accordion-item {
                     background-color: transparent !important;
-                    border: none;
+                    border-top: 2px solid #ffffff10;
                     color: white;
                 }
 
@@ -74,13 +111,20 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
                     background-color: transparent !important;
                     border: none !important;
                     color: white;
+
+                    &:focus {
+                        box-shadow: none !important;
+                    }
+                }
+
+                .accordion-button::after {
+                    filter: brightness(0) invert(1);
                 }
 
                 .accordion-body {
                     background-color: transparent !important;
                     border: 0;
                 }
-
             }
         }
 
@@ -160,6 +204,163 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
                             }
                         }
                     }
+                }
+            }
+        }
+
+        .mobile-div {
+            .nav-tabs {
+                border-bottom: none;
+
+                .nav-item {
+                    width: 33%;
+                    text-align: center;
+
+                    .nav-link {
+                        background-color: transparent;
+                        color: white;
+                        border-radius: 8px 8px 0 0;
+                        padding: 10px;
+                        font-weight: bold;
+                        transition: background-color 0.3s ease;
+                        border: none;
+                        cursor: pointer;
+
+                        &.active {
+                            color: #00FF7E;
+                            border-bottom: 1px solid #00FF7E;
+                        }
+                    }
+                }
+
+            }
+
+            .tab-content {
+                padding: 10px;
+                width: 100%;
+                border-bottom: 2px solid #ffffff10;
+                border-top: 2px solid #ffffff10;
+
+                .tab-pane {
+                    padding: 10px;
+
+                    .material-text {
+                        width: 80%;
+                    }
+                }
+
+                .lesson-list,
+                .materials-list {
+                    list-style: none;
+                    padding: 10px;
+                    margin: 0;
+                    border-radius: 10px;
+                    border: 2px solid #ffffff10;
+
+                    li {
+                        margin: 10px 0;
+                        padding: 10px 15px;
+                        border-radius: 6px;
+                        font-weight: 500;
+                        transition: background-color 0.3s ease;
+                        cursor: pointer;
+                        font-size: 0.8rem;
+
+                        &:hover {
+                            background-color: #ffffff10;
+                            color: #00FF7E;
+                        }
+
+                        &.selected {
+                            background-color: #70707025;
+
+                            i {
+                                color: #00FF7E;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .lesson-description {
+                padding: 0;
+                border-radius: 8px;
+                color: white;
+                font-size: 1.1rem;
+                text-align: justify;
+            }
+
+            .profile {
+                border: 2px solid #ffffff10;
+                border-radius: 10px;
+
+                .container-profile {
+                    @media screen and (max-width: 450px) {
+                        flex-direction: column;
+                        text-align: start;
+                    }
+                }
+
+                .profile-photo {
+                    width: 50px;
+                    height: 50px;
+                    background-color: #ffffff10;
+                    border-radius: 100%;
+
+                    @media screen and (max-width: 450px) {
+                        flex-direction: column;
+                        align-self: start;
+                        margin-left: 10px;
+                        margin-bottom: 5px;
+                    }
+                }
+
+                h4 {
+                    @media screen and (max-width: 767px) {
+                        font-size: 1rem;
+                    }
+                }
+
+                strong {
+                    @media screen and (max-width: 767px) {
+                        font-size: 0.9rem;
+                    }
+                }
+
+                .description-p {
+                    font-size: 0.8rem;
+                }
+
+                .accordion {
+                    background-color: transparent !important;
+                    color: white;
+
+                }
+
+                .accordion-item {
+                    background-color: transparent !important;
+                    border-top: 2px solid #ffffff10;
+                    color: white;
+                }
+
+                .accordion-button {
+                    background-color: transparent !important;
+                    border: none !important;
+                    color: white;
+                    padding: 5px;
+
+                    &:focus {
+                        box-shadow: none !important;
+                    }
+                }
+
+                .accordion-button::after {
+                    filter: brightness(0) invert(1);
+                }
+
+                .accordion-body {
+                    background-color: transparent !important;
+                    border: 0;
                 }
             }
         }

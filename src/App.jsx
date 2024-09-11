@@ -17,14 +17,14 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/courses" element={<CoursesView />} />
-        <Route path="/courses/hmtl" element={<CourseHTMLView />} />
+        <Route path="/courses/html" element={<CourseHTMLView />} />
         <Route path="/courses/css" element={<CourseCSSView />} />
         <Route path="/courses/javascript" element={<CourseJSView />} />
         <Route path="/courses/java" element={<CourseJavaView />} />
         <Route path="/courses/python" element={<CoursePythonView />} />
-        <Route path="/courses/node" element={<CourseNodeView />} />
+        <Route path="/courses/nodejs" element={<CourseNodeView />} />
         <Route path="/courses/sass" element={<CourseSASSView />} />
-        <Route path="/courses/reactJs" element={<CourseReactView />} />
+        <Route path="/courses/reactjs" element={<CourseReactView />} />
       </Routes>
     </Router>
   );

@@ -31,9 +31,9 @@ const CoursesView = () => {
   ];
 
   const coursesRecomended = [
-    { name: 'React', image: LogoReact, description: 'Iniciante', videoUrl: 'https://www.youtube.com/embed/example1' },
-    { name: 'NodeJs', image: LogoNode, description: 'Iniciante', videoUrl: 'https://www.youtube.com/embed/example2' },
-    { name: 'JavaScript', image: LogoJS, description: 'Avançado', videoUrl: 'https://www.youtube.com/embed/example3' }
+    { name: 'React', image: LogoReact, description: 'Iniciante', path: '/courses/reactjs' },
+    { name: 'NodeJs', image: LogoNode, description: 'Iniciante', path: '/courses/nodejs' },
+    { name: 'JavaScript', image: LogoJS, description: 'Avançado', path: '/courses/javascript' }
   ];
 
   const events = [
@@ -106,6 +106,7 @@ const CoursesView = () => {
                 className='courses-recomended-card d-flex align-items-stretch border-0'
                 onMouseEnter={() => setHoveredCourse(index)}
                 onMouseLeave={() => setHoveredCourse(null)}
+                onClick={() => navigate(course.path)}
               >
                 <div className="default-card">
                   <CardHeader className='border-0 d-flex align-items-center'>
