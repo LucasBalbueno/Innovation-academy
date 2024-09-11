@@ -52,6 +52,35 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
                 border-radius: 8px;
                 color: white;
                 font-size: 1.1rem;
+
+            }
+
+            .profile {
+                border: 2px solid #ffffff10;
+                border-radius: 10px;
+
+                .accordion {
+                    background-color: transparent !important;
+                    color: white;
+                }
+
+                .accordion-item {
+                    background-color: transparent !important;
+                    border: none;
+                    color: white;
+                }
+
+                .accordion-button {
+                    background-color: transparent !important;
+                    border: none !important;
+                    color: white;
+                }
+
+                .accordion-body {
+                    background-color: transparent !important;
+                    border: 0;
+                }
+
             }
         }
 
@@ -121,6 +150,14 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
                         &:hover {
                             background-color: #ffffff10;
                             color: #00FF7E;
+                        }
+
+                        &.selected {
+                            background-color: #70707025;
+
+                            i {
+                                color: #00FF7E;
+                            }
                         }
                     }
                 }
