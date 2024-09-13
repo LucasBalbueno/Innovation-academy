@@ -1,4 +1,5 @@
 import Login from "./Pages/Login"
+import './Styles/Global.css'
 
 function App() {
   
