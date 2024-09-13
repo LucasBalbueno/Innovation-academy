@@ -1,0 +1,65 @@
+.home-container {
+    display: grid;
+    grid-template-areas: 
+      "header header"
+      "sidebar content"
+      "footer footer";
+    grid-template-columns: 250px 1fr auto; /* Sidebar fixa e conteúdo principal flexível */
+    grid-template-rows:  auto 1fr auto; /* Header e Footer têm altura automática, conteúdo principal se expande */
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .header {
+    grid-area: header;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .sidebar {
+    grid-area: sidebar;
+    position: fixed;
+    top: 80px; /* Altura do header para evitar sobreposição */
+    left: 0;
+    height: calc(100vh - 60px); /* Altura dinâmica com base no header */
+    overflow-y: auto; /* Scroll para o sidebar */
+  }
+  
+  .content {
+    grid-area: content;
+    
+    padding: 20px;
+    height: calc(100vh - 120px); /* Altura dinâmica, considerando header e footer */
+    overflow-y: scroll; /* Scroll para o conteúdo */
+    background-color: #121214;
+  }
+
+/* Estilo da barra de rolagem geral */
+.content::-webkit-scrollbar {
+    width: 10px;
+    
+  }
+  
+  /* Cor de fundo da barra de rolagem */
+  .content::-webkit-scrollbar-track {
+    background: #121214;
+  }
+  
+  /* Cor do "polegar" da barra de rolagem */
+  .content::-webkit-scrollbar-thumb {
+    background-color: #00FF7E;
+    border-radius: 10px;
+    border: 1px solid #f1f1f1;
+  }
+  
+  /* Efeito ao passar o mouse sobre a barra de rolagem */
+  .content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  
+  
+  

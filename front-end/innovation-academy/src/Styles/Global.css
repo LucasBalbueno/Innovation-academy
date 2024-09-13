@@ -8,5 +8,10 @@
     margin: 0;
     box-sizing: border-box;
     background-color: var(--main-color);
+    overflow-x: hidden;
+}
+
+h1 {
+    color: #fff;
 }
 

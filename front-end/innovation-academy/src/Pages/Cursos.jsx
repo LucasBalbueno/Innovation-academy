@@ -1,15 +1,14 @@
-
 import '../Styles/Global.css'
 
-function Login() {
+function Cursos() {
   
 
     return (
       <>
-      
+      <h1>AGenda</h1>
       
       </>
     )
   }
   
-  export default Login
+  export default Cursos

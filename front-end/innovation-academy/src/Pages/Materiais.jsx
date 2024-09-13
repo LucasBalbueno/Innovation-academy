@@ -1,15 +1,14 @@
-
 import '../Styles/Global.css'
 
-function Login() {
+function Materiais() {
   
 
     return (
       <>
-      
+      <h1>Materiais</h1>
       
       </>
     )
   }
   
-  export default Login
+  export default Materiais

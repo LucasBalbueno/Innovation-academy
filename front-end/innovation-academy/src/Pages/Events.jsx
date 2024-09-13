@@ -1,15 +1,14 @@
-
 import '../Styles/Global.css'
 
-function Login() {
+function Events() {
   
 
     return (
       <>
-      
+     <h1>Eventos</h1>
       
       </>
     )
   }
   
-  export default Login
+  export default Events

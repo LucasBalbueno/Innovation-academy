@@ -1,15 +1,14 @@
-
 import '../Styles/Global.css'
 
-function Login() {
+function UserProfile() {
   
 
     return (
       <>
-      
+      <h1>Perfil do Usuario</h1>
       
       </>
     )
   }
   
-  export default Login
+  export default UserProfile

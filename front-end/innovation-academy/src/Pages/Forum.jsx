@@ -1,15 +1,14 @@
-
 import '../Styles/Global.css'
 
-function Login() {
+function Forum() {
   
 
     return (
       <>
-      
+      <h1>Forum</h1>
       
       </>
     )
   }
   
-  export default Login
+  export default Forum

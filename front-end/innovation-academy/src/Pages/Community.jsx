@@ -1,15 +1,14 @@
-
 import '../Styles/Global.css'
 
-function Login() {
+function Community() {
   
 
     return (
       <>
-      
+      <h1>Comunidade</h1>
       
       </>
     )
   }
   
-  export default Login
+  export default Community

@@ -1,15 +1,14 @@
-
 import '../Styles/Global.css'
 
-function Login() {
+function Helper() {
   
 
     return (
       <>
-      
+      <h1>Ajuda</h1>
       
       </>
     )
   }
   
-  export default Login
+  export default Helper
