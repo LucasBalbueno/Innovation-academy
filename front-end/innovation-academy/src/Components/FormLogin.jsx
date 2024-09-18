@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import logoNome from "../Images/Login/LogoNome.png";
 import iconeGithub from "../Images/Login/github-icon.png";
+import iconeGoogle from "../Images/Login/iconeGoogle.png";
 import quebraLinha from "../Images/Login/quebra-linha.png";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
 
 const LogoNome = styled.img`
   width: 60%;
@@ -30,6 +33,41 @@ const Input = styled.input`
 const LabelInput = styled.span`
   padding-bottom: 2%;
   font-size: 12px;
+`;
+
+const FaEyeCustom = styled(FaEyeSlash)`
+  position: absolute;
+  right: 10px;
+  scale: 1.5;
+  background-color: RGB(42, 42, 44);
+  border-radius: 5px, 5px;
+  transition: 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+`;
+
+const InputContainer = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5%;
+`;
+
+const InputPassword = styled.input`
+  color: white;
+  width: 100%;
+  background-color: RGB(42, 42, 44);
+  border: 1px solid transparent;
+  padding: 3%;
+  border-radius: 5px 5px 5px;
+
+  &:focus {
+    border-color: RGB(10, 189, 98);
+    outline: none;
+  }
 `;
 
 const EsqueciSenha = styled.span`
@@ -62,19 +100,26 @@ const BtnEntar = styled.button`
   }
 `;
 
-const DivBtnGithub = styled.div`
+const DivBtnGithub_Google = styled.div`
   display: flex;
   align-items: center;
   font-size: 12px;
 `;
 
 const IconeGithub = styled.img`
-  margin-right: 3%;
+  margin-right: 5%;
+  transition: 0.3s ease;
+`;
+
+const IconeGoogle = styled.img`
+  width: 20%;
+  margin-right: 5%;
   transition: 0.3s ease;
 `;
 
 const BtnGithub = styled.button`
-  margin-left: 5%;
+  height: 100%;
+  margin-left: 2%;
   font-family: "Poppins", sans-serif;
   border-radius: 5px 5px 5px;
   display: flex;
@@ -98,11 +143,46 @@ const BtnGithub = styled.button`
   }
 `;
 
+const BtnGoogle = styled.button`
+  margin-left: 2%;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px 5px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  background-color: RGB(42, 42, 44);
+  border: none;
+  color: white;
+  padding: 2%;
+  font-size: 12px;
+  transition: 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(36, 36, 37);
+  }
+
+  &:hover ${IconeGoogle} {
+    transform: rotate(45deg);
+  }
+`;
+
 const QuebraLinha = styled.img`
   margin-top: 8%;
 `;
 
 function FormLogin() {
+  const [mostrarSenha, setMostrarSenha] = useState(false);
+
+  const verSenha = () => {
+    if (!mostrarSenha) {
+      setMostrarSenha(true);
+    } else {
+      setMostrarSenha(false);
+    }
+  };
+
   return (
     <>
       <LogoNome src={logoNome} alt="" srcSet="" />
@@ -110,16 +190,27 @@ function FormLogin() {
       <LabelInput>Email</LabelInput>
       <Input type="text" />
       <LabelInput>Senha</LabelInput>
-      <Input type="password" />
+      <InputContainer>
+        <InputPassword type={mostrarSenha ? "text" : "password"} />
+        {mostrarSenha ? (
+          <FaEyeCustom as={FaEye} onClick={verSenha} />
+        ) : (
+          <FaEyeCustom onClick={verSenha} />
+        )}
+      </InputContainer>
       <EsqueciSenha>Esqueci minha senha</EsqueciSenha>
       <BtnEntar>Entrar</BtnEntar>
-      <DivBtnGithub>
+      <DivBtnGithub_Google>
         <span>Ou se preferir</span>
         <BtnGithub>
           <IconeGithub src={iconeGithub} alt="" srcSet="" />
           Entre com o Github
         </BtnGithub>
-      </DivBtnGithub>
+        <BtnGoogle>
+          <IconeGoogle src={iconeGoogle} alt="" srcSet="" />
+          Entre com o Google
+        </BtnGoogle>
+      </DivBtnGithub_Google>
       <QuebraLinha src={quebraLinha} alt="" srcSet="" />
     </>
   );
