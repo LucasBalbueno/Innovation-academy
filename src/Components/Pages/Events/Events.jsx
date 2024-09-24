@@ -1,4 +1,4 @@
-import '../../Styles/Global.css'
+import '../../../Styles/Global.css'
 
 function Events() {
   

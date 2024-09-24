@@ -24,12 +24,14 @@ const DivOne = styled.div`
   gap: 1rem;
   background: transparent;
   padding-left: 2rem;
+  align-items: center;
 `;
 
 const H1 = styled.h1`
   font-size: 24px;
   font-family: var(--font-poopins);
   background: transparent;
+  margin: 0;
 `;
 
 const Span = styled.span`
@@ -71,10 +73,11 @@ const MenuIcon = styled.button`
   color: #00FF7E;
   border: none;
   background: transparent;
+  padding: 0;
 `;
 
 function Header() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Estado para controlar a visibilidade do Sidebar
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Estado para controlar a visibilidade do Sidebar
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen); // Alterna o estado de visibilidade
@@ -93,13 +96,13 @@ function Header() {
         <DivTwo>
           <Score><FaFire style={{ background: 'transparent' }} size={20} color='#00FF7E' /><Painel>0</Painel></Score>
           <Profile>
-            <img 
-            // src={userAvatar} 
-            alt="Profile" style={{
-              borderRadius: '50%',
-              width: '50px',
-              border: '5px solid #00FF7E'
-            }} />
+            <img
+              // src={userAvatar} 
+              alt="Profile" style={{
+                borderRadius: '50%',
+                width: '50px',
+                border: '5px solid #00FF7E'
+              }} />
           </Profile>
         </DivTwo>
       </HeaderContainer>

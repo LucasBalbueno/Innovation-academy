@@ -1,8 +1,8 @@
-import { Outlet } from 'react-router-dom'; // Importa o Outlet
-import Sidebar from "../../Components/Layout/SideBar";
-import Header from "../../Components/Layout/Header";
-import '../../Styles/Global.css';
-import '../../Styles/Grid-Tamplate.css';
+import { Outlet } from 'react-router-dom';
+import Sidebar from "../../Layout/SideBar";
+import Header from "../../Layout/Header";
+import '../../../Styles/Global.css';
+import '../../../Styles/Grid-Tamplate.css';
 
 function Home() {
   return (
@@ -12,6 +12,7 @@ function Home() {
       <div className="content">
         <Outlet /> 
       </div>
+      
     </div>
   );
 }
