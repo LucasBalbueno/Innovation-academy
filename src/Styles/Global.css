@@ -1,0 +1,16 @@
+:root {
+    --font-paytone-one:"Paytone One", sans-serif;
+    --font-poopins:"Poppins", sans-serif;
+    --main-color: #121214;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+h1 {
+    color: #fff;
+}
+
