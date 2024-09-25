@@ -1,20 +1,23 @@
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import routes from '../../Rotas/Routes';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import '../../Styles/Global.css';
 
 const SidebarContainer = styled.div`
   border-right: 1px solid grey;
   position: fixed;
-  margin-top: 100px;
+  top: 100px;
+  left: 0;
   width: 250px;
-  height: 100vh;
-  
+  height: calc(100vh - 100px);
   background-color: #444;
   color: #fff;
-  transition: transform 0.3s ease-in-out;
-  transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(-100%)')}; /* Animação */
-  z-index: 100000;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(-100%)')};
+  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+  visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
 `;
 
 const Menu = styled.ul`
@@ -27,18 +30,13 @@ const MenuItem = styled.li`
   margin-bottom: 1.5rem;
   cursor: pointer;
   font-family: var(--font-poopins);
-  
+  background-color: ${({ isActive }) => (isActive ? '#222226' : 'transparent')};
+  border-radius: ${({ isActive }) => (isActive ? '10px' : '0')};
+  color: ${({ isActive }) => (isActive ? '#00FF7E' : '#fff')};
 
-  a {
-    color: #fff;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-      background-color: #222226;
-      border-radius: 10px;
-      
-    }
+  &:hover {
+    background-color: #222226;
+    border-radius: 10px;
   }
 `;
 
@@ -46,17 +44,43 @@ const Icon = styled.span`
   margin-right: 1rem;
 `;
 
-const Sidebar = ({isOpen}) => {
+const StyledLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+
+  &:hover {
+    color: #00FF7E;
+  }
+`;
+
+const Sidebar = ({ isOpen }) => {
+  const location = useLocation();
+  const [activeRoute, setActiveRoute] = useState('/home'); // Rota padrão
+
+  useEffect(() => {
+    // Verifica se a rota atual é a raiz e redireciona para /home
+    if (location.pathname === '/') {
+      setActiveRoute('/home');
+    } else {
+      setActiveRoute(location.pathname);
+    }
+  }, [location]);
+
   return (
     <SidebarContainer isOpen={isOpen}>
       <Menu>
         {routes.map((route) => (
-          <MenuItem key={route.path}>
-            <Link to={route.path}>
+          <MenuItem key={route.path} isActive={activeRoute === route.path}>
+            <StyledLink to={route.path} onClick={() => setActiveRoute(route.path)}>
               <Icon>{route.icon}</Icon>
               {route.name}
-            </Link>
-          </MenuItem> 
+            </StyledLink>
+          </MenuItem>
         ))}
       </Menu>
     </SidebarContainer>

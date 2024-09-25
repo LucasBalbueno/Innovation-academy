@@ -1,10 +1,8 @@
 import { useState } from 'react'; // Import useState para controlar o estado
 import { FaBars } from 'react-icons/fa';
 import styled from 'styled-components';
-// import userAvatar from '../Layout/Images/Perfil-Avatar/avatar-1.png';
 import { FaFire } from "react-icons/fa";
 import '../../Styles/Global.css';
-import Sidebar from './SideBar'; // Importando o Sidebar
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -12,7 +10,7 @@ const HeaderContainer = styled.header`
   align-items: center;
   padding: 1rem;
   background-color: #1A1A1E;
-  border-bottom: 1px solid #3D3D3D ;
+  border-bottom: 1px solid #3D3D3D;
   color: #fff;
   z-index: 10000;
   width: 100vw;
@@ -76,39 +74,32 @@ const MenuIcon = styled.button`
   padding: 0;
 `;
 
-function Header() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Estado para controlar a visibilidade do Sidebar
-
+function Header({ setIsSidebarOpen, isSidebarOpen }) {
   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen); // Alterna o estado de visibilidade
+    setIsSidebarOpen(prev => !prev); // Alterna o estado
   };
 
   return (
-    <>
-      <HeaderContainer>
-        <DivOne>
-          <MenuIcon onClick={toggleSidebar}> {/* Adiciona o evento de clique */}
-            <FaBars />
-          </MenuIcon>
-          <H1>IAacademy <Span>Premium</Span></H1>
-        </DivOne>
+    <HeaderContainer>
+      <DivOne>
+        <MenuIcon onClick={toggleSidebar}>
+          <FaBars />
+        </MenuIcon>
+        <H1>IAacademy <Span>Premium</Span></H1>
+      </DivOne>
 
-        <DivTwo>
-          <Score><FaFire style={{ background: 'transparent' }} size={20} color='#00FF7E' /><Painel>0</Painel></Score>
-          <Profile>
-            <img
-              // src={userAvatar} 
-              alt="Profile" style={{
-                borderRadius: '50%',
-                width: '50px',
-                border: '5px solid #00FF7E'
-              }} />
-          </Profile>
-        </DivTwo>
-      </HeaderContainer>
-
-      {isSidebarOpen && <Sidebar isOpen={isSidebarOpen} />} {/* Renderiza o Sidebar se estiver aberto */}
-    </>
+      <DivTwo>
+        <Score><FaFire style={{ background: 'transparent' }} size={20} color='#00FF7E' /><Painel>0</Painel></Score>
+        <Profile>
+          <img
+            alt="Profile" style={{
+              borderRadius: '50%',
+              width: '50px',
+              border: '5px solid #00FF7E'
+            }} />
+        </Profile>
+      </DivTwo>
+    </HeaderContainer>
   );
 }
 

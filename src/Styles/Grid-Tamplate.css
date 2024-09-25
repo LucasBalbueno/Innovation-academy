@@ -4,12 +4,24 @@
     "header header"
     "sidebar content"
     "footer footer";
-  grid-template-columns: 250px 1fr auto;
-  /* Sidebar fixa e conteúdo principal flexível */
+  grid-template-columns: 250px 1fr; /* Sidebar aberto */
   grid-template-rows: auto 1fr auto;
-  /* Header e Footer têm altura automática, conteúdo principal se expande */
-  height: auto;
-  overflow: hidden;
+  height: 100vh;
+  transition: grid-template-columns 0.3s ease-in-out;
+  position: relative; /* Adiciona posição relativa ao container */
+}
+
+.home-container.sidebar-closed {
+  grid-template-columns: 0 1fr; /* Sidebar fechado */
+}
+
+.content {
+  grid-area: content;
+  padding: 20px;
+  height: calc(100vh - 100px);
+  overflow-y: scroll;
+  background-color: #121214;
+  transition: padding 0.3s ease-in-out; /* Transição suave do conteúdo */
 }
 
 .header {
@@ -22,32 +34,24 @@
 }
 
 .sidebar {
-  grid-area: sidebar;
-  position: fixed;
-  top: 80px;
-  /* Altura do header para evitar sobreposição */
+  position: fixed; /* Sidebar na posição fixa para não afetar o fluxo do layout */
+  top: 0;
   left: 0;
-  height: calc(100vh - 60px);
-  /* Altura dinâmica com base no header */
-  overflow-y: auto;
-  /* Scroll para o sidebar */
+  width: 250px; /* Largura do sidebar */
+  height: 100vh; /* Altura total */
+  background-color: #f4f4f4; /* Cor de fundo do sidebar */
+  transition: transform 0.3s ease-in-out; /* Transição suave ao abrir/fechar */
+  z-index: 1001; /* Garante que está acima do conteúdo */
+  transform: translateX(-100%); /* Sidebar inicialmente fora da tela */
 }
 
-.content {
-  grid-area: content;
-  padding: 20px;
-  height: calc(100vh - 100px);
-  ;
-  /* Altura dinâmica, considerando header e footer */
-  overflow-y: scroll;
-  /* Scroll para o conteúdo */
-  background-color: #121214;
+.sidebar-open {
+  transform: translateX(0); /* Move o sidebar para dentro da tela */
 }
 
 /* Estilo da barra de rolagem geral */
 .content::-webkit-scrollbar {
   width: 10px;
-
 }
 
 /* Cor de fundo da barra de rolagem */
@@ -65,4 +69,30 @@
 /* Efeito ao passar o mouse sobre a barra de rolagem */
 .content::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@media (max-width: 991px) {
+  .sidebar {
+    /* Mantenha a definição do sidebar fixa acima */
+    position: fixed; /* Sidebar permanece fixa */
+    top: 0;
+    left: 0;
+    height: 100vh; /* Altura total */
+    z-index: 1001; /* Certifique-se de que está acima do conteúdo */
+    transform: translateX(-100%); /* Começa fora da tela */
+  }
+
+  .sidebar-open {
+    transform: translateX(0); /* Move o sidebar para dentro da tela */
+  }
+
+  .content {
+    pointer-events: auto; /* Permite a interação com o conteúdo */
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .content-shifted {
+    pointer-events: none; /* Desabilita a interação com o conteúdo quando o sidebar está aberto */
+    opacity: 0.5; /* Deixa o conteúdo um pouco mais opaco para indicar que está desabilitado */
+  }
 }
