@@ -20,20 +20,20 @@ const CoursesView = () => {
   const [hoveredCourse, setHoveredCourse] = useState(null);
 
   const courses = [
-    { name: 'HTML', image: LogoHTML, description: 'Iniciante', path: '/courses/html' },
-    { name: 'CSS', image: LogoCSS, description: 'Iniciante', path: '/courses/css' },
-    { name: 'JavaScript', image: LogoJS, description: 'Avançado', path: '/courses/javascript' },
-    { name: 'React', image: LogoReact, description: 'Iniciante', path: '/courses/reactjs' },
-    { name: 'NodeJs', image: LogoNode, description: 'Iniciante', path: '/courses/nodejs' },
-    { name: 'Java', image: LogoJava, description: 'Intermediário', path: '/courses/java' },
-    { name: 'Python', image: LogoPython, description: 'Iniciante', path: '/courses/python' },
-    { name: 'SASS', image: SASSLogo, description: 'Intermediário', path: '/courses/sass' }
+    { name: 'HTML', image: LogoHTML, description: 'Iniciante', path: '/home/cursos/html' },
+    { name: 'CSS', image: LogoCSS, description: 'Iniciante', path: '/home/cursos/css' },
+    { name: 'JavaScript', image: LogoJS, description: 'Avançado', path: '/home/cursos/javascript' },
+    { name: 'React', image: LogoReact, description: 'Iniciante', path: '/home/cursos/reactjs' },
+    { name: 'NodeJs', image: LogoNode, description: 'Iniciante', path: '/home/cursos/nodejs' },
+    { name: 'Java', image: LogoJava, description: 'Intermediário', path: '/home/cursos/java' },
+    { name: 'Python', image: LogoPython, description: 'Iniciante', path: '/home/cursos/python' },
+    { name: 'SASS', image: SASSLogo, description: 'Intermediário', path: '/home/cursos/sass' }
   ];
 
   const coursesRecomended = [
-    { name: 'React', image: LogoReact, description: 'Iniciante', path: '/courses/reactjs' },
-    { name: 'NodeJs', image: LogoNode, description: 'Iniciante', path: '/courses/nodejs' },
-    { name: 'JavaScript', image: LogoJS, description: 'Avançado', path: '/courses/javascript' }
+    { name: 'React', image: LogoReact, description: 'Iniciante', path: '/home/cursos/reactjs' },
+    { name: 'NodeJs', image: LogoNode, description: 'Iniciante', path: '/home/cursos/nodejs' },
+    { name: 'JavaScript', image: LogoJS, description: 'Avançado', path: '/home/cursos/javascript' }
   ];
 
   const events = [
