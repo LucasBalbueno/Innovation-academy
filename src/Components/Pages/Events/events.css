@@ -1,0 +1,44 @@
+.event-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.event-card li{
+    margin: 50px 10px 0px;
+    text-align: center;
+}
+
+.event-card li img{
+    width: 200px;
+    height: 200px;
+    border-radius: 7px;
+}
+
+p, h3{
+    margin-top: 5px;
+    color: whitesmoke;
+}
+
+p a{
+    margin-top: 10px;
+}
+
+.button{
+    text-decoration: none;
+    border: 1px solid whitesmoke;
+    border-radius: 7px;
+    background-color: #222226;
+    color: whitesmoke;
+    padding: 2px 3px;
+    transition: 1s;
+}
+
+.button:hover{
+    background-color: #00FF7E;
+    color: #222226;
+    letter-spacing: 3px;
+    transform: scale(1.5);
+}
+
