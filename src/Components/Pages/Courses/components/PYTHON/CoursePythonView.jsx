@@ -42,7 +42,7 @@ const CoursePythonView = () => {
         <div className='layout-courses container-fluid'>
             <Row className='bar'>
                 <div className="d-flex align-items-center w-auto"
-                    onClick={() => navigate('/courses')}
+                    onClick={() => navigate('/home/cursos')}
                 >
                     <i className="fa fa-arrow-left me-2"></i>
                     <p className='m-0'>Voltar</p>
