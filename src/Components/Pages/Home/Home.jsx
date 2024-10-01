@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from "../../Layout/SideBar";
 import Header from "../../Layout/Header";
+import Footer from "../../Layout/Footer";
 import '../../../Styles/Global.css';
 import '../../../Styles/Grid-Tamplate.css';
 
@@ -26,6 +27,7 @@ function Home() {
       <div className={`content ${isSidebarOpen ? 'content-shifted' : ''}`}>
         <Outlet />
       </div>
+      {/* <Footer className="footer"/> */}
     </div>
   );
 }

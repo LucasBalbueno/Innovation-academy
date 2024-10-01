@@ -88,7 +88,7 @@ const CoursesView = () => {
                   <p>CARGA {item.hours}</p>
                   <strong>{item.lesson}</strong>
                 </CardBody>
-                <CardFooter className='border-0 footer py-0 m-0 d-flex align-items-center'>
+                <CardFooter className='border-0 footer py-0 m-0 d-flex align-items-center bg-transparent'>
                   <div className="states"></div>
                   <p className='number-status m-0'>{item.progress}</p>
                 </CardFooter>

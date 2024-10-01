@@ -5,7 +5,7 @@
     "sidebar content"
     "footer footer";
   grid-template-columns: 250px 1fr; /* Sidebar aberto */
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr auto 1fr;
   height: 100vh;
   transition: grid-template-columns 0.3s ease-in-out;
   position: relative; /* Adiciona posição relativa ao container */
@@ -43,6 +43,14 @@
   transition: transform 0.3s ease-in-out; /* Transição suave ao abrir/fechar */
   z-index: 1001; /* Garante que está acima do conteúdo */
   transform: translateX(-100%); /* Sidebar inicialmente fora da tela */
+}
+
+.footer {
+  grid-area: footer; /* Adiciona a área do footer */
+  background-color: #f4f4f4;
+  padding: 10px;
+  text-align: center;
+  z-index: 1000; /* Garante que está acima do conteúdo */
 }
 
 .sidebar-open {
