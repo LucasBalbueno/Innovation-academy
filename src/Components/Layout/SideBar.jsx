@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import routes from '../../Rotas/Routes';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../../Styles/Global.css';
 
 const SidebarContainer = styled.div`
@@ -58,8 +58,23 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const ExternalLink = styled.a`
+  display: flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+
+  &:hover {
+    color: #00FF7E;
+  }
+`;
+
 const Sidebar = ({ isOpen }) => {
   const location = useLocation();
+  const navigate = useNavigate(); // Use navigate
   const [activeRoute, setActiveRoute] = useState('/home'); // Rota padrão
 
   useEffect(() => {
@@ -71,15 +86,35 @@ const Sidebar = ({ isOpen }) => {
     }
   }, [location]);
 
+  const handleCommunityClick = () => {
+    setActiveRoute(null); // Remove a classe activeRoute
+    navigate('/home'); // Navega para a rota /home
+  };
+
   return (
     <SidebarContainer isOpen={isOpen}>
       <Menu>
         {routes.map((route) => (
-          <MenuItem key={route.path} isActive={activeRoute === route.path}>
-            <StyledLink to={route.path} onClick={() => setActiveRoute(route.path)}>
-              <Icon>{route.icon}</Icon>
-              {route.name}
-            </StyledLink>
+          <MenuItem key={route.path || route.href} isActive={activeRoute === route.path}>
+            {route.href ? (
+              <ExternalLink 
+                href={route.href} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                onClick={handleCommunityClick}
+              >
+                <Icon>{route.icon}</Icon>
+                {route.name}
+              </ExternalLink>
+            ) : (
+              <StyledLink 
+                to={route.path} 
+                onClick={() => setActiveRoute(route.path)}
+              >
+                <Icon>{route.icon}</Icon>
+                {route.name}
+              </StyledLink>
+            )}
           </MenuItem>
         ))}
       </Menu>
