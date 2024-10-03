@@ -80,6 +80,10 @@
 }
 
 @media (max-width: 991px) {
+  .home-container {
+    grid-template-columns: 1fr; /* Sidebar aberto */
+  }
+  
   .sidebar {
     /* Mantenha a definição do sidebar fixa acima */
     position: fixed; /* Sidebar permanece fixa */
@@ -97,6 +101,7 @@
   .content {
     pointer-events: auto; /* Permite a interação com o conteúdo */
     transition: opacity 0.3s ease-in-out;
+    height: 100vh;
   }
 
   .content-shifted {

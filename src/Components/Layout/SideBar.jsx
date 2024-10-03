@@ -18,6 +18,11 @@ const SidebarContainer = styled.div`
   transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(-100%)')};
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
   visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
+
+
+  @media screen and (max-width: 991px){
+     height: 100vh;
+  }
 `;
 
 const Menu = styled.ul`
@@ -56,6 +61,10 @@ const StyledLink = styled(Link)`
   &:hover {
     color: #00FF7E;
   }
+
+  @media screen and (max-width: 991px){
+    padding: 10px
+  }
 `;
 
 const ExternalLink = styled.a`
@@ -69,6 +78,10 @@ const ExternalLink = styled.a`
 
   &:hover {
     color: #00FF7E;
+  }
+
+  @media screen and (max-width: 991px){
+    padding: 10px
   }
 `;
 
@@ -97,18 +110,18 @@ const Sidebar = ({ isOpen }) => {
         {routes.map((route) => (
           <MenuItem key={route.path || route.href} isActive={activeRoute === route.path}>
             {route.href ? (
-              <ExternalLink 
-                href={route.href} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <ExternalLink
+                href={route.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={handleCommunityClick}
               >
                 <Icon>{route.icon}</Icon>
                 {route.name}
               </ExternalLink>
             ) : (
-              <StyledLink 
-                to={route.path} 
+              <StyledLink
+                to={route.path}
                 onClick={() => setActiveRoute(route.path)}
               >
                 <Icon>{route.icon}</Icon>

@@ -27,7 +27,6 @@ function Home() {
       <div className={`content ${isSidebarOpen ? 'content-shifted' : ''}`}>
         <Outlet />
       </div>
-      {/* <Footer className="footer"/> */}
     </div>
   );
 }

@@ -1,9 +1,33 @@
-.event-card{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    list-style: none;
+.layout {
+    font-family: "Poppins", sans-serif;
+    background: #121214;
+    height: auto;
+    color: white;
+    padding: 50px 0;
+  
+    @media screen and (max-width: 991px) {
+      padding: 50px 20px;
+    }
+  
+  
+    h1 {
+      font-size: 1.8rem;
+  
+      @media screen and (max-width: 991px) {
+        font-size: 1.5rem;
+      }
+    }
+  
+    h3 {
+      font-size: 1rem;
+  
+      @media screen and (max-width: 991px) {
+        font-size: 0.8rem;
+      }
+    }
+
 }
+
 
 .event-card li{
     margin: 50px 10px 0px;
