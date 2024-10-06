@@ -1,38 +1,116 @@
 import styled from 'styled-components';
 import '../../../Styles/Global.css'
-import MyBigCalendar from './MyBigCalendar'
+import MyBigCalendar from './components/MyBigCalendar'
+import { useState } from 'react';
+import EventModal from './components/modal/EventModal';
+
+import defaultEvents from './components/DefaultEvents';
+import AddEvent from './components/add/AddEvent';
 
 function Agenda() {
-  const events = [
-    {
-      title: 'Inscrições do curso de React',
-      start: new Date(2024, 9, 5, 10, 0), // Data e hora de início
-      end: new Date(2024, 9, 5, 12, 0),   // Data e hora de término
-    },
-    {
-      title: 'Evento Tecnopuc',
-      start: new Date(2024, 9, 7, 14, 0),
-      end: new Date(2024, 9, 7, 15, 0),
-    },
-  ];
+  const [events, setEvents] = useState(defaultEvents)
+  const [eventSelected, setEventSelected] = useState(null)
   
-  const HeaderContainer = styled.div`
+  const CalendarContent = styled.div`
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    gap: 20px;
+    background-color: 'rgb(69, 69, 69)';
   `
 
+  const Toolbar = styled.div`
+    height: 100vh;
+    width: 20%;
+    
+    background-color: '#262626';
+  `
+
+  const moveEvents = (data) => {
+    const { start, end } = data;
+
+    const updatedEvent = events.map((event) =>{
+      if(event.id == data.event.id){
+        return{
+          ...event,
+          start: new Date(start),
+          end: new Date(end)
+        }
+      } 
+
+      return event
+    })
+
+    setEvents( updatedEvent)
+  }
+
+  const handleEventClick = (event) => {
+    setEventSelected(event)
+  }
+  const handleEventClose = () => {
+    setEventSelected(null)
+  }
+
+
+  const handleAdd = (newEvent) => {
+    setEvents([...events, {...newEvent,id:events.length + 1}]);
+  }
+
+  const handleDelete = (eventId) => {
+    const updatedEvents = events.filter((event) => event.id !== eventId)
+    setEvents(updatedEvents)
+    setEventSelected(null)
+  }
+
+  const handleUpdate = (updatedEvent) => {
+    const updatedEvents = events.map((event) => {
+      if(event.id == updatedEvent.id){
+        return updatedEvent
+      }
+      return event
+    })
+
+    setEvents(updatedEvents)
+    setEventSelected(null)
+  }
 
   return (
     <>
-      <HeaderContainer>
-        <h1>Agenda</h1>
-        <button style={{backgroundColor: '#00FF7E', color: "#FFF", fontWeight: '600', padding: '10px'}}>Adicionar Evento</button>
-      </HeaderContainer>
+      <CalendarContent> 
+        {eventSelected == null ? (
+          <>
+            <MyBigCalendar
+            events={events}
+            moveEvents={moveEvents}
+            handleEventClick={handleEventClick}
+            handleEventClose={handleEventClose}
+            />
 
-      <MyBigCalendar
-        events={events}
-      />
+          <Toolbar className="toolbar">
+            <p>Ferramentas</p>
+            <AddEvent
+              onAddEvent={handleAdd}
+            />
+          </Toolbar>
+          
+          </>
+               
+          
+        ): (
+          <p/>
+        )} 
+
+        {eventSelected && (
+            <EventModal
+              event={eventSelected}
+              onClose={handleEventClose}
+              onDelete={handleDelete}
+              onUpdate={handleUpdate}
+            />
+          )}
+
+      
+      </CalendarContent>
+      
+      
     </>
   )
 }
