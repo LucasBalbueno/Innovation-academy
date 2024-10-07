@@ -1,7 +1,10 @@
 :root {
     --font-paytone-one: "Paytone One", sans-serif;
     --font-poopins: "Poppins", sans-serif;
+    --font-2P: "Press Start 2P", system-ui;
     --main-color: #121214;
+    --contrast-color: #00FF7E;
+    --background-color: #1E1E1E;
 }
 
 * {

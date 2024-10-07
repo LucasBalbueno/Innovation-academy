@@ -27,7 +27,7 @@ function App() {
         
         {/* Rota Home com Outlet para páginas internas */}
         <Route path="/home" element={<Home />}>
-          <Route path="/home" element={<HomeContent />} />
+          <Route path="" element={<HomeContent />} />
           <Route path="cursos" element={<CoursesView />} />
           <Route path="eventos" element={<Events />} />
           <Route path="agenda" element={<Agenda />} />
