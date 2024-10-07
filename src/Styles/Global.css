@@ -5,6 +5,7 @@
     --main-color: #121214;
     --contrast-color: #00FF7E;
     --background-color: #1E1E1E;
+    --gray-color: #3D3D3D;
 }
 
 * {
@@ -19,4 +20,12 @@ body{
 
 h1 {
     color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
 }

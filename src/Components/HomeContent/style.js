@@ -45,7 +45,7 @@ export const Recents = styled.div`
         height: 12rem;
         border-radius: 10px 10px 0 0;
 
-        background-color: #3D3D3D;
+        background-color: var(--gray-color);
         display: flex;
         align-items: center;
         justify-content: center;
