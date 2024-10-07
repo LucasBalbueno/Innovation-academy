@@ -3,6 +3,7 @@ import { FaBars } from 'react-icons/fa';
 import styled from 'styled-components';
 import { FaFire } from "react-icons/fa";
 import '../../Styles/Global.css';
+import profileIcon from './Images/Perfil-Avatar/avatar-1.jpg'
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -74,10 +75,14 @@ const MenuIcon = styled.button`
   padding: 0;
 `;
 
-function Header({ setIsSidebarOpen, isSidebarOpen }) {
+function Header({ setIsSidebarOpen, setIsPopupProfileOpen }) {
   const toggleSidebar = () => {
     setIsSidebarOpen(prev => !prev); // Alterna o estado
   };
+
+  const handlePopupProfile = () => {
+    setIsPopupProfileOpen(prev => !prev)
+  }
 
   return (
     <HeaderContainer>
@@ -90,9 +95,11 @@ function Header({ setIsSidebarOpen, isSidebarOpen }) {
 
       <DivTwo>
         <Score><FaFire style={{ background: 'transparent' }} size={20} color='#00FF7E' /><Painel>0</Painel></Score>
-        <Profile>
+        <Profile onClick={handlePopupProfile}>
           <img
-            alt="Profile" style={{
+            src={profileIcon}
+            alt="Profile"
+            style={{
               borderRadius: '50%',
               width: '50px',
               border: '5px solid #00FF7E'
