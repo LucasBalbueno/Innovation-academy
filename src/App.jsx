@@ -8,6 +8,7 @@ import Helper from "./Components/Pages/Helper/Helper";
 import UserProfile from "./Components/Pages/Profile/UserProfile";
 import CoursesView from './Components/Pages/Courses/CoursesView';
 import Home from "./Components/Pages/Home/Home";
+import Community from "./Components/Pages/Community/Community";
 
 function App() {
   return (
@@ -21,8 +22,10 @@ function App() {
           <Route path="cursos" element={<CoursesView />} />
           <Route path="eventos" element={<Events />} />
           <Route path="agenda" element={<Agenda />} />
+          <Route path="comunidade" element={<Community />} />
           <Route path="ajuda" element={<Helper />} />
           <Route path="perfil" element={<UserProfile />} />
+
         </Route>
       </Routes>
     </Router>

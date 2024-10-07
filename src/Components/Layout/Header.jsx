@@ -1,5 +1,6 @@
 import { useState } from 'react'; // Import useState para controlar o estado
 import { FaBars } from 'react-icons/fa';
+import { CgProfile } from "react-icons/cg";
 import styled from 'styled-components';
 import { FaFire } from "react-icons/fa";
 import '../../Styles/Global.css';
@@ -90,13 +91,12 @@ function Header({ setIsSidebarOpen, isSidebarOpen }) {
 
       <DivTwo>
         <Score><FaFire style={{ background: 'transparent' }} size={20} color='#00FF7E' /><Painel>0</Painel></Score>
+        
         <Profile>
-          <img
-            alt="Profile" style={{
-              borderRadius: '50%',
-              width: '50px',
-              border: '5px solid #00FF7E'
-            }} />
+          <CgProfile color='#00FF7E' size={50} style={{
+            borderRadius: '50%',
+            border: '2px solid #00FF7E'
+            }}/>
         </Profile>
       </DivTwo>
     </HeaderContainer>
