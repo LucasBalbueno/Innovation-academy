@@ -24,11 +24,8 @@ const inviteLink = (e) => {
     window.location.href='#'
 } 
 
-
-
 function Community() {
   
-
     return (
       <>
       <div className='container-fluid layout'>
@@ -43,9 +40,6 @@ function Community() {
         </div>
 
       </div>
-      
-
-      
       
       </>
     )
