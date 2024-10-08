@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
     width: 30rem;
-    /* height: 40rem; */
     border-radius: 25px;
     background-color: var(--background-color);
     

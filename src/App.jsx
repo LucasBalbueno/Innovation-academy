@@ -32,6 +32,7 @@ function App() {
           <Route path="eventos" element={<Events />} />
           <Route path="agenda" element={<Agenda />} />
           <Route path="ajuda" element={<Helper />} />
+          <Route path="profile" element={<UserProfile />} />
           <Route path="cursos/html" element={<CourseHTMLView />} />
           <Route path="cursos/css" element={<CourseCSSView />} />
           <Route path="cursos/javascript" element={<CourseJSView />} />

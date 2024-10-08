@@ -5,9 +5,9 @@ import ConfigIcon from '../Images/Perfil-Avatar/ConfigIcon.png'
 
 import { Link } from 'react-router-dom';
 
-export function PopupProfile ({ isPopUpOpen }) {
+export function PopupProfile ({ isPopUpProfileOpen }) {
     return (
-        <Container className={isPopUpOpen ? "popupProfile-open" : "popupProfile-close"}>
+        <Container className={isPopUpProfileOpen ? "popupProfile-open" : "popupProfile-close"}>
             <div className='popupHeader'>
                 <div className='profileTitle'>
                     <img
@@ -27,7 +27,7 @@ export function PopupProfile ({ isPopUpOpen }) {
                 </div>
             
                 <div>
-                    <StyledViewProfileLink>
+                    <StyledViewProfileLink to={'profile'}>
                         Ver Perfil
                     </StyledViewProfileLink>
                 </div>

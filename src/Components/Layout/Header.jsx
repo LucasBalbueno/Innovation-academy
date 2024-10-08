@@ -51,13 +51,15 @@ const Profile = styled.button`
   border: none;
 `;
 
-const Score = styled.div`
+const Score = styled.button`
   display: flex;
   gap: 10px;
   background-color: #3D3D3D;
   border-radius: 10px;
   padding: 10px;
   align-items: center;
+  border: none;
+  color: white;
 `;
 
 const Painel = styled.span`
@@ -75,13 +77,19 @@ const MenuIcon = styled.button`
   padding: 0;
 `;
 
-function Header({ setIsSidebarOpen, setIsPopupProfileOpen }) {
+function Header({ setIsSidebarOpen, setIsPopupProfileOpen, setIsPopUpIntensiveOpen }) {
   const toggleSidebar = () => {
     setIsSidebarOpen(prev => !prev); // Alterna o estado
   };
 
   const handlePopupProfile = () => {
     setIsPopupProfileOpen(prev => !prev)
+    setIsPopUpIntensiveOpen(false);
+  }
+
+  const handlePopupIntensive = () => {
+    setIsPopUpIntensiveOpen(prev => !prev);
+    setIsPopupProfileOpen(false);
   }
 
   return (
@@ -94,7 +102,7 @@ function Header({ setIsSidebarOpen, setIsPopupProfileOpen }) {
       </DivOne>
 
       <DivTwo>
-        <Score><FaFire style={{ background: 'transparent' }} size={20} color='#00FF7E' /><Painel>0</Painel></Score>
+        <Score onClick={handlePopupIntensive}><FaFire style={{ background: 'transparent' }} size={20} color='#00FF7E' /><Painel>0</Painel></Score>
         <Profile onClick={handlePopupProfile}>
           <img
             src={profileIcon}
