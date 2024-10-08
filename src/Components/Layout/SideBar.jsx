@@ -31,8 +31,7 @@ const Menu = styled.ul`
 `;
 
 const MenuItem = styled.li`
-  padding: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: .5rem;
   cursor: pointer;
   font-family: var(--font-poopins);
   background-color: ${({ isActive }) => (isActive ? '#222226' : 'transparent')};
@@ -42,6 +41,11 @@ const MenuItem = styled.li`
   &:hover {
     background-color: #222226;
     border-radius: 10px;
+    transition: all .5s;
+  }
+
+  &:nth-child(5) {
+    margin-top: 6rem;
   }
 `;
 
