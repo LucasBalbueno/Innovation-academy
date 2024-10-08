@@ -16,6 +16,7 @@ import CoursePythonView from './Components/Pages/Courses/Components/PYTHON/Cours
 import CourseReactView from './Components/Pages/Courses/Components/REACTJS/CourseReactView';
 import CourseSASSView from './Components/Pages/Courses/Components/SASS/CourseSASSView';
 import Home from "./Components/Pages/Home/Home";
+import HomeContent from "./Components/HomeContent";
 
 function App() {
   return (
@@ -26,10 +27,12 @@ function App() {
         
         {/* Rota Home com Outlet para páginas internas */}
         <Route path="/home" element={<Home />}>
+          <Route path="" element={<HomeContent />} />
           <Route path="cursos" element={<CoursesView />} />
           <Route path="eventos" element={<Events />} />
           <Route path="agenda" element={<Agenda />} />
           <Route path="ajuda" element={<Helper />} />
+          <Route path="profile" element={<UserProfile />} />
           <Route path="cursos/html" element={<CourseHTMLView />} />
           <Route path="cursos/css" element={<CourseCSSView />} />
           <Route path="cursos/javascript" element={<CourseJSView />} />

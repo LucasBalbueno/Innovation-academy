@@ -6,8 +6,13 @@ import Footer from "../../Layout/Footer";
 import '../../../Styles/Global.css';
 import '../../../Styles/Grid-Tamplate.css';
 
+import { PopupProfile } from '../../Layout/PopupProfile';
+import { PopupIntensive } from '../../Layout/PopupIntensive'
+
 function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [ isPopUpProfileOpen, setIsPopUpProfileOpen ] = useState(false);
+  const [ isPopUpIntensiveOpen, setIsPopUpIntensiveOpen ] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,13 +26,19 @@ function Home() {
   }, []);
 
   return (
-    <div className={`home-container ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
-      <Header setIsSidebarOpen={setIsSidebarOpen} isSidebarOpen={isSidebarOpen} />
-      <Sidebar isOpen={isSidebarOpen} />
-      <div className={`content ${isSidebarOpen ? 'content-shifted' : ''}`}>
-        <Outlet />
+    <>
+      <div className={`home-container ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
+        <Header setIsSidebarOpen={setIsSidebarOpen} setIsPopupProfileOpen={setIsPopUpProfileOpen} setIsPopUpIntensiveOpen={setIsPopUpIntensiveOpen} />
+        <Sidebar isOpen={isSidebarOpen} />
+        <div className={`content ${isSidebarOpen ? 'content-shifted' : ''}`}>
+          <PopupProfile isPopUpProfileOpen={isPopUpProfileOpen}/>
+          <PopupIntensive isPopUpIntensiveOpen={isPopUpIntensiveOpen} />
+          <Outlet />
+        </div>
       </div>
-    </div>
+      
+      {/* <Footer /> */}
+    </>
   );
 }
 

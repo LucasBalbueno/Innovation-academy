@@ -3,6 +3,7 @@ import { FaBars } from 'react-icons/fa';
 import styled from 'styled-components';
 import { FaFire } from "react-icons/fa";
 import '../../Styles/Global.css';
+import profileIcon from './Images/Perfil-Avatar/avatar-1.jpg'
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -50,13 +51,15 @@ const Profile = styled.button`
   border: none;
 `;
 
-const Score = styled.div`
+const Score = styled.button`
   display: flex;
   gap: 10px;
   background-color: #3D3D3D;
   border-radius: 10px;
   padding: 10px;
   align-items: center;
+  border: none;
+  color: white;
 `;
 
 const Painel = styled.span`
@@ -74,10 +77,20 @@ const MenuIcon = styled.button`
   padding: 0;
 `;
 
-function Header({ setIsSidebarOpen, isSidebarOpen }) {
+function Header({ setIsSidebarOpen, setIsPopupProfileOpen, setIsPopUpIntensiveOpen }) {
   const toggleSidebar = () => {
     setIsSidebarOpen(prev => !prev); // Alterna o estado
   };
+
+  const handlePopupProfile = () => {
+    setIsPopupProfileOpen(prev => !prev)
+    setIsPopUpIntensiveOpen(false);
+  }
+
+  const handlePopupIntensive = () => {
+    setIsPopUpIntensiveOpen(prev => !prev);
+    setIsPopupProfileOpen(false);
+  }
 
   return (
     <HeaderContainer>
@@ -89,10 +102,12 @@ function Header({ setIsSidebarOpen, isSidebarOpen }) {
       </DivOne>
 
       <DivTwo>
-        <Score><FaFire style={{ background: 'transparent' }} size={20} color='#00FF7E' /><Painel>0</Painel></Score>
-        <Profile>
+        <Score onClick={handlePopupIntensive}><FaFire style={{ background: 'transparent' }} size={20} color='#00FF7E' /><Painel>0</Painel></Score>
+        <Profile onClick={handlePopupProfile}>
           <img
-            alt="Profile" style={{
+            src={profileIcon}
+            alt="Profile"
+            style={{
               borderRadius: '50%',
               width: '50px',
               border: '5px solid #00FF7E'

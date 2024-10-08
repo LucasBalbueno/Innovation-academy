@@ -79,11 +79,25 @@
   background: #555;
 }
 
-@media (max-width: 991px) {
-  .home-container {
-    grid-template-columns: 1fr; /* Sidebar aberto */
-  }
-  
+.popupProfile-close {
+  transform: translateY(-200%);
+}
+
+.popupProfile-open {
+  transform: translateY(0);
+  transition: all .5s;
+}
+
+.popupIntensive-close {
+  transform: translateY(-200%);
+}
+
+.popupIntensive-open {
+  transform: translateY(0);
+  transition: all .5s;
+}
+
+@media (max-width: 991px) {  
   .sidebar {
     /* Mantenha a definição do sidebar fixa acima */
     position: fixed; /* Sidebar permanece fixa */
