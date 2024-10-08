@@ -17,6 +17,7 @@ import CourseReactView from './Components/Pages/Courses/Components/REACTJS/Cours
 import CourseSASSView from './Components/Pages/Courses/Components/SASS/CourseSASSView';
 import Home from "./Components/Pages/Home/Home";
 import HomeContent from "./Components/HomeContent";
+import Community from "./Components/Pages/Community/Community";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="cursos" element={<CoursesView />} />
           <Route path="eventos" element={<Events />} />
           <Route path="agenda" element={<Agenda />} />
+          <Route path="comunidade" element={<Community />} />
           <Route path="ajuda" element={<Helper />} />
           <Route path="profile" element={<UserProfile />} />
           <Route path="cursos/html" element={<CourseHTMLView />} />
@@ -41,6 +43,7 @@ function App() {
           <Route path="cursos/java" element={<CourseJavaView />} />
           <Route path="cursos/python" element={<CoursePythonView />} />
           <Route path="cursos/sass" element={<CourseSASSView />} />
+          <Route path="perfil" element={<UserProfile />} />
         </Route>
       </Routes>
     </Router>

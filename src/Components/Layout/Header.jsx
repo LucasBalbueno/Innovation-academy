@@ -1,5 +1,6 @@
 import { useState } from 'react'; // Import useState para controlar o estado
 import { FaBars } from 'react-icons/fa';
+import { CgProfile } from "react-icons/cg";
 import styled from 'styled-components';
 import { FaFire } from "react-icons/fa";
 import '../../Styles/Global.css';
@@ -113,6 +114,7 @@ function Header({ setIsSidebarOpen, setIsPopupProfileOpen, setIsPopUpIntensiveOp
               border: '5px solid #00FF7E'
             }} />
         </Profile>
+
       </DivTwo>
     </HeaderContainer>
   );
