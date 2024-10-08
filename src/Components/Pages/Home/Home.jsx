@@ -37,7 +37,7 @@ function Home() {
         </div>
       </div>
       
-      {/* <Footer /> */}
+      <Footer className="footer"/>
     </>
   );
 }
