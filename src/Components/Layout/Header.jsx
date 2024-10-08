@@ -17,6 +17,11 @@ const HeaderContainer = styled.header`
   z-index: 10000;
   width: 100vw;
   height: 100px;
+
+  @media screen and (max-width: 767px){
+      padding: 10px;
+  }
+
 `;
 
 const DivOne = styled.div`
@@ -25,6 +30,10 @@ const DivOne = styled.div`
   background: transparent;
   padding-left: 2rem;
   align-items: center;
+
+  @media screen and (max-width: 991px){
+      padding-left: 0;
+  }
 `;
 
 const H1 = styled.h1`
@@ -32,6 +41,10 @@ const H1 = styled.h1`
   font-family: var(--font-poopins);
   background: transparent;
   margin: 0;
+
+   @media screen and (max-width: 767px){
+      font-size: 1rem;
+  }
 `;
 
 const Span = styled.span`
@@ -45,11 +58,19 @@ const DivTwo = styled.div`
   gap: 1rem;
   align-items: center;
   padding-right: 1rem;
+
+   @media screen and (max-width: 991px){
+      padding-right: 0;
+  }
 `;
 
 const Profile = styled.button`
   background: transparent;
   border: none;
+
+    @media screen and (max-width: 767px){
+    display: none;
+  }
 `;
 
 const Score = styled.button`
