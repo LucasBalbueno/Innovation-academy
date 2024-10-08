@@ -14,4 +14,16 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: 480px) {
+        width: 22rem;
+    }
+    
+    @media screen and (max-width: 390px) {
+        width: 20rem;
+    }
+
+    @media screen and (max-width: 350px) {
+        width: 18rem;
+    }
 `;

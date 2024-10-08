@@ -11,6 +11,7 @@ export const Container = styled.div`
         font-family: var(--font-2P);
         font-size: 32px;
         margin: 10rem 0;
+        text-align: center;
     }
 `;
 
@@ -31,6 +32,7 @@ export const ContainerInitial = styled.div`
     .containerRecents {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         gap: 1rem;
     }
 `;
@@ -84,6 +86,26 @@ export const ContainerBanners = styled.div`
     img {
         width: 1136px;
     }
+
+    @media screen and (max-width: 1420px) {
+        width: 900px;
+
+        img {
+            width: 900px;
+        }
+    }
+    
+    @media screen and (max-width: 1200px) {
+        width: 700px;
+
+        img {
+            width: 700px;
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+        display: none;
+    }
 `;
 
 export const ContainerText = styled.div`
@@ -101,6 +123,18 @@ export const ContainerText = styled.div`
         font-size: 26px;
         font-weight: 500;
     }
+
+    @media screen and (max-width: 1050px) {
+        width: 50rem;
+    }
+
+    @media screen and (max-width: 850px) {
+        width: 35rem;
+    }
+
+    @media screen and (max-width: 580px) {
+        width: 19rem;
+    }
 `;
 
 export const ContainerFeedback = styled.div`
@@ -114,10 +148,30 @@ export const ContainerFeedback = styled.div`
     .groupCards {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: 2rem;
+        justify-content: center;
         flex-wrap: wrap;
+        gap: 2rem 6rem;
         width: 1100px;
+        
+        @media screen and (max-width: 1380px) {
+            width: 1000px;
+        }
+
+        @media screen and (max-width: 1270px) {
+            width: 900px;
+        }
+
+        @media screen and (max-width: 950px) {
+            width: 500px;
+        }
+
+        @media screen and (max-width: 520px) {
+            width: 300px;
+        }
+
+        @media screen and (max-width: 410px) {
+            width: 300px;
+        }
     }
 `;
 
@@ -127,7 +181,6 @@ export const EvaluationCard = styled.div`
     padding: 1.5rem;
     display: flex;
     gap: 4rem;
-    width: 47%;
 
     .profilePhoto {
         width: 98px;
@@ -159,5 +212,13 @@ export const EvaluationCard = styled.div`
             width: 177px;
             margin: 0 0 .3rem 0;
         }
+    }
+
+    @media screen and (max-width: 1380px) {
+        width: 25rem;
+    }
+
+    @media screen and (max-width: 410px) {
+        width: 23rem;
     }
 `;

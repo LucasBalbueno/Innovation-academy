@@ -63,6 +63,27 @@ export const Container = styled.div`
             }
         }
     }
+
+    @media screen and (max-width: 520px) {
+        width: 22rem;
+
+        .popupHeader {
+            flex-direction: column;
+            padding-bottom: 2rem;
+        }
+
+        .profileTitle {
+            margin-bottom: 2rem;
+        }
+    }
+    
+    @media screen and (max-width: 390px) {
+        width: 20rem;
+    }
+
+    @media screen and (max-width: 350px) {
+        width: 18rem;
+    }
 `;
 
 export const StyledViewProfileLink = styled(Link)`
