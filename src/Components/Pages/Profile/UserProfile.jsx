@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import '../../../Styles/Global.css';
 import { CgProfile } from "react-icons/cg";
 import { useState } from 'react';
-import axios from 'axios';
 
 const Input = styled.input`
   background: #222226;
@@ -26,14 +25,17 @@ const BioText = styled.textarea`
 `
 
 const GreenBtn = styled.button ` 
-    background-color: RGB(10, 189, 98);
+    background-color: #00FF7E;
     border: none;
-    font-family: "Poppins", sans-serif;
+    border-radius: 5px;
     padding: 1rem 3rem;
     margin-top: 3rem;
-    color: white;
-    border-radius: 5px;
-    font-size: 15px;
+    color: #000;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
     transition: 0.3s ease;
     
 
@@ -136,18 +138,9 @@ function UserProfile() {
                 SALVAR ALTERAÇÕES
               </GreenBtn>
             </div>
-
           </div>
-
-          
-
         </form>
-
-
-
       </div>
-      
-      
       </>
     )
   }

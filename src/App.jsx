@@ -9,6 +9,7 @@ import UserProfile from "./Components/Pages/Profile/UserProfile";
 import CoursesView from './Components/Pages/Courses/CoursesView';
 import Home from "./Components/Pages/Home/Home";
 import Community from "./Components/Pages/Community/Community";
+import ConfigAccount from "./Components/Configuration/ConfigAccount";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="comunidade" element={<Community />} />
           <Route path="ajuda" element={<Helper />} />
           <Route path="perfil" element={<UserProfile />} />
+          <Route path="configuracoes" element={<ConfigAccount />} />
 
         </Route>
       </Routes>

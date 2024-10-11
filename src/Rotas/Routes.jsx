@@ -9,7 +9,6 @@ const routes = [
   { path: '/home/eventos', name: 'Eventos', icon: <FaRegCalendarCheck /> },
   { path: '/home/agenda', name: 'Agenda', icon: <TfiAgenda /> },
   { path: '/home/comunidade', name: 'Comunidade', icon: <FaDiscord /> },
-  { path: '/home/perfil', name: 'Perfil do Usuário', icon: <FaHome /> },
   { path: '/home/ajuda', name: 'Ajuda', icon: <BsQuestionCircle /> }
   
 ];
