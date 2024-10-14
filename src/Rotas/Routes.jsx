@@ -1,5 +1,5 @@
 import { FaHome, FaLaptop, FaRegCalendarCheck, FaDiscord } from 'react-icons/fa';
-import { PiChatsDuotone } from "react-icons/pi";
+import { GrConfigure } from "react-icons/gr";
 import { TfiAgenda } from "react-icons/tfi";
 import { BsQuestionCircle } from "react-icons/bs";
 const routes = [
@@ -9,8 +9,8 @@ const routes = [
   { path: '/home/agenda', name: 'Agenda', icon: <TfiAgenda /> },
   { href: 'https://www.google.com', name: 'Ajuda', icon: <BsQuestionCircle /> },
   { path: '/home/comunidade', name: 'Comunidade', icon: <FaDiscord /> },
-  { path: '/home/perfil', name: 'Perfil do Usuário', icon: <FaHome /> }
-
+  { path: '/home/perfil', name: 'Perfil do Usuário', icon: <FaHome /> },
+  { path: '/home/configuracoes', name: 'Configurações', icon: <GrConfigure /> },
 ];
 
 export default routes;

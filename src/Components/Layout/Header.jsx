@@ -17,6 +17,7 @@ const HeaderContainer = styled.header`
   z-index: 10000;
   width: 100vw;
   height: 100px;
+  box-sizing: border-box;
 
   @media screen and (max-width: 767px){
       padding: 10px;

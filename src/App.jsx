@@ -18,6 +18,7 @@ import CourseSASSView from './Components/Pages/Courses/Components/SASS/CourseSAS
 import Home from "./Components/Pages/Home/Home";
 import HomeContent from "./Components/HomeContent";
 import Community from "./Components/Pages/Community/Community";
+import ConfigAccount from "./Components/Configuration/ConfigAccount";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="cursos/python" element={<CoursePythonView />} />
           <Route path="cursos/sass" element={<CourseSASSView />} />
           <Route path="perfil" element={<UserProfile />} />
+          <Route path="configuracoes" element={<ConfigAccount />} />
         </Route>
       </Routes>
     </Router>

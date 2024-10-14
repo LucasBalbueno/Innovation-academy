@@ -15,7 +15,13 @@
 }
 
 body{
-    background: var(--main-color);
+    background: #121214;
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: hidden;
 }
 
 h1 {
