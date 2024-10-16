@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -172,6 +173,19 @@ export const ContainerFeedback = styled.div`
         @media screen and (max-width: 410px) {
             width: 300px;
         }
+    }
+
+    .styledLinkContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .styledLinkFeedback {
+        color: var(--contrast-color);
+        font-size: 20px;
+        align-self: center;
     }
 `;
 
