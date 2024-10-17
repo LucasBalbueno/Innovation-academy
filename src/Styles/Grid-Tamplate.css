@@ -20,7 +20,7 @@
   padding: 20px;
   height: calc(100vh - 100px);
   overflow-y: scroll;
-  background-color: #121214;
+  background-color: var(--main-color);
   transition: padding 0.3s ease-in-out; /* Transição suave do conteúdo */
 }
 
@@ -39,7 +39,7 @@
   left: 0;
   width: 250px; /* Largura do sidebar */
   height: 100vh; /* Altura total */
-  background-color: #f4f4f4; /* Cor de fundo do sidebar */
+  background-color: var(--text-color); /* Cor de fundo do sidebar */
   transition: transform 0.3s ease-in-out; /* Transição suave ao abrir/fechar */
   z-index: 1001; /* Garante que está acima do conteúdo */
   transform: translateX(-100%); /* Sidebar inicialmente fora da tela */
@@ -47,7 +47,7 @@
 
 .footer {
   grid-area: footer; /* Adiciona a área do footer */
-  background-color: #f4f4f4;
+  background-color: var(--text-color);
   padding: 10px;
   text-align: center;
   z-index: 1000; /* Garante que está acima do conteúdo */
@@ -64,19 +64,19 @@
 
 /* Cor de fundo da barra de rolagem */
 .content::-webkit-scrollbar-track {
-  background: #121214;
+  background: var(--main-color);
 }
 
 /* Cor do "polegar" da barra de rolagem */
 .content::-webkit-scrollbar-thumb {
-  background-color: #00FF7E;
+  background-color: var(--contrast-color);
   border-radius: 10px;
-  border: 1px solid #f1f1f1;
+  border: 1px solid var(--text-color);
 }
 
 /* Efeito ao passar o mouse sobre a barra de rolagem */
 .content::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--gray-color);
 }
 
 .popupProfile-close {

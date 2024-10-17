@@ -19,15 +19,15 @@ const TituloForm = styled.span`
 `;
 
 const Input = styled.input`
-  color: white;
-  background-color: RGB(42, 42, 44);
+  color: var(--text-color);
+  background-color: var(--main-color);
   border: 1px solid transparent;
   padding: 3%;
   border-radius: 5px 5px 5px;
   margin-bottom: 5%;
 
   &:focus {
-    border-color: RGB(10, 189, 98);
+    border-color: var(--contrast-color);
     outline: none;
   }
 `;
@@ -41,7 +41,7 @@ const FaEyeCustom = styled(FaEyeSlash)`
   position: absolute;
   right: 10px;
   scale: 1.5;
-  background-color: RGB(42, 42, 44);
+  background-color: none;
   border-radius: 5px, 5px;
   transition: 0.3s ease;
 
@@ -59,47 +59,47 @@ const InputContainer = styled.div`
 `;
 
 const InputPassword = styled.input`
-  color: white;
+  color: var(--text-color);
   width: 100%;
-  background-color: RGB(42, 42, 44);
+  background-color: var(--main-color);
   border: 1px solid transparent;
   padding: 3%;
   border-radius: 5px 5px 5px;
 
   &:focus {
-    border-color: RGB(10, 189, 98);
+    border-color: var(--contrast-color);
     outline: none;
   }
 `;
 
 const Termos = styled.span`
   width: fit-content;
-  color: white;
+  color: var(--text-color);
   padding-bottom: 3%;
   transition: 0.3s ease;
   font-size: 12px;
 
   a {
     text-decoration: none;
-    color: white;
+    color: var(--text-color);
     font-weight: bold;
   }
 `;
 
 const BtnCriar = styled.button`
-  background-color: RGB(10, 189, 98);
+  background-color: var(--contrast-color);
   border: none;
   padding: 3%;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poopins);
   margin-bottom: 3%;
-  color: white;
+  color: var(--text-color);
   border-radius: 5px 5px 5px;
   font-size: 15px;
   transition: 0.3s ease;
 
   &:hover {
     cursor: pointer;
-    background-color: rgb(23, 155, 87);
+    background-color: var(--contrast-color-hover);
   }
 `;
 
@@ -123,22 +123,22 @@ const IconeGoogle = styled.img`
 const BtnGithub = styled.button`
   height: 100%;
   margin-left: 2%;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poopins);
   border-radius: 5px 5px 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 1;
-  background-color: RGB(42, 42, 44);
+  background-color: var(--main-color);
   border: none;
-  color: white;
+  color: var(--text-color);
   padding: 2%;
   font-size: 12px;
   transition: 0.3s ease;
 
   &:hover {
     cursor: pointer;
-    background-color: rgb(36, 36, 37);
+    background-color: var(--gray-color)
   }
 
   &:hover ${IconeGithub} {
@@ -148,22 +148,22 @@ const BtnGithub = styled.button`
 
 const BtnGoogle = styled.button`
   margin-left: 2%;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poopins);
   border-radius: 5px 5px 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 1;
-  background-color: RGB(42, 42, 44);
+  background-color: var(--main-color);
   border: none;
-  color: white;
+  color: var(--text-color);
   padding: 2%;
   font-size: 12px;
   transition: 0.3s ease;
 
   &:hover {
     cursor: pointer;
-    background-color: rgb(36, 36, 37);
+    background-color: var(--gray-color);
   }
 
   &:hover ${IconeGoogle} {

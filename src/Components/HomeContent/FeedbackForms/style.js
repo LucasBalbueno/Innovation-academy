@@ -17,7 +17,7 @@ export const ContainerForm = styled.div`
     form {
         display: flex;
         flex-direction: column;
-        color: white;
+        color: var(--text-color);
 
         > label {
             display: flex;
@@ -32,11 +32,13 @@ export const ContainerForm = styled.div`
                 padding: 0 .5rem;
                 background-color: var(--gray-color);
                 border: none;
-                color: rgba(255, 255, 255, .5);
+                color: var(--text-color);
+                opacity: .5;
             }
-
+            
             input::placeholder, select::placeholder, textarea::placeholder {
-                color: rgba(255, 255, 255, .5);
+                color: var(--text-color);
+                opacity: .5;
             }
     
             select {

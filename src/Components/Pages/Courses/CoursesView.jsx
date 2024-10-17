@@ -68,7 +68,7 @@ const CoursesView = () => {
               <CardBody className='card-body d-flex align-items-center justify-content-center text-center'>
                 <img src={course.image} alt={`logo ${course.name}`} />
               </CardBody>
-              <CardFooter className='text-white'>
+              <CardFooter className='cardFooter-text'>
                 {course.name}
               </CardFooter>
             </Card>

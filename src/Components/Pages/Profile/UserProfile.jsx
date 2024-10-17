@@ -4,8 +4,8 @@ import { CgProfile } from "react-icons/cg";
 import { useState } from 'react';
 
 const Input = styled.input`
-  background: #222226;
-  color: #fff;
+  background: var(--background-color);
+  color: var(--text-color);
   border: 0;
   width: 100%;
   border-radius: 5px;
@@ -15,8 +15,8 @@ const Input = styled.input`
 
 const BioText = styled.textarea`
   resize: none;
-  background: #222226;
-  color: #fff;
+  background: var(--background-color);
+  color: var(--text-color);
   border: 0;
   width: 100%;
   border-radius: 5px;
@@ -25,13 +25,13 @@ const BioText = styled.textarea`
 `
 
 const GreenBtn = styled.button ` 
-    background-color: #00FF7E;
+    background-color: var(--contrast-color);
     border: none;
     border-radius: 5px;
     padding: 1rem 3rem;
     margin-top: 3rem;
-    color: #000;
-    font-family: "Poppins", sans-serif;
+    color: var(--main-color);
+    font-family: var(--font-poopins);
     font-size: 16px;
     font-weight: 700;
     line-height: 24px;
@@ -41,7 +41,7 @@ const GreenBtn = styled.button `
 
     &:hover {
         cursor: pointer;
-        background-color: rgb(23, 155, 87);
+        background-color: var(--contrast-color-hover);
     } 
     `;
 

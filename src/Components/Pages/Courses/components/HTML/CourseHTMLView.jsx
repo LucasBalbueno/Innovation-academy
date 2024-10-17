@@ -48,11 +48,11 @@ const CourseHTMLView = () => {
                     <p className='m-0'>Voltar</p>
                 </div>
 
-                <h3 className='my-3 text-white text-sm-start text-center'>CURSO HTML - INICIANTE</h3>
+                <h3 className='my-3 text-sm-start text-center'>CURSO HTML - INICIANTE</h3>
                 <div className="d-flex align-items-sm-start justify-content-sm-start align-items-center justify-content-center">
                     <Badge
                         className='bg-transparent rounded-pill me-lg-2 px-3 py-2'
-                        style={{ border: '1px solid #94939340', fontSize: '0.7rem', cursor: "auto" }}
+                        style={{ border: '1px solid #94939340', fontSize: '0.7rem', cursor: "auto", color: 'var(--text-color)' }}
                     >
                         <i className='fa fa-code me-2'
                             style={{
@@ -63,7 +63,7 @@ const CourseHTMLView = () => {
                     </Badge>
                     <Badge
                         className='bg-transparent rounded-pill me-2 px-3 py-2'
-                        style={{ border: '1px solid #94939340', fontSize: '0.7rem', cursor: "auto" }}
+                        style={{ border: '1px solid #94939340', fontSize: '0.7rem', cursor: "auto", color: 'var(--text-color)' }}
                     >
                         <i className='fa fa-play me-2'
                             style={{

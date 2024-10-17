@@ -11,8 +11,8 @@ const SidebarContainer = styled.div`
   left: 0;
   width: 250px;
   height: calc(100vh - 100px);
-  background-color: #444;
-  color: #fff;
+  background-color: var(--background-color);
+  color: var(--text-color);
   z-index: 1000;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(-100%)')};
@@ -34,12 +34,12 @@ const MenuItem = styled.li`
   margin-bottom: .5rem;
   cursor: pointer;
   font-family: var(--font-poopins);
-  background-color: ${({ isActive }) => (isActive ? '#222226' : 'transparent')};
+  background-color: ${({ isActive }) => (isActive ? 'var(--main-color)' : 'transparent')};
   border-radius: ${({ isActive }) => (isActive ? '10px' : '0')};
-  color: ${({ isActive }) => (isActive ? '#00FF7E' : '#fff')};
+  color: ${({ isActive }) => (isActive ? 'var(--contrast-color)' : 'var(--text-color)')};
 
   &:hover {
-    background-color: #222226;
+    background-color: var(--main-color);
     border-radius: 10px;
     transition: all .5s;
   }
@@ -63,7 +63,7 @@ const StyledLink = styled(Link)`
   padding: 1rem;
 
   &:hover {
-    color: #00FF7E;
+    color: var(--contrast-color);
   }
 
   @media screen and (max-width: 991px){
@@ -81,7 +81,7 @@ const ExternalLink = styled.a`
   padding: 1rem;
 
   &:hover {
-    color: #00FF7E;
+    color: var(--contrast-color);
   }
 
   @media screen and (max-width: 991px){

@@ -19,7 +19,7 @@ export const Container = styled.div`
 export const ContainerInitial = styled.div`
     h1 {
         font-size: 32px;
-        color: white;
+        color: var(--text-color);
     }
 
     span {
@@ -28,6 +28,7 @@ export const ContainerInitial = styled.div`
 
     p {
         font-size: 24px;
+        color: var(--text-color);
     }
 
     .containerRecents {
@@ -52,6 +53,10 @@ export const Recents = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+
+        p {
+            color: var(--text-color);
+        }
     }
 
     .infosContent {
@@ -123,6 +128,7 @@ export const ContainerText = styled.div`
     p {
         font-size: 26px;
         font-weight: 500;
+        color: var(--text-color);
     }
 
     @media screen and (max-width: 1050px) {
@@ -203,7 +209,7 @@ export const EvaluationCard = styled.div`
     .feedbackContent {
         display: flex;
         flex-direction: column;
-        color: white;
+        color: var(--text-color);
         font-size: 15px;
         
         h3 {
@@ -219,7 +225,7 @@ export const EvaluationCard = styled.div`
         p {
             text-transform: none;
             margin: 0;
-            color: white;
+            color: var(--text-color);
         }
         
         img {

@@ -11,9 +11,9 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #1A1A1E;
-  border-bottom: 1px solid #3D3D3D;
-  color: #fff;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--gray-color);
+  color: var(--text-color);
   z-index: 10000;
   width: 100vw;
   height: 100px;
@@ -49,7 +49,7 @@ const H1 = styled.h1`
 `;
 
 const Span = styled.span`
-  color: #00FF7E;
+  color: var(--contrast-color);
   background: transparent;
 `;
 
@@ -77,12 +77,12 @@ const Profile = styled.button`
 const Score = styled.button`
   display: flex;
   gap: 10px;
-  background-color: #3D3D3D;
+  background-color: var(--gray-color);
   border-radius: 10px;
   padding: 10px;
   align-items: center;
   border: none;
-  color: white;
+  color: var(--text-color);
 `;
 
 const Painel = styled.span`
@@ -94,7 +94,7 @@ const Painel = styled.span`
 const MenuIcon = styled.button`
   font-size: 24px;
   cursor: pointer;
-  color: #00FF7E;
+  color: var(--contrast-color);
   border: none;
   background: transparent;
   padding: 0;
@@ -125,7 +125,7 @@ function Header({ setIsSidebarOpen, setIsPopupProfileOpen, setIsPopUpIntensiveOp
       </DivOne>
 
       <DivTwo>
-        <Score onClick={handlePopupIntensive}><FaFire style={{ background: 'transparent' }} size={20} color='#00FF7E' /><Painel>0</Painel></Score>
+        <Score onClick={handlePopupIntensive}><FaFire style={{ background: 'transparent' }} size={20} color='var(--contrast-color)' /><Painel>0</Painel></Score>
         <Profile onClick={handlePopupProfile}>
           <img
             src={profileIcon}
