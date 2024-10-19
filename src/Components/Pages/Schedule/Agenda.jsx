@@ -75,8 +75,7 @@ function Agenda() {
   return (
     <>
       <CalendarContent> 
-        {eventSelected == null ? (
-          <>
+          
             <MyBigCalendar
             events={events}
             moveEvents={moveEvents}
@@ -91,12 +90,9 @@ function Agenda() {
             />
           </Toolbar>
           
-          </>
                
           
-        ): (
-          <p/>
-        )} 
+        
 
         {eventSelected && (
             <EventModal
