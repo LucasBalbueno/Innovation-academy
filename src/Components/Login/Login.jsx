@@ -189,9 +189,6 @@ function Login() {
           </>
         )}
       </Box2>
-      <Footer move={moveBoxes}>
-        <h5>@inovaTech</h5>
-      </Footer>
     </Body>
   );
 }
