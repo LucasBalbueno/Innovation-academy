@@ -1,0 +1,68 @@
+.layout {
+    font-family: "Poppins", sans-serif;
+    background: #121214;
+    height: auto;
+    color: white;
+    padding: 50px 0;
+  
+    @media screen and (max-width: 991px) {
+      padding: 50px 20px;
+    }
+  
+  
+    h1 {
+      font-size: 1.8rem;
+  
+      @media screen and (max-width: 991px) {
+        font-size: 1.5rem;
+      }
+    }
+  
+    h3 {
+      font-size: 1rem;
+  
+      @media screen and (max-width: 991px) {
+        font-size: 0.8rem;
+      }
+    }
+
+}
+
+
+.event-card li{
+    margin: 50px 10px 0px;
+    text-align: center;
+}
+
+.event-card li img{
+    width: 200px;
+    height: 200px;
+    border-radius: 7px;
+}
+
+p, h3{
+    margin-top: 5px;
+    color: whitesmoke;
+}
+
+p a{
+    margin-top: 10px;
+}
+
+.button{
+    text-decoration: none;
+    border: 1px solid whitesmoke;
+    border-radius: 7px;
+    background-color: #222226;
+    color: whitesmoke;
+    padding: 2px 3px;
+    transition: 1s;
+}
+
+.button:hover{
+    background-color: #00FF7E;
+    color: #222226;
+    letter-spacing: 3px;
+    transform: scale(1.5);
+}
+
