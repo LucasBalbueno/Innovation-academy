@@ -1,5 +1,3 @@
-
-import Footer from "../Layout/Footer"
 import '../../Styles/Global.css'
 
 import styled from "styled-components";
