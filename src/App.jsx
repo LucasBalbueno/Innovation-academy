@@ -19,6 +19,7 @@ import Home from "./Components/Pages/Home/Home";
 import HomeContent from "./Components/HomeContent";
 import Community from "./Components/Pages/Community/Community";
 import ConfigAccount from "./Components/Configuration/ConfigAccount";
+import { FeedbackForms } from "./Components/HomeContent/FeedbackForms";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         {/* Rota Home com Outlet para páginas internas */}
         <Route path="/home" element={<Home />}>
           <Route path="" element={<HomeContent />} />
+          <Route path="feedbacks" element={<FeedbackForms />} />
           <Route path="cursos" element={<CoursesView />} />
           <Route path="eventos" element={<Events />} />
           <Route path="agenda" element={<Agenda />} />

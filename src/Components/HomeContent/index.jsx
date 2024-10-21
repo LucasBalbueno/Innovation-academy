@@ -12,6 +12,7 @@ import Banner4 from './images/BannerNovidades1.png'
 import Banner5 from './images/BannerNovidades2.png'
 import Banner6 from './images/BannerNovidades3.png'
 import { FeedbackCard } from './FeedbackCard';
+import { Link } from 'react-router-dom';
 
 function HomeContent() {  
 
@@ -79,6 +80,11 @@ function HomeContent() {
               <FeedbackCard />
               <FeedbackCard />
             </div>
+
+            <div className='styledLinkContainer'>
+              <Link className='styledLinkFeedback' to={'feedbacks'}>Avaliar a plataforma</Link>
+            </div>
+            
           </ContainerFeedback>
 
             <h2 className='font2P'>Decole conosco você também!</h2>
