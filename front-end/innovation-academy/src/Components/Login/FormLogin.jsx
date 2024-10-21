@@ -88,6 +88,11 @@ const InputPassword = styled.input`
   }
 `;
 
+const ErroMessage = styled.p`
+  font-size: 0.8rem;
+  color: red;
+`;
+
 const EsqueciSenha = styled.span`
   width: fit-content;
   color: RGB(10, 189, 98);
@@ -192,12 +197,34 @@ const QuebraLinha = styled.img`
 
 function FormLogin() {
   const [mostrarSenha, setMostrarSenha] = useState(false);
+  const [email, setEmail] = useState("");
+  const [erroEmail, setErroEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [erroSenha, setErroSenha] = useState("");
 
   const verSenha = () => {
     if (!mostrarSenha) {
       setMostrarSenha(true);
     } else {
       setMostrarSenha(false);
+    }
+  };
+
+  const entrar = () => {
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setErroEmail("");
+    setErroSenha("");
+
+    if (email === "") {
+      setErroEmail("Esse campo precisa ser preenchido!");
+      return;
+    } else if (!regexEmail.test(email)) {
+      setErroEmail("Email não contém os caracteres padrões necessários!");
+      return;
+    }
+    if (senha == "") {
+      setErroSenha("Esse campo precisa ser preenchido!");
+      return;
     }
   };
 
@@ -211,18 +238,30 @@ function FormLogin() {
       </DivLogo>
       <TituloForm>Acesse sua conta</TituloForm>
       <LabelInput>Email</LabelInput>
-      <Input type="text" />
+      <Input
+        type="text"
+        onChange={(e) => {
+          setEmail(e.target.value);
+        }}
+      />
+      <ErroMessage>{erroEmail}</ErroMessage>
       <LabelInput>Senha</LabelInput>
       <InputContainer>
-        <InputPassword type={mostrarSenha ? "text" : "password"} />
+        <InputPassword
+          type={mostrarSenha ? "text" : "password"}
+          onChange={(e) => {
+            setSenha(e.target.value);
+          }}
+        />
         {mostrarSenha ? (
           <FaEyeCustom as={FaEye} onClick={verSenha} />
         ) : (
           <FaEyeCustom onClick={verSenha} />
         )}
       </InputContainer>
+      <ErroMessage>{erroSenha}</ErroMessage>
       <EsqueciSenha>Esqueci minha senha</EsqueciSenha>
-      <BtnEntar>Entrar</BtnEntar>
+      <BtnEntar onClick={entrar}>Entrar</BtnEntar>
       <DivBtnGithub_Google>
         <span>Ou se preferir</span>
         <BtnGithub>
