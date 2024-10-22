@@ -5,6 +5,7 @@ import quebraLinha from "./assets/quebra-linha.png";
 import iconeGoogle from "./assets/iconeGoogle.png";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
+import PassRecoverModal from "./components/modal/PassRecoverModal";
 
 const LogoNome = styled.img`
   width: 60%;
@@ -174,6 +175,7 @@ const QuebraLinha = styled.img`
 
 function FormLogin() {
   const [mostrarSenha, setMostrarSenha] = useState(false);
+  const [esqueceuSenha, setEsqueceuSenha] = useState(false);
 
   const verSenha = () => {
     if (!mostrarSenha) {
@@ -198,7 +200,15 @@ function FormLogin() {
           <FaEyeCustom onClick={verSenha} />
         )}
       </InputContainer>
-      <EsqueciSenha>Esqueci minha senha</EsqueciSenha>
+      <EsqueciSenha onClick={() => setEsqueceuSenha(true)}>Esqueci minha senha</EsqueciSenha>
+      {esqueceuSenha ? (
+          <PassRecoverModal 
+            setEsqueceuSenha={setEsqueceuSenha}
+          />
+        ):(
+          <div/>
+        )
+      }
       <BtnEntar>Entrar</BtnEntar>
       <DivBtnGithub_Google>
         <span>Ou se preferir</span>

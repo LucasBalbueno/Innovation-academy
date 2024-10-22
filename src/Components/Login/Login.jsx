@@ -7,7 +7,7 @@ import boracodar from "./assets/boracodar.png";
 import iconLogin from "./assets/icon-login.png";
 import { GoChevronRight } from "react-icons/go";
 import FormCadastro from "../Register/FormCadastro"
-import FormLogin from "./FormLogin";
+import FormLogin from './FormLogin'
 
 const Body = styled.div`
   color: var(--text-color);

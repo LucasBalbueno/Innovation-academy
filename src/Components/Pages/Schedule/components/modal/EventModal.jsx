@@ -44,7 +44,7 @@ const EventModal = ({event, onClose, onDelete, onUpdate}) =>{
 
 
     return(
-        <Modal show={true} onHide={onClose}>
+        <Modal show={true} onHide={onClose} centered>
             <Modal.Header>
                 <Modal.Title>{editedEvent.title}</Modal.Title>
             </Modal.Header>
