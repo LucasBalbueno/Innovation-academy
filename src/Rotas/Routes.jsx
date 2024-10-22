@@ -9,8 +9,6 @@ const routes = [
   { path: '/home/agenda', name: 'Agenda', icon: <TfiAgenda /> },
   { href: 'https://www.google.com', name: 'Ajuda', icon: <BsQuestionCircle /> },
   { path: '/home/comunidade', name: 'Comunidade', icon: <FaDiscord /> },
-  { path: '/home/perfil', name: 'Perfil do Usuário', icon: <FaHome /> },
-  { path: '/home/configuracoes', name: 'Configurações', icon: <GrConfigure /> },
 ];
 
 export default routes;

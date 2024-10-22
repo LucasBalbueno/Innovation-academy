@@ -37,7 +37,6 @@ function App() {
           <Route path="agenda" element={<Agenda />} />
           <Route path="comunidade" element={<Community />} />
           <Route path="ajuda" element={<Helper />} />
-          <Route path="profile" element={<UserProfile />} />
           <Route path="cursos/html" element={<CourseHTMLView />} />
           <Route path="cursos/css" element={<CourseCSSView />} />
           <Route path="cursos/javascript" element={<CourseJSView />} />
@@ -46,8 +45,8 @@ function App() {
           <Route path="cursos/java" element={<CourseJavaView />} />
           <Route path="cursos/python" element={<CoursePythonView />} />
           <Route path="cursos/sass" element={<CourseSASSView />} />
-          <Route path="perfil" element={<UserProfile />} />
-          <Route path="configuracoes" element={<ConfigAccount />} />
+          <Route path="profile" element={<UserProfile />} />
+          <Route path="config" element={<ConfigAccount />} />
         </Route>
       </Routes>
     </Router>

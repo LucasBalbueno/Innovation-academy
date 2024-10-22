@@ -29,7 +29,7 @@ function Home() {
         <Header setIsSidebarOpen={setIsSidebarOpen} setIsPopupProfileOpen={setIsPopUpProfileOpen} />
         <Sidebar isOpen={isSidebarOpen} />
         <div className={`content ${isSidebarOpen ? 'content-shifted' : ''}`}>
-          <PopupProfile isPopUpProfileOpen={isPopUpProfileOpen}/>
+          <PopupProfile isPopUpProfileOpen={isPopUpProfileOpen} setIsPopupProfileOpen={setIsPopUpProfileOpen} />
           <Outlet />
         </div>
       </div>

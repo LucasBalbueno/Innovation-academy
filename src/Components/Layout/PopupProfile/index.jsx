@@ -5,7 +5,11 @@ import ConfigIcon from '../Images/Perfil-Avatar/ConfigIcon.png'
 
 import { Link } from 'react-router-dom';
 
-export function PopupProfile ({ isPopUpProfileOpen }) {
+export function PopupProfile ({ isPopUpProfileOpen, setIsPopupProfileOpen }) {
+    const handleClosePopUp = () => {
+        setIsPopupProfileOpen(false);
+    }
+
     return (
         <Container className={isPopUpProfileOpen ? "popupProfile-open" : "popupProfile-close"}>
             <div className='popupHeader'>
@@ -27,19 +31,19 @@ export function PopupProfile ({ isPopUpProfileOpen }) {
                 </div>
             
                 <div>
-                    <StyledViewProfileLink to={'profile'}>
+                    <StyledViewProfileLink to={'profile'} onClick={handleClosePopUp}>
                         Ver Perfil
                     </StyledViewProfileLink>
                 </div>
             </div>
 
             <div className='popupOptions'>
-                <Link className='StyledLinkOptions'>
+                <Link className='StyledLinkOptions' to={'config'} onClick={handleClosePopUp}>
                     <img src={ConfigIcon} alt="Icone de configurações" />
                     <p>Configurações e Preferências</p>
                 </Link>
 
-                <Link className='StyledLinkOptions'>
+                <Link className='StyledLinkOptions' onClick={handleClosePopUp}>
                     <img src={LeaveIcon} alt="Icone de Sair" />
                     <p className='exitText'>Sair da conta</p>
                 </Link>
