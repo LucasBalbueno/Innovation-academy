@@ -1,6 +1,5 @@
 import styled from "styled-components";
-
-import logoNome from "../Login/assets/LogoNome.png";
+import logo from "../Login/assets/LogoMenor.png";
 import iconeGithub from "../Login/assets/github-icon.png";
 import iconeGoogle from "../Login/assets/iconeGoogle.png";
 import quebraLinha from "../Login/assets/quebra-linha.png";
@@ -8,9 +7,27 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import "@fontsource/poppins";
 
-const LogoNome = styled.img`
-  width: 60%;
+const DivLogo = styled.div`
+  height: auto;
+  justify-content: center;
   padding-bottom: 8%;
+`;
+
+const LogoNome = styled.img`
+  width: 45px;
+`;
+
+const NomeLogo = styled.span`
+  padding-left: 2%;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  font-family: "Poppins", sans-serif;
+`;
+
+const SpanNome = styled.span`
+  color: RGB(10, 189, 98);
+  font-weight: 600;
 `;
 
 const TituloForm = styled.span`
@@ -70,6 +87,11 @@ const InputPassword = styled.input`
     border-color: var(--contrast-color);
     outline: none;
   }
+`;
+
+const ErroMessage = styled.p`
+  font-size: 0.8rem;
+  color: red;
 `;
 
 const Termos = styled.span`
@@ -178,6 +200,16 @@ const QuebraLinha = styled.img`
 function FormCadastro() {
   const [mostrarSenha1, setMostrarSenha1] = useState(false);
   const [mostrarSenha2, setMostrarSenha2] = useState(false);
+  const [nomeCompleto, setNomeCompleto] = useState("");
+  const [erroNomeCompleto, setErroNomeCompleto] = useState("");
+  const [nomeUsuario, setNomeUsuario] = useState("");
+  const [erroNomeUsuario, setErroNomeUsuario] = useState("");
+  const [email, setEmail] = useState("");
+  const [erroEmail, setErroEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [erroSenha, setErroSenha] = useState("");
+  const [senhaRepitida, setSenhaRepitida] = useState("");
+  const [erroSenhaRepitida, setErroSenhaRepitida] = useState("");
 
   const verSenha1 = () => {
     if (!mostrarSenha1) {
@@ -195,37 +227,123 @@ function FormCadastro() {
     }
   };
 
+  const criarConta = () => {
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setErroNomeCompleto("");
+    setErroNomeUsuario("");
+    setErroEmail("");
+    setErroSenha("");
+    setErroSenhaRepitida("");
+
+    if (nomeCompleto == "") {
+      setErroNomeCompleto("Esse campo precisa ser preenchido!");
+      return;
+    }
+    if (nomeUsuario == "") {
+      setErroNomeUsuario("Esse campo precisa ser preenchido!");
+      return;
+    }
+    if (email === "") {
+      setErroEmail("Esse campo precisa ser preenchido!");
+      return;
+    } else if (!regexEmail.test(email)) {
+      setErroEmail("Email não contém os caracteres padrões necessários!");
+      return;
+    }
+    if (senha == "") {
+      setErroSenha("Esse campo precisa ser preenchido!");
+      return;
+    }
+    if (senhaRepitida == "") {
+      setErroSenhaRepitida("Esse campo precisa ser preenchido!");
+      return;
+    } else if (senhaRepitida !== senha) {
+      setErroSenhaRepitida("As senhas não são iguais!");
+      return;
+    }
+    alert("Usuário cadastrado");
+
+    setNomeCompleto("");
+    setNomeUsuario("");
+    setEmail("");
+    setSenha("");
+    setSenhaRepitida("");
+  };
+
   return (
     <>
-      <LogoNome src={logoNome} alt="" srcSet="" />
+      <DivLogo>
+        <LogoNome src={logo} alt="" srcSet="" />
+        <NomeLogo>
+          IAcademy <SpanNome>Premium</SpanNome>
+        </NomeLogo>
+      </DivLogo>
       <TituloForm>Crie sua conta gratuitamente</TituloForm>
-      <LabelInput>Nome</LabelInput>
-      <Input type="text" />
-      <LabelInput>Email</LabelInput>
-      <Input type="text" />
-      <LabelInput>Senha</LabelInput>
+      <LabelInput>Nome Completo*</LabelInput>
+      <Input
+        type="text"
+        onChange={(e) => {
+          setNomeCompleto(e.target.value);
+        }}
+        value={nomeCompleto}
+      />
+      <ErroMessage>{erroNomeCompleto}</ErroMessage>
+      <LabelInput>Nome de Usuário*</LabelInput>
+      <Input
+        type="text"
+        placeholder="@"
+        onChange={(e) => {
+          setNomeUsuario(e.target.value);
+        }}
+        value={nomeUsuario}
+      />
+      <ErroMessage>{erroNomeUsuario}</ErroMessage>
+      <LabelInput>Email*</LabelInput>
+      <Input
+        type="text"
+        onChange={(e) => {
+          setEmail(e.target.value);
+        }}
+        value={email}
+      />
+      <ErroMessage>{erroEmail}</ErroMessage>
+      <LabelInput>Senha*</LabelInput>
       <InputContainer>
-        <InputPassword type={mostrarSenha1 ? "text" : "password"} />
+        <InputPassword
+          type={mostrarSenha1 ? "text" : "password"}
+          onChange={(e) => {
+            setSenha(e.target.value);
+          }}
+          value={senha}
+        />
         {mostrarSenha1 ? (
           <FaEyeCustom as={FaEye} onClick={verSenha1} />
         ) : (
           <FaEyeCustom onClick={verSenha1} />
         )}
       </InputContainer>
-      <LabelInput>Repita sua senha</LabelInput>
+      <ErroMessage>{erroSenha}</ErroMessage>
+      <LabelInput>Repita sua senha*</LabelInput>
       <InputContainer>
-        <InputPassword type={mostrarSenha2 ? "text" : "password"} />
+        <InputPassword
+          type={mostrarSenha2 ? "text" : "password"}
+          onChange={(e) => {
+            setSenhaRepitida(e.target.value);
+          }}
+          value={senhaRepitida}
+        />
         {mostrarSenha2 ? (
           <FaEyeCustom as={FaEye} onClick={verSenha2} />
         ) : (
           <FaEyeCustom onClick={verSenha2} />
         )}
       </InputContainer>
+      <ErroMessage>{erroSenhaRepitida}</ErroMessage>
       <Termos>
         Ao se cadastrar, você aceita os <a href="#">nossos termos de uso</a> e
         nossa <a href="#">política de privacidade</a>
       </Termos>
-      <BtnCriar>Criar Conta</BtnCriar>
+      <BtnCriar onClick={criarConta}>Criar Conta</BtnCriar>
       <DivBtnGithub_Google>
         <span>Ou se preferir</span>
         <BtnGithub>

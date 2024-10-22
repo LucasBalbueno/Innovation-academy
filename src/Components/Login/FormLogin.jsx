@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logoNome from "./assets/LogoNome.png";
+import logo from "./assets/LogoMenor.png";
 import iconeGithub from "./assets/github-icon.png";
 import quebraLinha from "./assets/quebra-linha.png";
 import iconeGoogle from "./assets/iconeGoogle.png";
@@ -7,9 +7,27 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import PassRecoverModal from "./components/modal/PassRecoverModal";
 
-const LogoNome = styled.img`
-  width: 60%;
+const DivLogo = styled.div`
+  height: auto;
+  justify-content: center;
   padding-bottom: 8%;
+`;
+
+const LogoNome = styled.img`
+  width: 45px;
+`;
+
+const NomeLogo = styled.span`
+  padding-left: 2%;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  font-family: "Poppins", sans-serif;
+`;
+
+const SpanNome = styled.span`
+  color: RGB(10, 189, 98);
+  font-weight: 600;
 `;
 
 const TituloForm = styled.span`
@@ -69,6 +87,11 @@ const InputPassword = styled.input`
     border-color: var(--contrast-color);
     outline: none;
   }
+`;
+
+const ErroMessage = styled.p`
+  font-size: 0.8rem;
+  color: red;
 `;
 
 const EsqueciSenha = styled.span`
@@ -176,6 +199,10 @@ const QuebraLinha = styled.img`
 function FormLogin() {
   const [mostrarSenha, setMostrarSenha] = useState(false);
   const [esqueceuSenha, setEsqueceuSenha] = useState(false);
+  const [email, setEmail] = useState("");
+  const [erroEmail, setErroEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [erroSenha, setErroSenha] = useState("");
 
   const verSenha = () => {
     if (!mostrarSenha) {
@@ -185,15 +212,49 @@ function FormLogin() {
     }
   };
 
+  const entrar = () => {
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setErroEmail("");
+    setErroSenha("");
+
+    if (email === "") {
+      setErroEmail("Esse campo precisa ser preenchido!");
+      return;
+    } else if (!regexEmail.test(email)) {
+      setErroEmail("Email não contém os caracteres padrões necessários!");
+      return;
+    }
+    if (senha == "") {
+      setErroSenha("Esse campo precisa ser preenchido!");
+      return;
+    }
+  };
+
   return (
     <>
-      <LogoNome src={logoNome} alt="" srcSet="" />
+      <DivLogo>
+        <LogoNome src={logo} alt="" srcSet="" />
+        <NomeLogo>
+          IAcademy <SpanNome>Premium</SpanNome>
+        </NomeLogo>
+      </DivLogo>
       <TituloForm>Acesse sua conta</TituloForm>
       <LabelInput>Email</LabelInput>
-      <Input type="text" />
+      <Input
+        type="text"
+        onChange={(e) => {
+          setEmail(e.target.value);
+        }}
+      />
+      <ErroMessage>{erroEmail}</ErroMessage>
       <LabelInput>Senha</LabelInput>
       <InputContainer>
-        <InputPassword type={mostrarSenha ? "text" : "password"} />
+        <InputPassword
+          type={mostrarSenha ? "text" : "password"}
+          onChange={(e) => {
+            setSenha(e.target.value);
+          }}
+        />
         {mostrarSenha ? (
           <FaEyeCustom as={FaEye} onClick={verSenha} />
         ) : (
