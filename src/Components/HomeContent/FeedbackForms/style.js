@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
     width: 100%;
     height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
 export const ContainerForm = styled.div`
@@ -69,6 +73,24 @@ export const ContainerForm = styled.div`
             }
         }
     }
+
+    @media screen and (max-width: 520px) {
+        form {
+            display: none;
+        }
+
+        form {
+            > label {
+                input, select, textarea {
+                    width: 20rem;
+                }
+            }
+
+            > button {
+                width: 20rem;
+            }
+        }
+    }
 `;
 
 export const ContainerAllFeedbacks = styled.div`
@@ -78,6 +100,7 @@ export const ContainerAllFeedbacks = styled.div`
     flex-wrap: wrap;
     gap: 2rem 6rem;
     width: 1100px;
+    padding-bottom: 2rem;
 
     h1 {
         color: var(--contrast-color);

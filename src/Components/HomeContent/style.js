@@ -238,7 +238,13 @@ export const EvaluationCard = styled.div`
         width: 25rem;
     }
 
-    @media screen and (max-width: 410px) {
-        width: 23rem;
+    @media screen and (max-width: 500px) {
+        width: 90%;
+        flex-direction: column;
+        text-align: center;
+
+        .profilePhoto {
+            align-self: center;
+        }
     }
 `;

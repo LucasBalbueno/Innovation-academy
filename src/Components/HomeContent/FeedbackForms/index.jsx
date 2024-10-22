@@ -9,16 +9,6 @@ export const FeedbackForms = () => {
 
                 <form>
                     <label>
-                        Nome
-                        <input type="text" placeholder="Digite seu nome completo" />
-                    </label>
-
-                    <label>
-                        E-mail
-                        <input type="email" placeholder="Digite seu melhor e-mail" />
-                    </label>
-
-                    <label>
                         Estrelas
                         <select>
                             <option value="1">1</option>
