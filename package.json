@@ -14,7 +14,6 @@
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
-    "@rollup/rollup-darwin-arm64": "^4.24.0",
     "axios": "^1.7.5",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
