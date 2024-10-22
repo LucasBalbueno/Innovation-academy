@@ -100,19 +100,13 @@ const MenuIcon = styled.button`
   padding: 0;
 `;
 
-function Header({ setIsSidebarOpen, setIsPopupProfileOpen, setIsPopUpIntensiveOpen }) {
+function Header({ setIsSidebarOpen, setIsPopupProfileOpen }) {
   const toggleSidebar = () => {
     setIsSidebarOpen(prev => !prev); // Alterna o estado
   };
 
   const handlePopupProfile = () => {
     setIsPopupProfileOpen(prev => !prev)
-    setIsPopUpIntensiveOpen(false);
-  }
-
-  const handlePopupIntensive = () => {
-    setIsPopUpIntensiveOpen(prev => !prev);
-    setIsPopupProfileOpen(false);
   }
 
   return (
@@ -125,7 +119,7 @@ function Header({ setIsSidebarOpen, setIsPopupProfileOpen, setIsPopUpIntensiveOp
       </DivOne>
 
       <DivTwo>
-        <Score onClick={handlePopupIntensive}><FaFire style={{ background: 'transparent' }} size={20} color='var(--contrast-color)' /><Painel>0</Painel></Score>
+        <Score><FaFire style={{ background: 'transparent' }} size={20} color='var(--contrast-color)' /><Painel>0</Painel></Score>
         <Profile onClick={handlePopupProfile}>
           <img
             src={profileIcon}

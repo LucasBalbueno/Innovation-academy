@@ -7,12 +7,10 @@ import '../../../Styles/Global.css';
 import '../../../Styles/Grid-Tamplate.css';
 
 import { PopupProfile } from '../../Layout/PopupProfile';
-import { PopupIntensive } from '../../Layout/PopupIntensive'
 
 function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [ isPopUpProfileOpen, setIsPopUpProfileOpen ] = useState(false);
-  const [ isPopUpIntensiveOpen, setIsPopUpIntensiveOpen ] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -28,11 +26,10 @@ function Home() {
   return (
     <>
       <div className={`home-container ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
-        <Header setIsSidebarOpen={setIsSidebarOpen} setIsPopupProfileOpen={setIsPopUpProfileOpen} setIsPopUpIntensiveOpen={setIsPopUpIntensiveOpen} />
+        <Header setIsSidebarOpen={setIsSidebarOpen} setIsPopupProfileOpen={setIsPopUpProfileOpen} />
         <Sidebar isOpen={isSidebarOpen} />
         <div className={`content ${isSidebarOpen ? 'content-shifted' : ''}`}>
           <PopupProfile isPopUpProfileOpen={isPopUpProfileOpen}/>
-          <PopupIntensive isPopUpIntensiveOpen={isPopUpIntensiveOpen} />
           <Outlet />
         </div>
       </div>
