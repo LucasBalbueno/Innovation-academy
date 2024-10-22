@@ -2,12 +2,12 @@ import '../../../Styles/Global.css'
 import styled from 'styled-components';
 
 const GreenBtn = styled.button ` 
-    background-color: RGB(10, 189, 98);
+    background-color: var(--contrast-color);
     border: none;
     padding: 3%;
-    font-family: "Poppins", sans-serif;
+    font-family: var(--font-poopins);
     margin-bottom: 5%;
-    color: white;
+    color: var(--text-color);
     border-radius: 5px 5px 5px;
     font-size: 15px;
     transition: 0.3s ease;
@@ -15,7 +15,7 @@ const GreenBtn = styled.button `
 
     &:hover {
         cursor: pointer;
-        background-color: rgb(23, 155, 87);
+        background-color: var(--contrast-color-hover);
     } 
     `;
 

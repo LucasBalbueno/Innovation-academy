@@ -1,8 +1,8 @@
 .layout {
-    font-family: "Poppins", sans-serif;
-    background: #121214;
+    font-family: var(--font-poopins);
+    background: var(--main-color);
     height: auto;
-    color: white;
+    color: var(--text-color);
     padding: 50px 0;
   
     @media screen and (max-width: 991px) {
@@ -42,7 +42,7 @@
 
 p, h3{
     margin-top: 5px;
-    color: whitesmoke;
+    color: var(--text-color);
 }
 
 p a{
@@ -51,18 +51,17 @@ p a{
 
 .button{
     text-decoration: none;
-    border: 1px solid whitesmoke;
+    border: 1px solid var(--text-color);
     border-radius: 7px;
-    background-color: #222226;
-    color: whitesmoke;
+    background-color: var(--main-color);
+    color: var(--text-color);
     padding: 2px 3px;
     transition: 1s;
 }
 
 .button:hover{
-    background-color: #00FF7E;
-    color: #222226;
+    background-color: var(--contrast-color);
+    color: var(--main-color);
     letter-spacing: 3px;
     transform: scale(1.5);
 }
-

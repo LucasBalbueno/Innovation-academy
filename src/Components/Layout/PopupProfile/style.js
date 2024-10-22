@@ -26,7 +26,7 @@ export const Container = styled.div`
             h4 {
                 font-size: 24px;
                 text-transform: capitalize;
-                color: white;
+                color: var(--text-color);
                 margin: 0;
             }
             
@@ -56,10 +56,11 @@ export const Container = styled.div`
             p {
                 font-size: 20px;
                 margin: 0;
+                color: var(--text-color);
             }
 
             .exitText {
-                color: #FF4040;
+                color: var(--text-red);
             }
         }
     }
@@ -92,7 +93,7 @@ export const StyledViewProfileLink = styled(Link)`
     border-radius: 15px;
 
     font-size: 15px;
-    color: white;
+    color: var(--text-color);
     text-decoration: none;
     text-transform: uppercase;
 `;

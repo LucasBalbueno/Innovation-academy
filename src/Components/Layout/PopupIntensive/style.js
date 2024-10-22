@@ -10,7 +10,7 @@ export const Container = styled.div`
     right: 7%;
     z-index: 2;
 
-    color: white;
+    color: var(--text-color);
     display: flex;
     align-items: center;
     justify-content: center;

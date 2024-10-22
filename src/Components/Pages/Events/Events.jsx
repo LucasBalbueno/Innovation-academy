@@ -47,7 +47,7 @@ function Events() {
             <h3>{event.name}</h3>
             <p>Data: {event.date}</p>
             <p>Acesse o evento online:</p>
-            <Button className="btn-success">
+            <Button style={{backgroundColor: 'var(--contrast-color)', color: 'var(--text-color)'}}>
               <NavItem href={event.link} target="_blank" rel="noopener noreferrer" className="m-0">Clique aqui</NavItem>
             </Button>
           </NavItem>

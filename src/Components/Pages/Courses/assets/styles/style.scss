@@ -2,9 +2,10 @@
 
 .layout {
   font-family: "Poppins", sans-serif;
-  background: #121214;
+  // background: var(--background-color);
+  background: var(--main-color);
   height: auto;
-  color: white;
+  color: var(--text-color);
   padding: 50px 0;
 
   @media screen and (max-width: 991px) {
@@ -22,7 +23,7 @@
 
   h3 {
     font-size: 1rem;
-    color: #fff;
+    color: var(--text-color);
 
     @media screen and (max-width: 991px) {
       font-size: 0.8rem;
@@ -30,8 +31,8 @@
   }
 
   .form-input {
-    background: #222226;
-    color: #fff;
+    background: var(--background-color);
+    color: var(--text-color);
     border: 0;
     width: 100%;
     border-radius: 5px;
@@ -40,7 +41,7 @@
   }
 
   .form-input::placeholder {
-    color: #fff;
+    color: var(--text-color);
   }
 
   .container-card {
@@ -52,6 +53,10 @@
     margin-top: 60px;
     white-space: nowrap;
     scroll-behavior: smooth;
+
+    .cardFooter-text {
+      color: var(--text-color);
+    }
 
     @media screen and (max-width: 1071px){
       height: 150px;
@@ -71,7 +76,7 @@
         width: 60px;
         height: 60px;
         border-radius: 5px;
-        background: #222226;
+        background: var(--background-color);
         transition: all 0.3s ease-in-out;
         display: flex;
         align-items: center;
@@ -89,19 +94,19 @@
   }
 
   .container-card::-webkit-scrollbar-thumb {
-    background-color: #555;
+    background-color: var(--gray-color);
     border-radius: 10px;
-    border: 2px solid #222226;
+    border: 2px solid var(--background-color);
   }
 
   .container-card::-webkit-scrollbar-track {
-    background-color: #222226;
+    background-color: var(--bacjground-color);
     border-radius: 10px;
   }
 
   .container-card {
     scrollbar-width: thin;
-    scrollbar-color: #555 #222226;
+    scrollbar-color: var(--gray-color) var(--background-color);
   }
 
   .recent-access {
@@ -122,7 +127,7 @@
       .recent-access-card {
         border-radius: 15px;
         width: 48%;
-        background: #29292A;
+        background: var(--background-color);
         padding: 10px;
 
         @media screen and (max-width: 991px) {
@@ -150,7 +155,7 @@
           p {
             font-size: 0.8rem;
             margin: 0 0 20px;
-            color: #f5f5ffb7;
+            color: var(--gray-color);
 
             @media screen and (max-width: 991px) {
               font-size: 0.8rem;
@@ -160,7 +165,7 @@
           strong {
             font-weight: 400;
             font-size: 1.2rem;
-            color: #fff;
+            color: var(--text-color);
 
             @media screen and (max-width: 991px) {
               font-size: 1rem;
@@ -171,7 +176,7 @@
 
         .states {
           width: 80%;
-          background: #00FF7E;
+          background: var(--constrast-color);
           height: 3px;
           margin-right: 20px;
         }
@@ -203,7 +208,7 @@
       .courses-recomended-card {
         border-radius: 15px;
         width: 48%;
-        background: #29292A;
+        background: var(--background-color);
         padding: 10px;
         cursor: pointer;
 
@@ -227,7 +232,7 @@
           .btn-watch {
             background-color: #f0ad4e;
             border: none;
-            color: white;
+            color: var(--text-color);
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
@@ -259,7 +264,7 @@
           p {
             font-size: 0.8rem;
             margin: 0 0 20px;
-            color: #f5f5ffb7;
+            color: var(--gray-color);
 
             @media screen and (max-width: 991px) {
               font-size: 0.8rem;
@@ -269,7 +274,7 @@
           strong {
             font-weight: 400;
             font-size: 1.2rem;
-            color: #fff;
+            color: var(--text-color);
 
             @media screen and (max-width: 991px) {
               font-size: 1rem;
@@ -305,7 +310,7 @@
       .card-event {
         border-radius: 15px;
         width: 48%;
-        background: #29292A;
+        background: var(--background-color);
         padding: 10px;
 
         @media screen and (max-width: 1597px) {
@@ -346,13 +351,13 @@
           p {
             font-size: 0.8rem;
             margin: 0 0 20px;
-            color: #f5f5ffb7;
+            color: var(--gray-color);
           }
 
           strong {
             font-weight: 400;
             font-size: 1rem;
-            color: #fff;
+            color: var(--text-color);
             
             @media screen and (max-width: 991px) {
               font-size: 1rem;
@@ -363,7 +368,7 @@
       }
 
       a {
-        color: #00FF7E;
+        color: var(--contrast-color);
         font-size: 0.9rem;
 
         @media screen and (max-width: 991px) {

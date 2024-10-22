@@ -7,7 +7,7 @@ import { IoLogoFacebook } from "react-icons/io";
 import { IoLogoTwitter } from "react-icons/io";
 
 const Container = styled.div `
-background: #3d3d3dca;
+background: var(--gray-color);
 width: 100vw;
 height: 538px;
 display: flex;
@@ -41,7 +41,7 @@ gap: 24px;
 margin-bottom:40px;
 `
 const Name = styled.p`
-color: #f5f5ff;
+color: var(--text-color);
 font-size: 32px;
 font-family: var(--font-paytone-one);
 
@@ -50,13 +50,13 @@ font-family: var(--font-paytone-one);
   }
 `
 const Span = styled.span `
-color: #00ff7e;
+color: var(--contrast-color);
 `
 const BoxTwo = styled.div`
 width: 100%;
-background-color: #1e1e1e;
+background-color: var(--background-color);
 height: 120px;
-color: #ffff;
+color: var(--text-color);
 align-items: center;
 justify-content: center;
 display: flex;
@@ -87,7 +87,7 @@ height: 90px;
   }
 `
 const Subject = styled.p`
-color: #f5f5ff;
+color: var(--text-color);
 font-family: var(--font-poopins);
 font-weight: 600;
 `
@@ -102,7 +102,7 @@ const Box = styled.div `
 `
 const Itens = styled.li `
 list-style:none;
-color: #f5f5ff;
+color: var(--text-color);;
 font-family: var(--font-poopins);
 font-size: 16px;
 padding: 5px 0px;
@@ -133,14 +133,14 @@ gap: 24px;
   }
 `
 const RedesSociais = styled.a `
-color: #f5f5ff;
+color: var(--text-color);;
 `
 const Button = styled.button `
 border-radius: 30px;
-background-color: #20c997;
+background-color: var(--constrast-color);;
 padding: 10px 32px;
 border: none;
-color: #ffff;
+color: var(--text-color);;
 font-family: var(--font-poopins);
 font-weight: 500;
 

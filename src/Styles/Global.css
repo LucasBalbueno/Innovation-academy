@@ -2,10 +2,8 @@
     --font-paytone-one: "Paytone One", sans-serif;
     --font-poopins: "Poppins", sans-serif;
     --font-2P: "Press Start 2P", system-ui;
-    --main-color: #121214;
     --contrast-color: #00FF7E;
-    --background-color: #1E1E1E;
-    --gray-color: #3D3D3D;
+    --contrast-color-hover: #06d46d;
 }
 
 * {
@@ -15,7 +13,7 @@
 }
 
 body{
-    background: #121214;
+    background: var(--background-color);
     width: 100vw;
     height: auto;
     display: flex;
@@ -25,7 +23,7 @@ body{
 }
 
 h1 {
-    color: #fff;
+    color: var(--text-color);
 }
 
 a {
@@ -33,5 +31,5 @@ a {
 }
 
 a:hover {
-    color: white;
+    color: var(--text-color);
 }

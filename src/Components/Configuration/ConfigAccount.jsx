@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import '../../Styles/Global.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { ThemeContext } from '../../Context/ThemeContext';
 
 const Input = styled.input`
-  background: #1A1A1E;
-  color: #3D3D3D;
+  background: var(--background-color);
+  color: var(--gray-color);
   border: 0;
   max-width: 634px;
   border-radius: 5px;
@@ -12,8 +13,8 @@ const Input = styled.input`
 `
 
 const Select = styled.select`
-  background: #1A1A1E;
-  color: #00FF7E;
+  background: var(--background-color);
+  color: var(--contrast-color);
   text-align: center;
   border: 0;
   width: 100%;
@@ -23,19 +24,19 @@ const Select = styled.select`
 `
 
 const DarkContainer = styled.div`
-    background: #222226;
+    background: var(--main-color);
     border-radius: 5px;
     padding: 3rem;
 `
 
 const GreenBtn = styled.button ` 
-    background-color: #00FF7E;
+    background-color: var(--contrast-color);
     border: none;
     border-radius: 5px;
     height: 2.5rem;
     max-width: 10rem;
-    font-family: "Poppins", sans-serif;
-    color: #000;
+    font-family: var(--font-poopins);
+    color: var(--main-color);
     font-size: 16px;
     font-weight: 700;
     line-height: 24px;
@@ -44,13 +45,14 @@ const GreenBtn = styled.button `
 
     &:hover {
         cursor: pointer;
-        background-color: rgb(23, 155, 87);
+        background-color: var(--contrast-color-hover);
+        transition: all .5s;
     } 
 `
 
-
-
 function ConfigAccount() {
+    const { theme, handleThemeChange } = useContext(ThemeContext);
+
     const [preferences, setPreferences] = useState({
         theme: '1',
         textSize: '1',
@@ -78,7 +80,10 @@ function ConfigAccount() {
         ...preferences,
         [name]: value
         })
+    }
 
+    const handleThemeButton = (event) => {
+        handleThemeChange(event.target.value)
     }
 
     return (
@@ -113,9 +118,9 @@ function ConfigAccount() {
                             
                             <div className='col-lg-3 d-flex flex-column justify-content-center align-itens-center mt-5'>
                                 <label className='text-center'>Tema da Página</label>
-                                <Select id='theme' name='theme' value={preferences.theme} onChange={handleChange}>
-                                    <option value='1'>Escuro</option>
-                                    <option value='2'>Claro</option>
+                                <Select id='theme' name='theme' onChange={handleThemeButton}>
+                                    <option value='dark'>Escuro</option>
+                                    <option value='light'>Claro</option>
                                 </Select>
                             </div>
                             <div className='col-lg-3 d-flex flex-column justify-content-center align-itens-center mt-5'>

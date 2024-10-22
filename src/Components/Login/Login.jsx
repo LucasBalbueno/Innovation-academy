@@ -10,9 +10,9 @@ import FormCadastro from "../Register/FormCadastro"
 import FormLogin from "./FormLogin";
 
 const Body = styled.div`
-  color: white;
-  font-family: "Poppins", sans-serif;
-  background-color: RGB(18, 18, 20);
+  color: var(--text-color);
+  font-family: var(--font-poopins);
+  background-color: var(--main-color);
   overflow-x: hidden;
   overflow-y: scroll;
   height: 100vh;
@@ -35,7 +35,7 @@ const Box1 = styled.div`
   width: 60%;
   justify-content: center;
   align-items: center;
-  background-color: RGB(18, 18, 20);
+  background-color: var(--main-color);
   transition: transform 0.5s ease-in-out;
 
   ${({ move }) =>
@@ -56,9 +56,9 @@ const Box2 = styled.div`
   display: flex;
   flex-direction: column;
   padding: 5%;
-  background-color: white;
+  background-color: var(--text-color);
   width: 40%;
-  background-color: RGB(26, 26, 30);
+  background-color: var(--background-color);
   transition: transform 0.5s ease-in-out;
 
   ${({ move }) =>
@@ -99,12 +99,12 @@ const ImgIconLogin = styled.img`
 `;
 
 const GoChevronRightStyled = styled(GoChevronRight)`
-  color: RGB(10, 189, 98);
+  color: var(--contrast-color);
   transition: 0.3s ease;
 `;
 
 const DivBtnInscrever = styled.div`
-  background-color: RGB(42, 42, 44);
+  background-color: var(--main-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -133,7 +133,7 @@ const BtnInscreverLeft = styled.div`
 `;
 
 const SeInscreva = styled.span`
-  color: RGB(10, 189, 98);
+  color: var(--contrast-color);
 `;
 
 function Login() {
