@@ -4,9 +4,15 @@ import { useState, useEffect } from 'react';
 import { Button, Nav, NavItem } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
+import Agenda from '../Schedule/Agenda';
+
 import "./events.scss"
-function Events() {
+function Events({onAddToCalendar}) {
   const [events, setEvents] = useState([]);
+  
+  const handleAdd = (newEvent) => {
+    setEvents([...events, {...newEvent,id:events.length + 1}]);
+  }
 
   useEffect(() => {
     // Simulação de eventos futuros com imagens
@@ -14,22 +20,31 @@ function Events() {
       {
         id: 1,
         image: "../src/Components/Pages/Events/assets/images/react.png",
-        name: "Workshop de React",
+        title: "Workshop de React",
+        description: 'Super evento com palestrar na Tecnopuc',
         date: "01/10/2024",
+        start: new Date(2024, 9, 1, 14, 0),
+        end: new Date(2024, 9, 1, 15, 0),
         link: "https://www.youtube.com.br"
       },
       {
         id: 2,
         image: "../src/Components/Pages/Events/assets/images/sql.png",
-        name: "SQL na prática",
+        title: "SQL na prática",
+        description: 'Super evento com palestrar na Tecnopuc',
         date: "15/10/2024",
+        start: new Date(2024, 9, 15, 14, 0),
+        end: new Date(2024, 9, 15, 15, 0),
         link: "https://www.youtube.com.br"
       },
       {
         id: 3,
         image: "../src/Components/Pages/Events/assets/images/inovacao.jpg",
-        name: "Inovação, Tecnologia, Tendências",
+        title: "Inovação, Tecnologia, Tendências",
+        description: 'Super evento com palestrar na Tecnopuc',
         date: "05/11/2024",
+        start: new Date(2024, 10, 5, 14, 0),
+        end: new Date(2024, 10, 5, 15, 0),
         link: "https://www.youtube.com.br"
       }
     ];
@@ -44,11 +59,14 @@ function Events() {
         {events.map(event => (
           <NavItem key={event.id}>
             <img src={event.image} alt={event.name} />
-            <h3>{event.name}</h3>
+            <h3>{event.title}</h3>
             <p>Data: {event.date}</p>
             <p>Acesse o evento online:</p>
             <Button style={{backgroundColor: 'var(--contrast-color)', color: 'var(--text-color)'}}>
               <NavItem href={event.link} target="_blank" rel="noopener noreferrer" className="m-0">Clique aqui</NavItem>
+            </Button>
+            <Button style={{backgroundColor: 'rgb(69, 69, 69)', color: 'var(--text-color)', marginLeft: '10px'}} onClick={()=> onAddToCalendar(event)}>
+              Incluir no calendario
             </Button>
           </NavItem>
         ))}
