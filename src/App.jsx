@@ -2,7 +2,7 @@ import Login from "./Components/Login/Login";
 import './Styles/Global.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Events from "./Components/Pages/Events/Events";
+// import Events from "./Components/Pages/Events/Events";
 import Agenda from "./Components/Pages/Schedule/Agenda";
 import Helper from "./Components/Pages/Helper/Helper";
 import UserProfile from "./Components/Pages/Profile/UserProfile";
@@ -33,7 +33,6 @@ function App() {
           <Route path="" element={<HomeContent />} />
           <Route path="feedbacks" element={<FeedbackForms />} />
           <Route path="cursos" element={<CoursesView />} />
-          <Route path="eventos" element={<Events />} />
           <Route path="agenda" element={<Agenda />} />
           <Route path="comunidade" element={<Community />} />
           <Route path="ajuda" element={<Helper />} />
