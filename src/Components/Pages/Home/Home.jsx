@@ -4,7 +4,7 @@ import Sidebar from "../../Layout/SideBar";
 import Header from "../../Layout/Header";
 import Footer from "../../Layout/Footer";
 import '../../../Styles/Global.css';
-import '../../../Styles/Grid-Tamplate.css';
+import '../../../Styles/Grid-Template.css';
 
 import { PopupProfile } from '../../Layout/PopupProfile';
 
@@ -31,10 +31,11 @@ function Home() {
         <div className={`content ${isSidebarOpen ? 'content-shifted' : ''}`}>
           <PopupProfile isPopUpProfileOpen={isPopUpProfileOpen} setIsPopupProfileOpen={setIsPopUpProfileOpen} />
           <Outlet />
+          
         </div>
       </div>
-      
       <Footer className="footer"/>
+      
     </>
   );
 }

@@ -48,7 +48,6 @@
 .footer {
   grid-area: footer; /* Adiciona a área do footer */
   background-color: var(--text-color);
-  padding: 10px;
   text-align: center;
   z-index: 1000; /* Garante que está acima do conteúdo */
 }
