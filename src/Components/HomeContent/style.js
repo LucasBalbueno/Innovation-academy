@@ -18,7 +18,7 @@ export const Container = styled.div`
 
 export const ContainerInitial = styled.div`
     h1 {
-        font-size: 32px;
+        font-size: calc(32px * var(--font-size-multiplier));
         color: var(--text-color);
     }
 
@@ -27,7 +27,7 @@ export const ContainerInitial = styled.div`
     }
 
     p {
-        font-size: 24px;
+        font-size: calc(24px * var(--font-size-multiplier));
         color: var(--text-color);
     }
 
@@ -73,7 +73,7 @@ export const Recents = styled.div`
         }
 
         p {
-            font-size: 16px;
+            font-size: calc(16px * var(--font-size-multiplier));
             color: var(--contrast-color);
             margin: 0;
         }
@@ -126,7 +126,7 @@ export const ContainerText = styled.div`
     }
 
     p {
-        font-size: 26px;
+        font-size: calc(26px * var(--font-size-multiplier));
         font-weight: 500;
         color: var(--text-color);
     }
@@ -190,7 +190,7 @@ export const ContainerFeedback = styled.div`
 
     .styledLinkFeedback {
         color: var(--contrast-color);
-        font-size: 20px;
+        font-size: calc(20px * var(--font-size-multiplier));
         align-self: center;
     }
 `;
@@ -213,7 +213,7 @@ export const EvaluationCard = styled.div`
         font-size: 15px;
         
         h3 {
-            font-size: 20px;
+            font-size: calc(20px * var(--font-size-multiplier));
             text-transform: capitalize;
             margin: 0;
         }

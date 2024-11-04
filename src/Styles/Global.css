@@ -4,6 +4,7 @@
     --font-2P: "Press Start 2P", system-ui;
     --contrast-color: #00FF7E;
     --contrast-color-hover: #06d46d;
+    --font-size-multiplier: 1;
 }
 
 * {
@@ -20,10 +21,48 @@ body{
     flex-direction: column;
     justify-content: center;
     overflow-y: hidden;
+    font-size: calc(16px * var(--font-size-multiplier)) !important;
 }
 
-h1 {
-    color: var(--text-color);
+p, span, div, label, input, select, button, a, li, td, th, 
+textarea, small, strong, em, pre, code {
+    font-size: calc(1rem * var(--font-size-multiplier)) !important;
+}
+
+h1, .h1 {
+    font-size: calc(2rem * var(--font-size-multiplier)) !important;
+}
+
+h2, .h2 {
+    font-size: calc(1.5rem * var(--font-size-multiplier)) !important;
+}
+
+h3, .h3 {
+    font-size: calc(1.3rem * var(--font-size-multiplier)) !important;
+}
+
+h4, .h4 {
+    font-size: calc(1.2rem * var(--font-size-multiplier)) !important;
+}
+
+h5, .h5 {
+    font-size: calc(1.1rem * var(--font-size-multiplier)) !important;
+}
+
+h6, .h6 {
+    font-size: calc(1rem * var(--font-size-multiplier)) !important;
+}
+
+/* Para elementos que precisam manter um tamanho específico */
+.fixed-size {
+    font-size: inherit !important;
+}
+
+/* Ajuste para ícones e elementos que não devem ser redimensionados */
+i[class*="fa-"], 
+i[class*="bi-"], 
+.material-icons {
+    font-size: inherit;
 }
 
 a {

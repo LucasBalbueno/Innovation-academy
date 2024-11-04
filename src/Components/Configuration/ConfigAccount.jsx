@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import '../../Styles/Global.css';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { ThemeContext } from '../../Context/ThemeContext';
 
 const Input = styled.input`
@@ -37,7 +37,7 @@ const GreenBtn = styled.button `
     max-width: 10rem;
     font-family: var(--font-poopins);
     color: var(--main-color);
-    font-size: 16px;
+    font-size: calc(16px * var(--font-size-multiplier));
     font-weight: 700;
     line-height: 24px;
     text-align: center;
@@ -57,7 +57,45 @@ function ConfigAccount() {
         theme: '1',
         textSize: '1',
         notifications: '1'
-    })
+    });
+
+    const handleChange = (e) => {
+        const {name, value} = e.target;
+
+        if (name === 'textSize') {
+            const root = document.documentElement;
+            switch (value) {
+                case '1':
+                    root.style.setProperty('--font-size-multiplier', '1');
+                    break;
+                case '2':
+                    root.style.setProperty('--font-size-multiplier', '1.2');
+                    break;
+                case '3':
+                    root.style.setProperty('--font-size-multiplier', '1.3');
+                    break;
+                default:
+                    root.style.setProperty('--font-size-multiplier', '1');
+            }
+            localStorage.setItem('textSize', value);
+        }
+
+        setPreferences({
+            ...preferences,
+            [name]: value
+        });
+    }
+
+    useEffect(() => {
+        const savedTextSize = localStorage.getItem('textSize');
+        if (savedTextSize) {
+            handleChange({ target: { name: 'textSize', value: savedTextSize } });
+            setPreferences(prev => ({
+                ...prev,
+                textSize: savedTextSize
+            }));
+        }
+    }, []);
 
     const profile = ({
         email:'example@email.com',
@@ -71,15 +109,6 @@ function ConfigAccount() {
 
     const changePassword = () => {
 
-    }
-
-    const handleChange = (e) => {
-        const {name, value} = e.target
-
-        setPreferences({
-        ...preferences,
-        [name]: value
-        })
     }
 
     const handleThemeButton = (event) => {
