@@ -261,15 +261,14 @@ function FormLogin() {
           <FaEyeCustom onClick={verSenha} />
         )}
       </InputContainer>
-      <EsqueciSenha onClick={() => setEsqueceuSenha(true)}>Esqueci minha senha</EsqueciSenha>
+      <EsqueciSenha onClick={() => setEsqueceuSenha(true)}>
+        Esqueci minha senha
+      </EsqueciSenha>
       {esqueceuSenha ? (
-          <PassRecoverModal 
-            setEsqueceuSenha={setEsqueceuSenha}
-          />
-        ):(
-          <div/>
-        )
-      }
+        <PassRecoverModal setEsqueceuSenha={setEsqueceuSenha} />
+      ) : (
+        <div />
+      )}
       <BtnEntar>Entrar</BtnEntar>
       <DivBtnGithub_Google>
         <span>Ou se preferir</span>
