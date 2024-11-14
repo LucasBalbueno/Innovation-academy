@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import '../../Styles/Global.css';
 import { useState, useContext, useEffect } from 'react';
 import { ThemeContext } from '../../Context/ThemeContext';
+import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const Input = styled.input`
   background: var(--background-color);
@@ -10,7 +12,7 @@ const Input = styled.input`
   max-width: 634px;
   border-radius: 5px;
   padding: 10px;
-`
+`;
 
 const Select = styled.select`
   background: var(--background-color);
@@ -21,34 +23,34 @@ const Select = styled.select`
   border-radius: 5px;
   padding: 1rem;
   margin-top: 1rem;
-`
+`;
 
 const DarkContainer = styled.div`
-    background: var(--main-color);
-    border-radius: 5px;
-    padding: 3rem;
-`
+  background: var(--main-color);
+  border-radius: 5px;
+  padding: 3rem;
+`;
 
-const GreenBtn = styled.button ` 
-    background-color: var(--contrast-color);
-    border: none;
-    border-radius: 5px;
-    height: 2.5rem;
-    max-width: 10rem;
-    font-family: var(--font-poopins);
-    color: var(--main-color);
-    font-size: calc(16px * var(--font-size-multiplier));
-    font-weight: 700;
-    line-height: 24px;
-    text-align: center;
-    transition: 0.3s ease;
+const GreenBtn = styled.button`
+  background-color: var(--contrast-color);
+  border: none;
+  border-radius: 5px;
+  height: 2.5rem;
+  max-width: 10rem;
+  font-family: var(--font-poopins);
+  color: var(--main-color);
+  font-size: calc(16px * var(--font-size-multiplier));
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  transition: 0.3s ease;
 
-    &:hover {
-        cursor: pointer;
-        background-color: var(--contrast-color-hover);
-        transition: all .5s;
-    } 
-`
+  &:hover {
+    cursor: pointer;
+    background-color: var(--contrast-color-hover);
+    transition: all .5s;
+  }
+`;
 
 function ConfigAccount() {
     const { theme, handleThemeChange } = useContext(ThemeContext);
@@ -56,11 +58,19 @@ function ConfigAccount() {
     const [preferences, setPreferences] = useState({
         theme: '1',
         textSize: '1',
-        notifications: '1'
+        notifications: '1',
     });
 
+    const [profile, setProfile] = useState({
+        email: '',
+        password: '',
+    });
+
+    const [isEditingEmail, setIsEditingEmail] = useState(false);
+    const [isEditingPassword, setIsEditingPassword] = useState(false);
+
     const handleChange = (e) => {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
 
         if (name === 'textSize') {
             const root = document.documentElement;
@@ -82,60 +92,114 @@ function ConfigAccount() {
 
         setPreferences({
             ...preferences,
-            [name]: value
+            [name]: value,
         });
-    }
+    };
 
     useEffect(() => {
         const savedTextSize = localStorage.getItem('textSize');
         if (savedTextSize) {
             handleChange({ target: { name: 'textSize', value: savedTextSize } });
-            setPreferences(prev => ({
+            setPreferences((prev) => ({
                 ...prev,
-                textSize: savedTextSize
+                textSize: savedTextSize,
             }));
         }
     }, []);
 
-    const profile = ({
-        email:'example@email.com',
-        password:'1234'
-    });
+    const changeEmail = async () => {
+        setIsEditingEmail(true);
+    };
 
+    const saveEmail = async () => {
+        try {
+            await axios.put('http://localhost:8080/api/user/update-email', { email: profile.email });
+            Swal.fire({
+                icon: 'success',
+                title: 'Email atualizado',
+                text: 'Seu email foi alterado com sucesso!',
+            });
+            setIsEditingEmail(false);
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'Não foi possível atualizar o email.',
+            });
+        }
+    };
 
-    const changeEmail = () => {
+    const changePassword = async () => {
+        setIsEditingPassword(true);
+    };
 
-    }
-
-    const changePassword = () => {
-
-    }
+    const savePassword = async () => {
+        try {
+            await axios.put('http://localhost:8080/api/user/update-password', { password: profile.password });
+            Swal.fire({
+                icon: 'success',
+                title: 'Senha atualizada',
+                text: 'Sua senha foi alterada com sucesso!',
+            });
+            setIsEditingPassword(false);
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'Não foi possível atualizar a senha.',
+            });
+        }
+    };
 
     const handleThemeButton = (event) => {
-        handleThemeChange(event.target.value)
-    }
+        handleThemeChange(event.target.value);
+    };
 
     return (
-        <>
-        <div className='container-fluid layout'>
-            <div className='container d-grid gap-5 p-3'>
-                
+        <div className="container-fluid layout">
+            <div className="container d-grid gap-5 p-3">
                 <div>
                     <h1>Dados de acesso</h1>
                     <DarkContainer>
-                        <div className='row d-flex justify-content-center align-items-end gap-3'>
-                            <div className='col-lg-6 d-flex flex-column'>
-                                <label className='px-2'>Email</label>
-                                <Input type="email" name='email' disabled value={profile.email}/>
+                        <div className="row d-flex justify-content-center align-items-end gap-3">
+                            <div className="col-lg-6 d-flex flex-column">
+                                <label className="px-2">Email</label>
+                                {isEditingEmail ? (
+                                    <Input
+                                        type="email"
+                                        name="email"
+                                        value={profile.email}
+                                        onChange={(e) => setProfile({ ...profile, email: e.target.value })}
+                                    />
+                                ) : (
+                                    <Input type="email" name="email" disabled value={profile.email} />
+                                )}
                             </div>
-                            <GreenBtn className='col-lg-6' onClick={changeEmail}>Alterar</GreenBtn>
+                            {isEditingEmail ? (
+                                <GreenBtn className="col-lg-6" onClick={saveEmail}>Salvar</GreenBtn>
+                            ) : (
+                                <GreenBtn className="col-lg-6" onClick={changeEmail}>Alterar</GreenBtn>
+                            )}
                         </div>
-                        <div className='row d-flex justify-content-center align-items-end mt-3 gap-3'>
-                            <div className='col-lg-6 d-flex flex-column'>
-                                <label className='px-2'>Senha</label>
-                                <Input type="password" name='password' disabled value={profile.password}/>
+                        <div className="row d-flex justify-content-center align-items-end mt-3 gap-3">
+                            <div className="col-lg-6 d-flex flex-column">
+                                <label className="px-2">Senha</label>
+                                {isEditingPassword ? (
+                                    <Input
+                                        type="password"
+                                        name="password"
+                                        value={profile.password}
+                                        onChange={(e) => setProfile({ ...profile, password: e.target.value })}
+                                    />
+                                ) : (
+                                    <Input type="password" name="password" disabled value={profile.password} />
+                                )}
                             </div>
-                            <GreenBtn onClick={changePassword}>Alterar</GreenBtn>
+                            {isEditingPassword ? (
+                                <GreenBtn onClick={savePassword}>Salvar</GreenBtn>
+                            ) : (
+                                <GreenBtn onClick={changePassword}>Alterar</GreenBtn>
+                            )}
                         </div>
                     </DarkContainer>
                 </div>
@@ -143,38 +207,45 @@ function ConfigAccount() {
                 <div>
                     <h1>Preferências de página</h1>
                     <DarkContainer>
-                        <div className='row d-flex justify-content-center align-items-center gap-3'>
-                            
-                            <div className='col-lg-3 d-flex flex-column justify-content-center align-itens-center mt-5'>
-                                <label className='text-center'>Tema da Página</label>
-                                <Select id='theme' name='theme' onChange={handleThemeButton}>
-                                    <option value='dark'>Escuro</option>
-                                    <option value='light'>Claro</option>
+                        <div className="row d-flex justify-content-center align-items-center gap-3">
+                            <div className="col-lg-3 d-flex flex-column justify-content-center align-itens-center mt-5">
+                                <label className="text-center">Tema da Página</label>
+                                <Select id="theme" name="theme" onChange={handleThemeButton}>
+                                    <option value="dark">Escuro</option>
+                                    <option value="light">Claro</option>
                                 </Select>
                             </div>
-                            <div className='col-lg-3 d-flex flex-column justify-content-center align-itens-center mt-5'>
-                                <label className='text-center'>Tamanho do texto</label>
-                                <Select id='textSize' name='textSize' value={preferences.textSize} onChange={handleChange}>
-                                    <option value='1'>Padrão</option>
-                                    <option value='2'>120%</option>
-                                    <option value='3'>130%</option>
+                            <div className="col-lg-3 d-flex flex-column justify-content-center align-itens-center mt-5">
+                                <label className="text-center">Tamanho do texto</label>
+                                <Select
+                                    id="textSize"
+                                    name="textSize"
+                                    value={preferences.textSize}
+                                    onChange={handleChange}
+                                >
+                                    <option value="1">Padrão</option>
+                                    <option value="2">120%</option>
+                                    <option value="3">130%</option>
                                 </Select>
                             </div>
-                            <div className='col-lg-3 d-flex flex-column justify-content-center align-itens-center mt-5'>
-                                <label className='text-center'>Notificações</label>
-                                <Select id='notifications' name='notifications' value={preferences.notifications} onChange={handleChange}>
-                                    <option value='1'>Sempre</option>
-                                    <option value='2'>Nunca</option>
+                            <div className="col-lg-3 d-flex flex-column justify-content-center align-itens-center mt-5">
+                                <label className="text-center">Notificações</label>
+                                <Select
+                                    id="notifications"
+                                    name="notifications"
+                                    value={preferences.notifications}
+                                    onChange={handleChange}
+                                >
+                                    <option value="1">Sempre</option>
+                                    <option value="2">Nunca</option>
                                 </Select>
                             </div>
                         </div>
                     </DarkContainer>
                 </div>
-
             </div>
         </div>
-        </>
-    )
+    );
 }
 
-export default ConfigAccount
+export default ConfigAccount;

@@ -72,7 +72,7 @@ function UserProfile() {
     e.preventDefault();
 
     try {
-      const response = await axios.put('/api/user/update', profile);
+      const response = await axios.put('http://localhost:8080/api/user/update', profile);
       Swal.fire({
         title: 'Sucesso!',
         text: 'Perfil atualizado com sucesso.',
@@ -91,7 +91,7 @@ function UserProfile() {
 
   const fetchUserData = async () => {
     try {
-      const response = await axios.get('/api/user/profile');
+      const response = await axios.get('http://localhost:8080/api/user/profile');
       setProfile(response.data);
     } catch (error) {
       Swal.fire({
