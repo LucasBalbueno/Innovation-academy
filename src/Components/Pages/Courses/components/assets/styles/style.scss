@@ -4,7 +4,7 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
     background-color: var(--main-color);
     padding: 20px;
     height: 100%;
-    color: var(--text-color);
+    color: white; 
     box-sizing: border-box;
 
     .bar {
@@ -80,6 +80,7 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
                 color: var(--text-color);
                 font-size: 1.1rem;
                 text-align: justify;
+                
             }
 
             .profile {
