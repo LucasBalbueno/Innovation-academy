@@ -1,55 +1,32 @@
-import '../../../Styles/Global.css'
-
+import '../../../Styles/Global.css';
 import { useState, useEffect } from 'react';
 import { Button, Nav, NavItem } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-
 import Agenda from '../Schedule/Agenda';
+import "./events.scss";
 
-import "./events.scss"
-function Events({onAddToCalendar}) {
+function Events({ onAddToCalendar }) {
   const [events, setEvents] = useState([]);
-  
+
   const handleAdd = (newEvent) => {
-    setEvents([...events, {...newEvent,id:events.length + 1}]);
-  }
+    setEvents([...events, { ...newEvent, id: events.length + 1 }]);
+  };
 
   useEffect(() => {
-    // Simulação de eventos futuros com imagens
-    const upcomingEvents = [
-      {
-        id: 1,
-        image: "../src/Components/Pages/Events/assets/images/react.png",
-        title: "Workshop de React",
-        description: 'Super evento com palestrar na Tecnopuc',
-        date: "01/10/2024",
-        start: new Date(2024, 9, 1, 14, 0),
-        end: new Date(2024, 9, 1, 15, 0),
-        link: "https://www.youtube.com.br"
-      },
-      {
-        id: 2,
-        image: "../src/Components/Pages/Events/assets/images/sql.png",
-        title: "SQL na prática",
-        description: 'Super evento com palestrar na Tecnopuc',
-        date: "15/10/2024",
-        start: new Date(2024, 9, 15, 14, 0),
-        end: new Date(2024, 9, 15, 15, 0),
-        link: "https://www.youtube.com.br"
-      },
-      {
-        id: 3,
-        image: "../src/Components/Pages/Events/assets/images/inovacao.jpg",
-        title: "Inovação, Tecnologia, Tendências",
-        description: 'Super evento com palestrar na Tecnopuc',
-        date: "05/11/2024",
-        start: new Date(2024, 10, 5, 14, 0),
-        end: new Date(2024, 10, 5, 15, 0),
-        link: "https://www.youtube.com.br"
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/api/events');
+        if (!response.ok) {
+          throw new Error('Erro ao buscar eventos');
+        }
+        const data = await response.json();
+        setEvents(data);
+      } catch (error) {
+        console.error('Erro ao buscar eventos:', error);
       }
-    ];
+    };
 
-    setEvents(upcomingEvents);
+    fetchEvents();
   }, []);
 
   return (
@@ -62,11 +39,11 @@ function Events({onAddToCalendar}) {
             <h3>{event.title}</h3>
             <p>Data: {event.date}</p>
             <p>Acesse o evento online:</p>
-            <Button style={{backgroundColor: 'var(--contrast-color)', color: 'var(--text-color)'}}>
-              <NavItem href={event.link} target="_blank" rel="noopener noreferrer" className="m-0">Clique aqui</NavItem>
+            <Button style={{ backgroundColor: 'var(--contrast-color)', color: 'var(--text-color)' }}>
+              <NavLink href={event.link} target="_blank" rel="noopener noreferrer" className="m-0">Clique aqui</NavLink>
             </Button>
-            <Button style={{backgroundColor: 'rgb(69, 69, 69)', color: 'var(--text-color)', marginLeft: '10px'}} onClick={()=> onAddToCalendar(event)}>
-              Incluir no calendario
+            <Button style={{ backgroundColor: 'rgb(69, 69, 69)', color: 'var(--text-color)', marginLeft: '10px' }} onClick={() => onAddToCalendar(event)}>
+              Incluir no calendário
             </Button>
           </NavItem>
         ))}
