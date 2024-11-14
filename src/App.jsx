@@ -10,6 +10,7 @@ import Agenda from "./Components/Pages/Schedule/Agenda";
 import ConfigAccount from "./Components/Configuration/ConfigAccount";
 import { FeedbackForms } from "./Components/HomeContent/FeedbackForms";
 import CoursesView from "./Components/Pages/Courses/CoursesView";
+import UserProfile from "./Components/Pages/Profile/UserProfile";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="agenda" element={<Agenda />} />
           <Route path="comunidade" element={<Community />} />
           <Route path="config" element={<ConfigAccount />} />
+          <Route path="profile" element={<UserProfile />} />
         </Route>
       </Routes>
     </Router>
