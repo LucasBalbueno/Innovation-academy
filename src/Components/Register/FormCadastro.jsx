@@ -6,6 +6,7 @@ import quebraLinha from "../Login/assets/quebra-linha.png";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import "@fontsource/poppins";
+import axios from "axios";
 
 const DivLogo = styled.div`
   height: auto;
@@ -160,7 +161,7 @@ const BtnGithub = styled.button`
 
   &:hover {
     cursor: pointer;
-    background-color: var(--gray-color)
+    background-color: var(--gray-color);
   }
 
   &:hover ${IconeGithub} {
@@ -227,7 +228,7 @@ function FormCadastro() {
     }
   };
 
-  const criarConta = () => {
+  const criarConta = async () => {
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     setErroNomeCompleto("");
     setErroNomeUsuario("");
@@ -261,8 +262,18 @@ function FormCadastro() {
       setErroSenhaRepitida("As senhas não são iguais!");
       return;
     }
-    alert("Usuário cadastrado");
-
+    try {
+      const response = await axios.post("http://localhost:8080/api/users", {
+        name: nomeCompleto,
+        username: nomeUsuario,
+        email: email,
+        password: senha,
+      });
+      alert("Cadastro realizado com sucesso!");
+    } catch (error) {
+      console.log(error);
+      alert("Ocorreu um erro ao tentar fazer o cadastro.");
+    }
     setNomeCompleto("");
     setNomeUsuario("");
     setEmail("");

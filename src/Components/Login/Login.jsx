@@ -1,4 +1,4 @@
-import '../../Styles/Global.css'
+import "../../Styles/Global.css";
 
 import styled from "styled-components";
 import { useState } from "react";
@@ -6,8 +6,8 @@ import logo from "./assets/Logo.png";
 import boracodar from "./assets/boracodar.png";
 import iconLogin from "./assets/icon-login.png";
 import { GoChevronRight } from "react-icons/go";
-import FormCadastro from "../Register/FormCadastro"
-import FormLogin from './FormLogin'
+import FormCadastro from "../Register/FormCadastro";
+import FormLogin from "./FormLogin";
 
 const Body = styled.div`
   color: var(--text-color);
@@ -48,8 +48,6 @@ const Box1 = styled.div`
   @media screen and (max-width: 768px) {
     display: none;
   }
-
-
 `;
 
 const Box2 = styled.div`
