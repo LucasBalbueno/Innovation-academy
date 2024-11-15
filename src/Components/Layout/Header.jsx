@@ -1,10 +1,10 @@
-import { useState } from 'react'; // Import useState para controlar o estado
-import { FaBars } from 'react-icons/fa';
+import { useState } from "react"; // Import useState para controlar o estado
+import { FaBars } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
-import styled from 'styled-components';
+import styled from "styled-components";
 import { FaFire } from "react-icons/fa";
-import '../../Styles/Global.css';
-import profileIcon from './Images/Perfil-Avatar/avatar-1.jpg'
+import "../../Styles/Global.css";
+import profileIcon from "./Images/Perfil-Avatar/avatar-1.jpg";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -19,10 +19,9 @@ const HeaderContainer = styled.header`
   height: 100px;
   box-sizing: border-box;
 
-  @media screen and (max-width: 767px){
-      padding: 10px;
+  @media screen and (max-width: 767px) {
+    padding: 10px;
   }
-
 `;
 
 const DivOne = styled.div`
@@ -32,8 +31,8 @@ const DivOne = styled.div`
   padding-left: 2rem;
   align-items: center;
 
-  @media screen and (max-width: 991px){
-      padding-left: 0;
+  @media screen and (max-width: 991px) {
+    padding-left: 0;
   }
 `;
 
@@ -43,8 +42,8 @@ const H1 = styled.h1`
   background: transparent;
   margin: 0;
 
-   @media screen and (max-width: 767px){
-      font-size: 1rem;
+  @media screen and (max-width: 767px) {
+    font-size: 1rem;
   }
 `;
 
@@ -60,8 +59,8 @@ const DivTwo = styled.div`
   align-items: center;
   padding-right: 1rem;
 
-   @media screen and (max-width: 991px){
-      padding-right: 0;
+  @media screen and (max-width: 991px) {
+    padding-right: 0;
   }
 `;
 
@@ -69,8 +68,7 @@ const Profile = styled.button`
   background: transparent;
   border: none;
 
-    @media screen and (max-width: 767px){
-    display: none;
+  @media screen and (max-width: 767px) {
   }
 `;
 
@@ -102,12 +100,12 @@ const MenuIcon = styled.button`
 
 function Header({ setIsSidebarOpen, setIsPopupProfileOpen }) {
   const toggleSidebar = () => {
-    setIsSidebarOpen(prev => !prev); // Alterna o estado
+    setIsSidebarOpen((prev) => !prev); // Alterna o estado
   };
 
   const handlePopupProfile = () => {
-    setIsPopupProfileOpen(prev => !prev)
-  }
+    setIsPopupProfileOpen((prev) => !prev);
+  };
 
   return (
     <HeaderContainer>
@@ -115,22 +113,31 @@ function Header({ setIsSidebarOpen, setIsPopupProfileOpen }) {
         <MenuIcon onClick={toggleSidebar}>
           <FaBars />
         </MenuIcon>
-        <H1>IAacademy <Span>Premium</Span></H1>
+        <H1>
+          IAacademy <Span>Premium</Span>
+        </H1>
       </DivOne>
 
       <DivTwo>
-        <Score><FaFire style={{ background: 'transparent' }} size={20} color='var(--contrast-color)' /><Painel>0</Painel></Score>
+        <Score>
+          <FaFire
+            style={{ background: "transparent" }}
+            size={20}
+            color="var(--contrast-color)"
+          />
+          <Painel>0</Painel>
+        </Score>
         <Profile onClick={handlePopupProfile}>
           <img
             src={profileIcon}
             alt="Profile"
             style={{
-              borderRadius: '50%',
-              width: '50px',
-              border: '5px solid #00FF7E'
-            }} />
+              borderRadius: "50%",
+              width: "50px",
+              border: "5px solid #00FF7E",
+            }}
+          />
         </Profile>
-
       </DivTwo>
     </HeaderContainer>
   );
