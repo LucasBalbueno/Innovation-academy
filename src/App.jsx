@@ -10,6 +10,7 @@ import Agenda from "./Components/Pages/Schedule/Agenda";
 import ConfigAccount from "./Components/Configuration/ConfigAccount";
 import { FeedbackForms } from "./Components/HomeContent/FeedbackForms";
 import CoursesView from "./Components/Pages/Courses/CoursesView";
+import UserProfile from "./Components/Pages/Profile/UserProfile";
 import CourseCSSView from "./Components/Pages/Courses/components/CSS/CourseCSSView";
 import CourseHTMLView from "./Components/Pages/Courses/components/HTML/CourseHTMLView";
 import CourseJavaView from "./Components/Pages/Courses/components/JAVA/CourseJavaView";
@@ -18,6 +19,7 @@ import CourseNodeView from "./Components/Pages/Courses/components/NODEJS/CourseN
 import CoursePythonView from "./Components/Pages/Courses/components/PYTHON/CoursePythonView";
 import CourseReactView from "./Components/Pages/Courses/components/REACTJS/CourseReactView";
 import CourseSASSView from "./Components/Pages/Courses/components/SASS/CourseSASSView";
+
 
 function App() {
   return (
@@ -40,6 +42,7 @@ function App() {
         <Route
           path="/home"
           element={
+
             <ProtectedRoute>
               <Home />
             </ProtectedRoute>
@@ -51,6 +54,7 @@ function App() {
           <Route path="agenda" element={<Agenda />} />
           <Route path="comunidade" element={<Community />} />
           <Route path="config" element={<ConfigAccount />} />
+          <Route path="profile" element={<UserProfile />} />
 
           <Route path="cursos/html" element={<CourseHTMLView />} />
           <Route path="cursos/css" element={<CourseCSSView />} />
