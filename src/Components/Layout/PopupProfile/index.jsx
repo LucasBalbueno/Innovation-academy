@@ -32,7 +32,6 @@ export function PopupProfile({ isPopUpProfileOpen, setIsPopupProfileOpen }) {
         const response = await axios.get(
           `http://localhost:8080/api/users/by-email?email=${decoded.sub}`
         );
-        console.log(response.data);
         setUsername(response.data.username);
         setName(response.data.name);
       } catch (error) {
