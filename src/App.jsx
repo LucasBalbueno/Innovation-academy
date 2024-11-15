@@ -29,16 +29,23 @@ function App() {
         <Route path="/" element={<Login />} />
 
         {/* Rota de recuperação de senha */}
-        <Route path="/login/password_recovery" element={<PasswordRecovery />} />
+        <Route
+          path="/login/password_recovery"
+          element={
+            <ProtectedRoute>
+              <PasswordRecovery />
+            </ProtectedRoute>
+          }
+        />
 
         {/* Rota Home com Outlet para páginas internas, protegida por ProtectedRoute */}
         <Route
           path="/home"
           element={
-            // <ProtectedRoute>
 
-            <Home />
-            // </ProtectedRoute>
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
           }
         >
           <Route path="" element={<HomeContent />} />
