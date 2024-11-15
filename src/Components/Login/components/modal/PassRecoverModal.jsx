@@ -9,9 +9,11 @@ const PassRecoverModal = ({ setEsqueceuSenha }) => {
 
   const redefinirSenha = async () => {
     try {
-      axios.post("http://localhost:8080/send-email", { email: email });
+      await axios.post("http://localhost:8080/send-email", { email: email });
       setEmailEnviado(true);
     } catch (error) {
+      alert("Ocorreu um erro ao enviar o email, tente novamente mais tarde!");
+      setEsqueceuSenha(false);
       console.error(error);
     }
   };

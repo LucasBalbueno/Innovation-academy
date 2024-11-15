@@ -19,14 +19,39 @@ import Banner5 from "./images/BannerNovidades2.png";
 import Banner6 from "./images/BannerNovidades3.png";
 import { FeedbackCard } from "./FeedbackCard";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { decodeJwt } from "jose";
+import { useNavigate } from "react-router-dom";
 
 function HomeContent() {
+  const [name, setName] = useState("");
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (token == null) {
+      navigate("/");
+      return;
+    }
+    (async () => {
+      try {
+        const decoded = decodeJwt(token);
+        const response = await axios.get(
+          `http://localhost:8080/api/users/by-email?email=${decoded.sub}`
+        );
+        setName(response.data.username);
+      } catch (error) {
+        console.log(error);
+        alert("Erro ao carregar os dados do usuario.");
+      }
+    })();
+  }, []);
   return (
     <>
       <Container>
         <ContainerInitial>
           <h1>
-            Olá <span>Pessoa</span>!
+            Olá <span>{name ? <>{name}</> : <>pessoa</>}</span>!
           </h1>
           <p>Cursos e materiais recentes</p>
           <div className="containerRecents">

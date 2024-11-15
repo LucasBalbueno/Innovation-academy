@@ -5,7 +5,9 @@ import quebraLinha from "./assets/quebra-linha.png";
 import iconeGoogle from "./assets/iconeGoogle.png";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
+import axios from "axios";
 import PassRecoverModal from "./components/modal/PassRecoverModal";
+import { useNavigate } from "react-router-dom";
 
 const DivLogo = styled.div`
   height: auto;
@@ -203,6 +205,7 @@ function FormLogin() {
   const [erroEmail, setErroEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erroSenha, setErroSenha] = useState("");
+  const navigate = useNavigate();
 
   const verSenha = () => {
     if (!mostrarSenha) {
@@ -212,7 +215,7 @@ function FormLogin() {
     }
   };
 
-  const entrar = () => {
+  const entrar = async () => {
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     setErroEmail("");
     setErroSenha("");
@@ -227,6 +230,18 @@ function FormLogin() {
     if (senha == "") {
       setErroSenha("Esse campo precisa ser preenchido!");
       return;
+    }
+
+    try {
+      const response = await axios.post("http://localhost:8080/auth/login", {
+        email: email,
+        password: senha,
+      });
+      localStorage.setItem("jwt", response.data);
+      navigate("/home");
+    } catch (error) {
+      alert("Usuário não cadastrado, verifique seus dados e tente novamente!");
+      console.log(error);
     }
   };
 
@@ -269,7 +284,7 @@ function FormLogin() {
       ) : (
         <div />
       )}
-      <BtnEntar>Entrar</BtnEntar>
+      <BtnEntar onClick={entrar}>Entrar</BtnEntar>
       <DivBtnGithub_Google>
         <span>Ou se preferir</span>
         <BtnGithub>

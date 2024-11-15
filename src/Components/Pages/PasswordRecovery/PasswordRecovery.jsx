@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useLocation, useNavigate } from "react-router-dom";
-import * as jwt_decode from "jwt-decode";
+import { useLocation } from "react-router-dom";
+import { decodeJwt } from "jose";
 
 const Body = styled.div`
   background-color: var(--main-color);
-  /* font-family: var(--font-poopins); */
   height: 100dvh;
   width: 100%;
   overflow: hidden;
@@ -83,45 +82,27 @@ function PasswordRecovery() {
   const [senhaIgual, setSenhaIgual] = useState("");
   const [erroSenhaIgual, setErroSenhaIgual] = useState("");
   const [senhaAlterada, setSenhaAlterada] = useState(false);
-  const [validToken, setValidToken] = useState(false);
+  const [validToken, setValidToken] = useState(true);
   const location = useLocation();
-  const navigate = useNavigate(); // Substitua useHistory por useNavigate
 
-  // Função para verificar se o token é válido
-  const verificarToken = async (token) => {
-    try {
-      const decoded = await jwt_decode(token);
-      const now = Date.now() / 1000; // Tempo atual em segundos
-      if (decoded.exp > now) {
-        return true;
-      } else {
-        return false;
-      }
-    } catch (e) {
-      return false;
-    }
-  };
-
-  // Extrair o token da URL
   useEffect(() => {
     const token = new URLSearchParams(location.search).get("token");
-    if (token) {
-      if (verificarToken(token)) {
-        setValidToken(true);
-      } else {
-        setValidToken(false);
-      }
+    const currentTime = Date.now() / 1000;
+    const decoded = decodeJwt(token);
+
+    if (decoded.exp < currentTime) {
+      setValidToken(false);
     }
   }, [location.search]);
 
   const alterarSenha = () => {
     setErroSenha("");
     setErroSenhaIgual("");
-    if (senha == "") {
+    if (senha === "") {
       setErroSenha("Campo obrigatório!");
       return;
     }
-    if (senhaIgual == "") {
+    if (senhaIgual === "") {
       setErroSenhaIgual("Campo obrigatório!");
       return;
     }
@@ -135,33 +116,27 @@ function PasswordRecovery() {
   return (
     <Body>
       <Content>
-        <Title>Altere sua senha</Title>
         {validToken ? (
-          senhaAlterada ? (
-            <p>Senha alterada, você ja pode fechar essa página</p>
-          ) : (
+          <>
+            <Title>Altere sua senha</Title>
             <InputContent>
               <LabelInput>Nova senha</LabelInput>
               <Input
                 type="password"
-                onChange={(event) => {
-                  setSenha(event.target.value);
-                }}
+                onChange={(event) => setSenha(event.target.value)}
               />
               <ErroSenha>{erroSenha}</ErroSenha>
               <LabelInput>Repita sua senha</LabelInput>
               <Input
                 type="password"
-                onChange={(event) => {
-                  setSenhaIgual(event.target.value);
-                }}
+                onChange={(event) => setSenhaIgual(event.target.value)}
               />
               <ErroSenha>{erroSenhaIgual}</ErroSenha>
               <Button type="button" onClick={alterarSenha}>
                 Alterar
               </Button>
             </InputContent>
-          )
+          </>
         ) : (
           <p>O tempo para alteração de senha expirou! Solicite um novo link.</p>
         )}
