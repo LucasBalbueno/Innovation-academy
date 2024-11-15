@@ -50,8 +50,9 @@ function HomeContent() {
     <>
       <Container>
         <ContainerInitial>
-          <h1>
-            Olá <span>{name ? <>{name}</> : <>pessoa</>}</span>!
+          <h1 className="fs-2">
+            Olá,{" "}
+            <span className="fs-2">{name ? <>{name}</> : <>pessoa</>}</span>!
           </h1>
           <p>Cursos e materiais recentes</p>
           <div className="containerRecents">
