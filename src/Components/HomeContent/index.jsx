@@ -1,4 +1,5 @@
 import "../../Styles/Global.css";
+import Swal from 'sweetalert2';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Carousel } from "react-bootstrap";
@@ -41,8 +42,12 @@ function HomeContent() {
         );
         setName(response.data.username);
       } catch (error) {
-        console.log(error);
-        alert("Erro ao carregar os dados do usuario.");
+        Swal.fire({
+          icon: 'error',
+          title: 'Erro!',
+          text: 'Erro ao carregar os dados do usuario.',
+          confirmButtonText: 'OK'
+        });
       }
     })();
   }, []);

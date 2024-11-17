@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import { decodeJwt } from "jose";
 import axios from "axios";
+import Swal from 'sweetalert2';
 import Loading from "../../assets/Loading";
 
 const Body = styled.div`
@@ -130,7 +131,12 @@ function PasswordRecovery() {
       setSenhaAlterada(true);
     } catch (error) {
       console.log(error);
-      alert("Não foi possível alterar a senha, tente novamente.");
+      Swal.fire({
+        icon: 'error',
+        title: 'Senha não alterada!',
+        text: 'Não foi possível alterar a senha, tente novamente.',
+        confirmButtonText: 'OK'
+      });
     }
   };
 

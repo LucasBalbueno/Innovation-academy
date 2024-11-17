@@ -3,6 +3,7 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { RiCloseLargeLine } from "react-icons/ri";
 import axios from "axios";
 import Loading from "../../../assets/Loading";
+import Swal from 'sweetalert2';
 
 const PassRecoverModal = ({ setEsqueceuSenha }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -16,7 +17,12 @@ const PassRecoverModal = ({ setEsqueceuSenha }) => {
       setIsLoading(false);
       setEmailEnviado(true);
     } catch (error) {
-      alert("Ocorreu um erro ao enviar o email, tente novamente mais tarde!");
+      Swal.fire({
+        icon: 'error',
+        title: 'Email não enviado!',
+        text: 'Ocorreu um erro ao enviar o email, tente novamente mais tarde!',
+        confirmButtonText: 'OK'
+      });
       setEsqueceuSenha(false);
       console.error(error);
     }
