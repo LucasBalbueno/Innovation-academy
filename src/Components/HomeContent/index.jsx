@@ -26,6 +26,11 @@ import { useNavigate } from "react-router-dom";
 
 function HomeContent() {
   const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [stars, setStars] = useState(0);
+  const [description, setDescription] = useState("");
+  const [feedbacks, setFeedbacks] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
     const token = localStorage.getItem("jwt");
@@ -39,10 +44,20 @@ function HomeContent() {
         const response = await axios.get(
           `http://localhost:8080/api/users/by-email?email=${decoded.sub}`
         );
-        setName(response.data.username);
+        setUsername(response.data.username);
+
+        const allFeedbacks = await axios.get(
+          "http://localhost:8080/api/feedbacks"
+        );
+        setFeedbacks(allFeedbacks.data);
       } catch (error) {
         console.log(error);
-        alert("Erro ao carregar os dados do usuario.");
+        Swal.fire({
+          icon: "error",
+          title: "Erro ao buscar os dados do usuário!",
+          text: "Infelizmente ocorreu um erro ao tentar buscar seus dados. Algumas funcionalidades do site não estarão funcionando corretamente.",
+          confirmButtonText: "Fechar",
+        });
       }
     })();
   }, []);
@@ -52,7 +67,10 @@ function HomeContent() {
         <ContainerInitial>
           <h1 className="fs-2">
             Olá,{" "}
-            <span className="fs-2">{name ? <>{name}</> : <>pessoa</>}</span>!
+            <span className="fs-2">
+              {username ? <>{username}</> : <>pessoa</>}
+            </span>
+            !
           </h1>
           <p>Cursos e materiais recentes</p>
           <div className="containerRecents">
@@ -114,12 +132,45 @@ function HomeContent() {
           <p>DEPOIMENTOS</p>
 
           <div className="groupCards">
-            <FeedbackCard />
-            <FeedbackCard />
-            <FeedbackCard />
-            <FeedbackCard />
-            <FeedbackCard />
-            <FeedbackCard />
+            {feedbacks.length === 0 ? (
+              <p style={{ color: "white" }}>
+                Ninguém realizou nenhuma avaliação até o momento.
+              </p>
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                  gap: "20px",
+                }}
+              >
+                {feedbacks.map((conteudo, index) => {
+                  if (conteudo.feedbackUsername === username) {
+                    return (
+                      <FeedbackCard
+                        key={index}
+                        name={conteudo.feedbackName}
+                        username={conteudo.feedbackUsername}
+                        description={conteudo.feedbackDescription}
+                        stars={conteudo.feedbackStars}
+                        myFeedback={true}
+                      />
+                    );
+                  } else {
+                    return (
+                      <FeedbackCard
+                        key={index}
+                        name={conteudo.feedbackName}
+                        username={conteudo.feedbackUsername}
+                        description={conteudo.feedbackDescription}
+                        stars={conteudo.feedbackStars}
+                      />
+                    );
+                  }
+                })}
+              </div>
+            )}
           </div>
 
           <div className="styledLinkContainer">

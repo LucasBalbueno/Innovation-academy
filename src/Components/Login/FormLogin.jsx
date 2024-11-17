@@ -240,7 +240,12 @@ function FormLogin() {
       localStorage.setItem("jwt", response.data);
       navigate("/home");
     } catch (error) {
-      alert("Usuário não cadastrado, verifique seus dados e tente novamente!");
+      Swal.fire({
+        icon: "error",
+        title: "Erro ao fazer o login!",
+        text: "Infelizmente ocorreu um erro ao tentar fazer o seu login. Verifique seu email e senha ou tente novamente mais tarde.",
+        confirmButtonText: "Fechar",
+      });
       console.log(error);
     }
   };

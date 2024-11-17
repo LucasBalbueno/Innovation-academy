@@ -94,7 +94,6 @@ function UserProfile() {
         const response = await axios.get(
           `http://localhost:8080/api/users/by-email?email=${decoded.sub}`
         );
-        console.log(response.data);
         setId(response.data.userId);
         setTechnologies(response.data.technologies);
         setPhone(response.data.numberPhone);
