@@ -272,17 +272,20 @@ function FormCadastro() {
       });
       Swal.fire({
         icon: "success",
-        title: "Cadastro realizado com sucesso!",
-        text: "Faça o login e aproveite todos os benefícios!",
-        confirmButtonText: "Fechar",
+        title: "Cadastro efetuado",
+        text: "Seu cadastro foi realizado com sucesso!",
+        confirmButtonText: "OK",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.reload();
+        }
       });
     } catch (error) {
-      console.log(error);
       Swal.fire({
         icon: "error",
-        title: "Erro ao cadastrar!",
-        text: "Infelizmente ocorreu um erro ao tentar fazer o cadastro. Tente novamente mais tarde.",
-        confirmButtonText: "Fechar",
+        title: "Usuário não cadastrado",
+        text: "Nome de usuário ou email já cadastrado! tente novamente com outras credenciais.",
+        confirmButtonText: "OK",
       });
     }
     setNomeCompleto("");

@@ -1,4 +1,5 @@
 import "../../Styles/Global.css";
+import Swal from "sweetalert2";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Carousel } from "react-bootstrap";
@@ -51,12 +52,11 @@ function HomeContent() {
         );
         setFeedbacks(allFeedbacks.data);
       } catch (error) {
-        console.log(error);
         Swal.fire({
           icon: "error",
-          title: "Erro ao buscar os dados do usuário!",
-          text: "Infelizmente ocorreu um erro ao tentar buscar seus dados. Algumas funcionalidades do site não estarão funcionando corretamente.",
-          confirmButtonText: "Fechar",
+          title: "Erro!",
+          text: "Erro ao carregar os dados do usuario.",
+          confirmButtonText: "OK",
         });
       }
     })();

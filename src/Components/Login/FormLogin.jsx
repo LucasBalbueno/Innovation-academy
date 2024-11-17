@@ -7,6 +7,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
 import PassRecoverModal from "./components/modal/PassRecoverModal";
+import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const DivLogo = styled.div`
@@ -242,11 +243,10 @@ function FormLogin() {
     } catch (error) {
       Swal.fire({
         icon: "error",
-        title: "Erro ao fazer o login!",
-        text: "Infelizmente ocorreu um erro ao tentar fazer o seu login. Verifique seu email e senha ou tente novamente mais tarde.",
-        confirmButtonText: "Fechar",
+        title: "Usuário não cadastrado",
+        text: "Seu usuário ainda não foi cadastrado, verifique seus dados e tente novamente!",
+        confirmButtonText: "OK",
       });
-      console.log(error);
     }
   };
 

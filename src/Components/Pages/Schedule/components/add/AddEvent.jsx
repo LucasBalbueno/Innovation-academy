@@ -1,6 +1,7 @@
 import { useState } from "react"
 import {Button, Form, Row, Col, Collapse} from 'react-bootstrap'
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import Swal from 'sweetalert2';
 
 function AddEvent({onAddEvent}){
     const [newEvent, setNewEvent] = useState({
@@ -30,7 +31,12 @@ function AddEvent({onAddEvent}){
             const endDate = new Date(newEvent.end);
 
             if(startDate > endDate){ 
-                alert('Data de inicio deve ser anterior a data de término')
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Verifique os dados!',
+                    text: 'Data de inicio deve ser anterior a data de término.',
+                    confirmButtonText: 'OK'
+                  });
                 return;
             }
             

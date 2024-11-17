@@ -5,6 +5,7 @@ import ConfigIcon from "../Images/Perfil-Avatar/ConfigIcon.png";
 import { useState, useEffect } from "react";
 import { decodeJwt } from "jose";
 import axios from "axios";
+import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
@@ -35,7 +36,12 @@ export function PopupProfile({ isPopUpProfileOpen, setIsPopupProfileOpen }) {
         setName(response.data.name);
       } catch (error) {
         console.log(error);
-        alert("Erro ao carregar os dados do usuario.");
+        Swal.fire({
+          icon: 'error',
+          title: 'Erro!',
+          text: 'Erro ao carregar os dados do usuario.',
+          confirmButtonText: 'OK'
+        });
       }
     })();
   }, []);
