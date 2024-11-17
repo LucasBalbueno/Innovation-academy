@@ -7,7 +7,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import "@fontsource/poppins";
 import axios from "axios";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 const DivLogo = styled.div`
   height: auto;
@@ -271,21 +271,21 @@ function FormCadastro() {
         password: senha,
       });
       Swal.fire({
-        icon: 'success',
-        title: 'Cadastro efetuado',
-        text: 'Seu cadastro foi realizado com sucesso!',
-        confirmButtonText: 'OK'
+        icon: "success",
+        title: "Cadastro efetuado",
+        text: "Seu cadastro foi realizado com sucesso!",
+        confirmButtonText: "OK",
       }).then((result) => {
-      if (result.isConfirmed) {
-        window.location.reload();
-      }
+        if (result.isConfirmed) {
+          window.location.reload();
+        }
       });
     } catch (error) {
       Swal.fire({
-        icon: 'error',
-        title: 'Usuário não cadastrado',
-        text: 'Nome de usuário ou email já cadastrado! tente novamente com outras credenciais.',
-        confirmButtonText: 'OK'
+        icon: "error",
+        title: "Usuário não cadastrado",
+        text: "Nome de usuário ou email já cadastrado! tente novamente com outras credenciais.",
+        confirmButtonText: "OK",
       });
     }
     setNomeCompleto("");
