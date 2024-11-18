@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import '../../Styles/Global.css';
-import { useState, useContext, useEffect } from 'react';
-import { ThemeContext } from '../../Context/ThemeContext';
+import { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { decodeJwt } from "jose";
@@ -54,18 +53,6 @@ const GreenBtn = styled.button`
 `;
 
 function ConfigAccount() {
-    const { theme, handleThemeChange } = useContext(ThemeContext);
-
-    const [ themeAPI, setThemeAPI ] = useState('DARK');
-    const [ textSize, setTextSize ] = useState('');
-    const [ notifications, setNotifications ] = useState('');
-
-
-    const [preferences, setPreferences] = useState({
-        theme: '1',
-        textSize: '1',
-        notifications: '1',
-    });
 
     const [profile, setProfile] = useState({
         email: '',
@@ -74,33 +61,6 @@ function ConfigAccount() {
 
     const [isEditingEmail, setIsEditingEmail] = useState(false);
     const [isEditingPassword, setIsEditingPassword] = useState(false);
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-
-        if (name === 'textSize') {
-            const root = document.documentElement;
-            switch (value) {
-                case '1':
-                    root.style.setProperty('--font-size-multiplier', '1');
-                    break;
-                case '2':
-                    root.style.setProperty('--font-size-multiplier', '1.2');
-                    break;
-                case '3':
-                    root.style.setProperty('--font-size-multiplier', '1.3');
-                    break;
-                default:
-                    root.style.setProperty('--font-size-multiplier', '1');
-            }
-            localStorage.setItem('textSize', value);
-        }
-
-        setPreferences({
-            ...preferences,
-            [name]: value,
-        });
-    };
 
     useEffect(() => {
         const savedTextSize = localStorage.getItem('textSize');
@@ -167,38 +127,28 @@ function ConfigAccount() {
             console.log(error);
         }
     }
+
     const handleThemeButton = async (event) => {
         const userData = await getUserData();
         if (event.target.value !== 'select') {
-            const responseUpdate = await axios.put(`http://localhost:8080/api/preferences/user/${userData.userId}`, {
-                theme: event.target.value.toUpperCase(),
-                textSize: "DEFAULT",
-                notification: "NEVER"
+            const responseUpdate = await axios.patch(`http://localhost:8080/api/preferences/user/${userData.userId}`, {
+                theme: event.target.value.toUpperCase()
             });
         }
         window.location.reload();
     };
+
+    const handleFontChange = async (event) => {
+        const userData = await getUserData();
         
-    useEffect(() => {
-        handleThemeChange(themeAPI === 'DARK' ? 'dark' : 'light');
-    }, [themeAPI]);
-    
-    useEffect(() => {
-        (async () => {
-            try {
-                const userData = await getUserData();
-                const responsePreferences = await axios.get(`http://localhost:8080/api/preferences/user/${userData.userId}`);
-                setThemeAPI(responsePreferences.data.theme);
-            } catch (error) {
-                Swal.fire({
-                icon: 'error',
-                title: 'Erro!',
-                text: 'Não foi possível carregar os dados do usuário.',
-                confirmButtonText: 'OK'
-                });
-            }
-        })();
-      }, []);
+        if (event.target.value !== 'select') {
+            const responseUpdate = await axios.patch(`http://localhost:8080/api/preferences/user/${userData.userId}`, {
+                textSize: event.target.value.toUpperCase()
+            });
+        }
+
+        window.location.reload();
+    };
 
     return (
         <div className="container-fluid layout">
@@ -266,12 +216,13 @@ function ConfigAccount() {
                                 <Select
                                     id="textSize"
                                     name="textSize"
-                                    value={preferences.textSize}
-                                    onChange={handleChange}
+                                    // value={preferences.textSize}
+                                    onChange={handleFontChange}
                                 >
-                                    <option value="1">Padrão</option>
-                                    <option value="2">120%</option>
-                                    <option value="3">130%</option>
+                                    <option value="select">Selecionar</option>
+                                    <option value="SMALL">Padrão</option>
+                                    <option value="DEFAULT">120%</option>
+                                    <option value="LARGE">130%</option>
                                 </Select>
                             </div>
                             <div className="col-lg-3 d-flex flex-column justify-content-center align-itens-center mt-5">
@@ -279,11 +230,12 @@ function ConfigAccount() {
                                 <Select
                                     id="notifications"
                                     name="notifications"
-                                    value={preferences.notifications}
-                                    onChange={handleChange}
+                                    // value={preferences.notifications}
+                                    // onChange={handleChange}
                                 >
-                                    <option value="1">Sempre</option>
-                                    <option value="2">Nunca</option>
+                                    <option value="select">Selecionar</option>
+                                    <option value="ALWAYS">Sempre</option>
+                                    <option value="NEVER">Nunca</option>
                                 </Select>
                             </div>
                         </div>

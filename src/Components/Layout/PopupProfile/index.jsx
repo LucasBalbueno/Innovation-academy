@@ -22,6 +22,7 @@ export function PopupProfile({ isPopUpProfileOpen, setIsPopupProfileOpen }) {
   const sair = () => {
     navigate("/");
     localStorage.clear();
+    window.location.reload();
   };
 
   useEffect(() => {
