@@ -270,6 +270,13 @@ function FormCadastro() {
         email: email,
         password: senha,
       });
+
+      const responsePreferences = await axios.post(`http://localhost:8080/api/preferences/user/${response.data.userId}`, {
+        theme: "DARK",
+        textSize: "DEFAULT",
+        notification: "ALWAYS"
+    });
+
       Swal.fire({
         icon: "success",
         title: "Cadastro efetuado",

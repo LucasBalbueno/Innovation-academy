@@ -125,7 +125,7 @@ function Header({ setIsSidebarOpen, setIsPopupProfileOpen }) {
             size={20}
             color="var(--contrast-color)"
           />
-          <Painel>0</Painel>
+          <Painel>1</Painel>
         </Score>
         <Profile onClick={handlePopupProfile}>
           <img

@@ -35,7 +35,6 @@ export function PopupProfile({ isPopUpProfileOpen, setIsPopupProfileOpen }) {
         setUsername(response.data.username);
         setName(response.data.name);
       } catch (error) {
-        console.log(error);
         Swal.fire({
           icon: 'error',
           title: 'Erro!',

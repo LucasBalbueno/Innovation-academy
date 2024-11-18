@@ -4,6 +4,7 @@ import { useState, useContext, useEffect } from 'react';
 import { ThemeContext } from '../../Context/ThemeContext';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { decodeJwt } from "jose";
 
 const Input = styled.input`
   background: var(--background-color);
@@ -54,6 +55,11 @@ const GreenBtn = styled.button`
 
 function ConfigAccount() {
     const { theme, handleThemeChange } = useContext(ThemeContext);
+
+    const [ themeAPI, setThemeAPI ] = useState('DARK');
+    const [ textSize, setTextSize ] = useState('');
+    const [ notifications, setNotifications ] = useState('');
+
 
     const [preferences, setPreferences] = useState({
         theme: '1',
@@ -151,9 +157,48 @@ function ConfigAccount() {
         }
     };
 
-    const handleThemeButton = (event) => {
-        handleThemeChange(event.target.value);
+    const getUserData = async () => {
+        try {
+            const token = localStorage.getItem("jwt");
+            const decoded = decodeJwt(token);
+            const response = await axios.get(`http://localhost:8080/api/users/by-email?email=${decoded.sub}`);
+            return response.data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    const handleThemeButton = async (event) => {
+        const userData = await getUserData();
+        if (event.target.value !== 'select') {
+            const responseUpdate = await axios.put(`http://localhost:8080/api/preferences/user/${userData.userId}`, {
+                theme: event.target.value.toUpperCase(),
+                textSize: "DEFAULT",
+                notification: "NEVER"
+            });
+        }
+        window.location.reload();
     };
+        
+    useEffect(() => {
+        handleThemeChange(themeAPI === 'DARK' ? 'dark' : 'light');
+    }, [themeAPI]);
+    
+    useEffect(() => {
+        (async () => {
+            try {
+                const userData = await getUserData();
+                const responsePreferences = await axios.get(`http://localhost:8080/api/preferences/user/${userData.userId}`);
+                setThemeAPI(responsePreferences.data.theme);
+            } catch (error) {
+                Swal.fire({
+                icon: 'error',
+                title: 'Erro!',
+                text: 'Não foi possível carregar os dados do usuário.',
+                confirmButtonText: 'OK'
+                });
+            }
+        })();
+      }, []);
 
     return (
         <div className="container-fluid layout">
@@ -211,6 +256,7 @@ function ConfigAccount() {
                             <div className="col-lg-3 d-flex flex-column justify-content-center align-itens-center mt-5">
                                 <label className="text-center">Tema da Página</label>
                                 <Select id="theme" name="theme" onChange={handleThemeButton}>
+                                    <option value="select">Selecionar</option>
                                     <option value="dark">Escuro</option>
                                     <option value="light">Claro</option>
                                 </Select>
