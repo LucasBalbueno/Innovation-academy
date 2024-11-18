@@ -7,6 +7,7 @@ import { decodeJwt } from "jose";
 import Swal from "sweetalert2";
 import Loading from "../../assets/Loading";
 import { faBullseye } from "@fortawesome/free-solid-svg-icons";
+import profileIcon from '../../assets/avatar-1.jpg';
 
 const Input = styled.input`
   background: var(--background-color);
@@ -135,12 +136,13 @@ function UserProfile() {
           <div className="container-fluid layout">
             <div className="container d-flex align-items-center justify-content-center p-3 gap-3">
               <div className="mx-2">
-                <CgProfile
-                  color="#00FF7E"
-                  size={200}
+                <img
+                  src={profileIcon}
+                  alt="Profile"
                   style={{
-                    borderRadius: "50%",
-                    border: "2px solid #00FF7E",
+                  borderRadius: "50%",
+                  width: "10rem",
+                  border: "5px solid #00FF7E",
                   }}
                 />
               </div>
@@ -182,9 +184,8 @@ function UserProfile() {
                   </div>
 
                   <div className="col-lg-6 mt-5">
-                    <label className="px-2">Imagem de Perfil</label>
-                    {/* <Input type="file" accept="image/*" name="email" value={email} readOnly /> */}
-                    <Input type="file" accept="image/*" name="profileImage" />
+                    <label className="px-2">Email</label>
+                    <Input type="email" name="email" value={email} readOnly />
                   </div>
 
                   <div className="col-lg-6 mt-5">

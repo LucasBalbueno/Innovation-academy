@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axios from 'axios';
-import { decodeJwt } from "jose";
+import { getUserData } from '../../Services/userData';
 
 const Input = styled.input`
   background: var(--background-color);
@@ -62,17 +62,6 @@ function ConfigAccount() {
     const [isEditingPassword, setIsEditingPassword] = useState(false);
 
     const navigate = useNavigate();
-
-    const getUserData = async () => {
-        try {
-            const token = localStorage.getItem("jwt");
-            const decoded = decodeJwt(token);
-            const response = await axios.get(`http://localhost:8080/api/users/by-email?email=${decoded.sub}`);
-            return response.data;
-        } catch (error) {
-            console.log(error);
-        }
-    }
 
     const changeEmail = async () => {
         setIsEditingEmail(true);
