@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import '../../Styles/Global.css';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { decodeJwt } from "jose";
@@ -53,25 +54,25 @@ const GreenBtn = styled.button`
 `;
 
 function ConfigAccount() {
-
     const [profile, setProfile] = useState({
         email: '',
         password: '',
     });
-
     const [isEditingEmail, setIsEditingEmail] = useState(false);
     const [isEditingPassword, setIsEditingPassword] = useState(false);
 
-    useEffect(() => {
-        const savedTextSize = localStorage.getItem('textSize');
-        if (savedTextSize) {
-            handleChange({ target: { name: 'textSize', value: savedTextSize } });
-            setPreferences((prev) => ({
-                ...prev,
-                textSize: savedTextSize,
-            }));
+    const navigate = useNavigate();
+
+    const getUserData = async () => {
+        try {
+            const token = localStorage.getItem("jwt");
+            const decoded = decodeJwt(token);
+            const response = await axios.get(`http://localhost:8080/api/users/by-email?email=${decoded.sub}`);
+            return response.data;
+        } catch (error) {
+            console.log(error);
         }
-    }, []);
+    }
 
     const changeEmail = async () => {
         setIsEditingEmail(true);
@@ -79,12 +80,23 @@ function ConfigAccount() {
 
     const saveEmail = async () => {
         try {
-            await axios.put('http://localhost:8080/api/user/update-email', { email: profile.email });
+            const userData = await getUserData();
+            await axios.patch(`http://localhost:8080/api/users/${userData.userId}`, {
+                email: profile.email
+            });
+
             Swal.fire({
                 icon: 'success',
                 title: 'Email atualizado',
-                text: 'Seu email foi alterado com sucesso!',
+                text: 'Seu email foi alterado com sucesso! Por motivos de segurança, faça login novamente.',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/')
+                    localStorage.clear();
+                    window.location.reload();
+                }
             });
+
             setIsEditingEmail(false);
         } catch (error) {
             Swal.fire({
@@ -99,14 +111,25 @@ function ConfigAccount() {
         setIsEditingPassword(true);
     };
 
-    const savePassword = async () => {
+    const savePassword = async (event) => {
         try {
-            await axios.put('http://localhost:8080/api/user/update-password', { password: profile.password });
+            const userData = await getUserData();
+            await axios.patch(`http://localhost:8080/api/users/${userData.userId}`, {
+                password: profile.password
+            });
+
             Swal.fire({
                 icon: 'success',
                 title: 'Senha atualizada',
-                text: 'Sua senha foi alterada com sucesso!',
+                text: 'Sua senha foi alterada com sucesso! Por motivos de segurança, faça login novamente.',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/')
+                    localStorage.clear();
+                    window.location.reload();
+                }
             });
+
             setIsEditingPassword(false);
         } catch (error) {
             Swal.fire({
@@ -117,24 +140,15 @@ function ConfigAccount() {
         }
     };
 
-    const getUserData = async () => {
-        try {
-            const token = localStorage.getItem("jwt");
-            const decoded = decodeJwt(token);
-            const response = await axios.get(`http://localhost:8080/api/users/by-email?email=${decoded.sub}`);
-            return response.data;
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
     const handleThemeButton = async (event) => {
         const userData = await getUserData();
+
         if (event.target.value !== 'select') {
             const responseUpdate = await axios.patch(`http://localhost:8080/api/preferences/user/${userData.userId}`, {
                 theme: event.target.value.toUpperCase()
             });
         }
+
         window.location.reload();
     };
 
@@ -216,7 +230,6 @@ function ConfigAccount() {
                                 <Select
                                     id="textSize"
                                     name="textSize"
-                                    // value={preferences.textSize}
                                     onChange={handleFontChange}
                                 >
                                     <option value="select">Selecionar</option>
@@ -230,8 +243,6 @@ function ConfigAccount() {
                                 <Select
                                     id="notifications"
                                     name="notifications"
-                                    // value={preferences.notifications}
-                                    // onChange={handleChange}
                                 >
                                     <option value="select">Selecionar</option>
                                     <option value="ALWAYS">Sempre</option>

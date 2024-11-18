@@ -243,8 +243,8 @@ function FormLogin() {
     } catch (error) {
       Swal.fire({
         icon: "error",
-        title: "Usuário não cadastrado",
-        text: "Seu usuário ainda não foi cadastrado, verifique seus dados e tente novamente!",
+        title: "Credencias incorretas",
+        text: "Email ou senha incorretos! Verifique as suas credencias ou se o usuário está cadastrado.",
         confirmButtonText: "OK",
       });
     }

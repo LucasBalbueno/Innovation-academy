@@ -63,7 +63,6 @@ useEffect(() => {
       const response = await axios.get(`http://localhost:8080/api/users/by-email?email=${decoded.sub}`);
       
       const responsePreferences = await axios.get(`http://localhost:8080/api/preferences/user/${response.data.userId}`);
-      console.log(responsePreferences.data)
         setThemeAPI(responsePreferences.data.theme);
         setTextSize(responsePreferences.data.textSize);
       } catch (error) {

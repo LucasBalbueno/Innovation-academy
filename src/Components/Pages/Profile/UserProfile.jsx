@@ -180,10 +180,13 @@ function UserProfile() {
                       }}
                     />
                   </div>
+
                   <div className="col-lg-6 mt-5">
-                    <label className="px-2">Email de notificação</label>
-                    <Input type="text" name="email" value={email} readOnly />
+                    <label className="px-2">Imagem de Perfil</label>
+                    {/* <Input type="file" accept="image/*" name="email" value={email} readOnly /> */}
+                    <Input type="file" accept="image/*" name="profileImage" />
                   </div>
+
                   <div className="col-lg-6 mt-5">
                     <label className="px-2">Telefone</label>
                     <Input
