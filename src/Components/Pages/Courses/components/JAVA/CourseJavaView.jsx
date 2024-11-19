@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import {
     Badge, Nav, NavItem, NavLink, Row, TabContent, TabPane,
@@ -6,10 +7,12 @@ import {
 import "../assets/styles/style.scss";
 import { useNavigate } from 'react-router-dom';
 
+import profile from "../../assets/profile/logo_reprograma.jpg"
+
 const CourseJavaView = () => {
     const [activeTab, setActiveTab] = useState('1');
-    const [currentLesson, setCurrentLesson] = useState('https://www.youtube.com/embed/yjmhSn0j8ac');
-    const [selectedLesson, setSelectedLesson] = useState('Aula 1 - Introdução e Apresentação');
+    const [currentLesson, setCurrentLesson] = useState('https://www.youtube.com/embed/sj0p9O85AIg?si=fv017COdYUIng7vb');
+    const [selectedLesson, setSelectedLesson] = useState('Aula 1 - Criando novo projeto');
     const navigate = useNavigate();
     const [open, setOpen] = useState('1');
 
@@ -29,13 +32,13 @@ const CourseJavaView = () => {
     };
 
     const lessons = [
-        { title: 'Aula 1 - Introdução e Apresentação', url: 'https://www.youtube.com/embed/yjmhSn0j8ac' },
-        { title: 'Aula 2 - Introdução e Apresentação', url: 'https://www.youtube.com/embed/yjmhSn0j8ac' },
-        { title: 'Aula 3 - Introdução e Apresentação', url: 'https://www.youtube.com/embed/yjmhSn0j8ac' },
-        { title: 'Aula 4 - Introdução e Apresentação', url: 'https://www.youtube.com/embed/yjmhSn0j8ac' },
-        { title: 'Aula 5 - Introdução e Apresentação', url: 'https://www.youtube.com/embed/yjmhSn0j8ac' },
-        { title: 'Aula 6 - Introdução e Apresentação', url: 'https://www.youtube.com/embed/yjmhSn0j8ac' },
-        { title: 'Aula 7 - Introdução e Apresentação', url: 'https://www.youtube.com/embed/yjmhSn0j8ac' },
+        { title: 'Aula 1 - Criando novo projeto', url: 'https://www.youtube.com/embed/sj0p9O85AIg?si=fv017COdYUIng7vb' },
+        { title: 'Aula 2 - Estrutura Básica', url: 'https://www.youtube.com/embed/MOd8PCyEB88?si=2PHHivfdG5LxspNo' },
+        { title: 'Aula 3 - Meta Tags, Cabeçalho e Parágrafo', url: 'https://www.youtube.com/embed/1ntb19o-2MI?si=tz3qfeaDxQPxEHfn' },
+        { title: 'Aula 4 - Formatação de Texto', url: 'https://www.youtube.com/embed/RiGo7BN1Wps?si=odWEY1xnJfNCwHHt' },
+        { title: 'Aula 5 - Elementos de Citação', url: 'https://www.youtube.com/embed/bzWtE7GFi0Y?si=Nuu4E8S5vhqzHNGb' },
+        { title: 'Aula 6 - Comentários', url: 'https://www.youtube.com/embed/Sl0edqPVrGg?si=IAYSoPrMEkA-sSR5' },
+        { title: 'Aula 7 - Links', url: 'https://www.youtube.com/embed/eb5tPfOeexI?si=Qwj0-2-mdVj703xu' },
     ]
 
     return (
@@ -113,7 +116,7 @@ const CourseJavaView = () => {
                             <TabPane tabId="1">
                                 <h5 className='mb-3'>Sobre a trilha</h5>
                                 <div className="lesson-description">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus, asperiores. Facere iusto nulla dolorum fugit in architecto similique culpa perferendis neque officiis id labore molestias fuga nemo debitis odit consectetur atque adipisci, explicabo temporibus praesentium quia nihil soluta? Recusandae quas ad, dolores incidunt molestias laborum! Ab aliquam cumque blanditiis beatae. Natus asperiores libero quasi possimus ea deleniti at, illum assumenda soluta minima nulla facilis obcaecati saepe, magnam enim ex omnis delectus, iure in modi ad! Deleniti, a minima assumenda vitae dolor beatae ad blanditiis nulla laborum temporibus id quo officia, rem consequatur ipsa, commodi atque ullam expedita quam nisi excepturi.
+                                    Seja muito bem-vindo(a) ao curso de HTML, onde você aprenderá desde o básico até técnicas importantes para criar sites bem estruturados e semânticos. O curso é focado no aprendizado prático, com aulas curtas e objetivas, ideais para quem está começando na área.
                                 </div>
 
                                 <div className="profile d-flex align-items-center mt-5">
@@ -123,18 +126,18 @@ const CourseJavaView = () => {
                                             <AccordionHeader targetId="1">
                                                 <div className='w-100'>
                                                     <div className='container-profile d-flex align-items-center '>
-                                                        <div className='profile-photo me-3 d-flex justify-content-center align-items-center'>Foto</div>
+                                                        <div className='profile-photo me-3 d-flex justify-content-center align-items-center'><img src={profile} alt="PROFESSOR" /></div>
                                                         <p className='m-0'>
-                                                            <strong>Nome do Professor</strong>
+                                                            <strong>DIMITRI TEIXEIRA</strong>
 
-                                                            <p className='description-p m-0 mt-1'>Lorem ipsum dolor | Quas, voluptatum!</p>
+                                                            <p className='description-p m-0 mt-1'>Web Fullstack Developer</p>
 
                                                         </p>
                                                     </div>
                                                 </div>
                                             </AccordionHeader>
                                             <AccordionBody accordionId="1">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique dolor dicta porro ab cum odio necessitatibus, sed quisquam quos maiores eum illum sit harum a deleniti quod temporibus ipsam. Pariatur!
+                                                Dimitri Teixeira é um desenvolvedor web Fullstack com vasta experiência no mercado de tecnologia. Ao longo dos anos, ele tem ajudado milhares de alunos a se tornarem desenvolvedores completos, dominando tanto o Frontend quanto o Backend. Além disso, seu estilo de ensino é descontraído e muito prático, com o objetivo de tornar o aprendizado de tecnologias como HTML, CSS, JavaScript, Node.js e PHP acessível e divertido para todos.
                                             </AccordionBody>
                                         </AccordionItem>
                                     </Accordion>
@@ -158,16 +161,17 @@ const CourseJavaView = () => {
                             <TabPane tabId="3" className='tab-pane'>
                                 <h5 className='mb-5 align-self-start'>Materiais Extras</h5>
                                 <div className='d-flex flex-column align-items-center'>
-                                    <h1 className='text-muted text-center'>
+                                    <h1 className='text-white text-center'>
                                         <i className="fa-regular fa-copy"></i>
                                     </h1>
-                                    <p className='text-center text-muted material-text'>Não existem materiais extras relacionados a esta matéria</p>
+                                    <p className='text-center text-white material-text'>Não existem materiais extras relacionados a esta matéria</p>
                                 </div>
                             </TabPane>
-                        </TabContent></div>
+                        </TabContent>
+                    </div>
                     <div className="lesson-description d-lg-block d-none">
                         <h3>Sobre a trilha</h3>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus, asperiores. Facere iusto nulla dolorum fugit in architecto similique culpa perferendis neque officiis id labore molestias fuga nemo debitis odit consectetur atque adipisci, explicabo temporibus praesentium quia nihil soluta? Recusandae quas ad, dolores incidunt molestias laborum! Ab aliquam cumque blanditiis beatae. Natus asperiores libero quasi possimus ea deleniti at, illum assumenda soluta minima nulla facilis obcaecati saepe, magnam enim ex omnis delectus, iure in modi ad! Deleniti, a minima assumenda vitae dolor beatae ad blanditiis nulla laborum temporibus id quo officia, rem consequatur ipsa, commodi atque ullam expedita quam nisi excepturi.
+                        Seja muito bem-vindo(a) ao curso de HTML, onde você aprenderá desde o básico até técnicas importantes para criar sites bem estruturados e semânticos.
                     </div>
 
                     <div className="profile d-flex align-items-center mt-5 d-lg-block d-none">
@@ -179,14 +183,14 @@ const CourseJavaView = () => {
                                         <div className='d-flex align-items-center '>
                                             <div className='profile-photo me-3 d-flex justify-content-center align-items-center'>Foto</div>
                                             <p className='m-0'>
-                                                <strong>Nome do Professor</strong>
-                                                <p className='description-p m-0 mt-1'>Lorem ipsum dolor | Quas, voluptatum!</p>
+                                                <strong>DIMITRI TEIXEIRA</strong>
+                                                <p className='description-p m-0 mt-1'>Web Fullstack Developer</p>
                                             </p>
                                         </div>
                                     </div>
                                 </AccordionHeader>
                                 <AccordionBody accordionId="1">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique dolor dicta porro ab cum odio necessitatibus, sed quisquam quos maiores eum illum sit harum a deleniti quod temporibus ipsam. Pariatur!
+                                    Dimitri Teixeira é um desenvolvedor web Fullstack com vasta experiência no mercado de tecnologia. Ao longo dos anos, ele tem ajudado milhares de alunos a se tornarem desenvolvedores completos, dominando tanto o Frontend quanto o Backend. Além disso, seu estilo de ensino é descontraído e muito prático, com o objetivo de tornar o aprendizado de tecnologias como HTML, CSS, JavaScript, Node.js e PHP acessível e divertido para todos.
                                 </AccordionBody>
                             </AccordionItem>
                         </Accordion>
@@ -231,10 +235,10 @@ const CourseJavaView = () => {
                         <TabPane tabId="2" className='tab-pane'>
                             <h5 className='mb-5 align-self-start'>Materiais Extras</h5>
                             <div className='d-flex flex-column align-items-center'>
-                                <h1 className='text-muted text-center'>
+                                <h1 className='text-white text-center'>
                                     <i className="fa-regular fa-copy"></i>
                                 </h1>
-                                <p className='text-center text-muted material-text'>Não existem materiais extras relacionados a esta matéria</p>
+                                <p className='text-center material-text text-white'>Não existem materiais extras relacionados a esta matéria</p>
                             </div>
                         </TabPane>
                     </TabContent>
