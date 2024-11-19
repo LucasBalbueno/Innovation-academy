@@ -1,9 +1,10 @@
 import { EvaluationCard } from "./style";
 
 import profileIcon from "./images/profileIcon.png";
-import { FaStar, FaRegStar } from "react-icons/fa";
+import { FaStar, FaRegStar, FaPen } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
+import { MdDeleteForever } from "react-icons/md";
 
 export function FeedbackCard({
   name,
@@ -11,6 +12,8 @@ export function FeedbackCard({
   description,
   stars,
   myFeedback,
+  updateFeedback,
+  deleteFeedback,
 }) {
   const starElements = [];
   for (let i = 1; i <= 5; i++) {
@@ -20,6 +23,7 @@ export function FeedbackCard({
       starElements.push(<FaRegStar key={i} />);
     }
   }
+
   return myFeedback ? (
     <div>
       <div
@@ -37,8 +41,34 @@ export function FeedbackCard({
             <span>@{username}</span>
             <div>{starElements}</div>
             <p>{description}</p>
-            <p style={{ color: " var(--contrast-color)", marginTop: "5%" }}>
+            <p
+              style={{
+                color: " var(--contrast-color)",
+                marginTop: "5%",
+                display: "flex",
+                alignItems: "center",
+                gap: "5%",
+              }}
+            >
               Sua Avaliação
+              <button
+                style={{
+                  background: "none",
+                  border: "none",
+                }}
+                onClick={deleteFeedback}
+              >
+                <MdDeleteForever style={{ fontSize: "30px" }} color="red" />
+              </button>
+              <button
+                style={{
+                  background: "none",
+                  border: "none",
+                }}
+                onClick={updateFeedback}
+              >
+                <FaPen color="white" />
+              </button>
             </p>
           </div>
         </EvaluationCard>

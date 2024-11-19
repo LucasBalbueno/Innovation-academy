@@ -14,39 +14,51 @@ export const FeedbackForms = () => {
   const [description, setDescription] = useState("");
   const [feedbacks, setFeedbacks] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const [editingFeedback, setEditingFeedback] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [feedbackId, setFeedbackId] = useState(0);
 
   const sendFeedback = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.post("http://localhost:8080/api/feedbacks", {
-        feedbackName: name,
-        feedbackUsername: username,
-        feedbackStars: stars,
-        feedbackDescription: description,
-      });
-      setIsLoading(false);
-      Swal.fire({
-        icon: "success",
-        title: "Tudo certo!",
-        text: "Avaliação realizada com sucesso! Muito Obrigado!",
-      });
+      if (isEditing) {
+        await axios.put(`http://localhost:8080/api/feedbacks/${feedbackId}`, {
+          feedbackStars: stars,
+          feedbackDescription: description,
+          feedbackName: name,
+          feedbackUsername: username,
+        });
+        Swal.fire({
+          icon: "success",
+          title: "Tudo certo!",
+          text: "Avaliação atualizada com sucesso!",
+        });
+      } else {
+        await axios.post("http://localhost:8080/api/feedbacks", {
+          feedbackName: name,
+          feedbackUsername: username,
+          feedbackStars: stars,
+          feedbackDescription: description,
+        });
+        Swal.fire({
+          icon: "success",
+          title: "Tudo certo!",
+          text: "Avaliação realizada com sucesso! Muito Obrigado!",
+        });
+      }
+      setIsEditing(false);
+      setEditingFeedback(null);
+      setStars(0);
+      setDescription("");
       fetchFeedbacks();
+      setIsLoading(false);
     } catch (error) {
-      if (error.response.status === 403) {
-        Swal.fire({
-          title: "Erro!",
-          text: "Você só pode fazer uma avaliação!",
-          icon: "error",
-          confirmButtonText: "Fechar",
-        });
-        setIsLoading(false);
-      } else
-        Swal.fire({
-          title: "Erro!",
-          text: "Ocorreu um erro ao fazer a avaliação.",
-          icon: "error",
-          confirmButtonText: "Tentar novamente",
-        });
+      Swal.fire({
+        title: "Erro!",
+        text: "Ocorreu um erro ao fazer a avaliação.",
+        icon: "error",
+        confirmButtonText: "Tentar novamente",
+      });
       setIsLoading(false);
     }
   };
@@ -95,6 +107,41 @@ export const FeedbackForms = () => {
     setRefresh((prev) => !prev);
   };
 
+  const deleteFeedback = async (id) => {
+    setIsLoading(true);
+    try {
+      await axios.delete(`http://localhost:8080/api/feedbacks/${id}`);
+      Swal.fire({
+        icon: "success",
+        title: "Tudo certo!",
+        text: "Sua avaliação foi deletada!",
+      });
+      setIsLoading(false);
+      fetchFeedbacks();
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        title: "Erro!",
+        text: "Ocorreu um erro ao tentar deletar a avaliação!",
+        icon: "error",
+        confirmButtonText: "Tentar novamente",
+      });
+      setIsLoading(false);
+    }
+  };
+
+  const updateFeedback = (feedback) => {
+    if (feedback && feedback.feedback_id) {
+      setIsEditing(true);
+      setEditingFeedback(feedback);
+      setStars(feedback.feedbackStars);
+      setDescription(feedback.feedbackDescription);
+      setFeedbackId(feedback.feedback_id);
+    } else {
+      console.error("Feedback não contém o campo 'feedback_id'.");
+    }
+  };
+
   return isLoading ? (
     <div
       style={{
@@ -131,10 +178,13 @@ export const FeedbackForms = () => {
             <textarea
               onChange={(event) => setDescription(event.target.value)}
               placeholder="Deixe sua avaliação detalhada..."
+              value={description}
             />
           </label>
         </form>
-        <button onClick={sendFeedback}>Enviar</button>
+        <button onClick={sendFeedback}>
+          {isEditing ? "Atualizar Avaliação" : "Enviar"}
+        </button>
       </ContainerForm>
 
       <ContainerAllFeedbacks>
@@ -158,6 +208,8 @@ export const FeedbackForms = () => {
                 description={conteudo.feedbackDescription}
                 stars={conteudo.feedbackStars}
                 myFeedback={conteudo.feedbackUsername === username}
+                updateFeedback={() => updateFeedback(conteudo)}
+                deleteFeedback={() => deleteFeedback(conteudo.feedback_id)}
               />
             ))}
           </div>
