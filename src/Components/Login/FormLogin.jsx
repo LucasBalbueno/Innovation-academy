@@ -7,6 +7,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
 import PassRecoverModal from "./components/modal/PassRecoverModal";
+import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const DivLogo = styled.div`
@@ -240,8 +241,12 @@ function FormLogin() {
       localStorage.setItem("jwt", response.data);
       navigate("/home");
     } catch (error) {
-      alert("Usuário não cadastrado, verifique seus dados e tente novamente!");
-      console.log(error);
+      Swal.fire({
+        icon: "error",
+        title: "Credencias incorretas",
+        text: "Email ou senha incorretos! Verifique as suas credencias ou se o usuário está cadastrado.",
+        confirmButtonText: "OK",
+      });
     }
   };
 

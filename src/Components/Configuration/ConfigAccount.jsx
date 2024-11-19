@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import '../../Styles/Global.css';
-import { useState, useContext, useEffect } from 'react';
-import { ThemeContext } from '../../Context/ThemeContext';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { getUserData } from '../../Services/userData';
 
 const Input = styled.input`
   background: var(--background-color);
@@ -53,59 +54,14 @@ const GreenBtn = styled.button`
 `;
 
 function ConfigAccount() {
-    const { theme, handleThemeChange } = useContext(ThemeContext);
-
-    const [preferences, setPreferences] = useState({
-        theme: '1',
-        textSize: '1',
-        notifications: '1',
-    });
-
     const [profile, setProfile] = useState({
         email: '',
         password: '',
     });
-
     const [isEditingEmail, setIsEditingEmail] = useState(false);
     const [isEditingPassword, setIsEditingPassword] = useState(false);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-
-        if (name === 'textSize') {
-            const root = document.documentElement;
-            switch (value) {
-                case '1':
-                    root.style.setProperty('--font-size-multiplier', '1');
-                    break;
-                case '2':
-                    root.style.setProperty('--font-size-multiplier', '1.2');
-                    break;
-                case '3':
-                    root.style.setProperty('--font-size-multiplier', '1.3');
-                    break;
-                default:
-                    root.style.setProperty('--font-size-multiplier', '1');
-            }
-            localStorage.setItem('textSize', value);
-        }
-
-        setPreferences({
-            ...preferences,
-            [name]: value,
-        });
-    };
-
-    useEffect(() => {
-        const savedTextSize = localStorage.getItem('textSize');
-        if (savedTextSize) {
-            handleChange({ target: { name: 'textSize', value: savedTextSize } });
-            setPreferences((prev) => ({
-                ...prev,
-                textSize: savedTextSize,
-            }));
-        }
-    }, []);
+    const navigate = useNavigate();
 
     const changeEmail = async () => {
         setIsEditingEmail(true);
@@ -113,12 +69,23 @@ function ConfigAccount() {
 
     const saveEmail = async () => {
         try {
-            await axios.put('http://localhost:8080/api/user/update-email', { email: profile.email });
+            const userData = await getUserData();
+            await axios.patch(`http://localhost:8080/api/users/${userData.userId}`, {
+                email: profile.email
+            });
+
             Swal.fire({
                 icon: 'success',
                 title: 'Email atualizado',
-                text: 'Seu email foi alterado com sucesso!',
+                text: 'Seu email foi alterado com sucesso! Por motivos de segurança, faça login novamente.',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/')
+                    localStorage.clear();
+                    window.location.reload();
+                }
             });
+
             setIsEditingEmail(false);
         } catch (error) {
             Swal.fire({
@@ -133,14 +100,25 @@ function ConfigAccount() {
         setIsEditingPassword(true);
     };
 
-    const savePassword = async () => {
+    const savePassword = async (event) => {
         try {
-            await axios.put('http://localhost:8080/api/user/update-password', { password: profile.password });
+            const userData = await getUserData();
+            await axios.patch(`http://localhost:8080/api/users/${userData.userId}`, {
+                password: profile.password
+            });
+
             Swal.fire({
                 icon: 'success',
                 title: 'Senha atualizada',
-                text: 'Sua senha foi alterada com sucesso!',
+                text: 'Sua senha foi alterada com sucesso! Por motivos de segurança, faça login novamente.',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/')
+                    localStorage.clear();
+                    window.location.reload();
+                }
             });
+
             setIsEditingPassword(false);
         } catch (error) {
             Swal.fire({
@@ -151,8 +129,28 @@ function ConfigAccount() {
         }
     };
 
-    const handleThemeButton = (event) => {
-        handleThemeChange(event.target.value);
+    const handleThemeButton = async (event) => {
+        const userData = await getUserData();
+
+        if (event.target.value !== 'select') {
+            const responseUpdate = await axios.patch(`http://localhost:8080/api/preferences/user/${userData.userId}`, {
+                theme: event.target.value.toUpperCase()
+            });
+        }
+
+        window.location.reload();
+    };
+
+    const handleFontChange = async (event) => {
+        const userData = await getUserData();
+        
+        if (event.target.value !== 'select') {
+            const responseUpdate = await axios.patch(`http://localhost:8080/api/preferences/user/${userData.userId}`, {
+                textSize: event.target.value.toUpperCase()
+            });
+        }
+
+        window.location.reload();
     };
 
     return (
@@ -211,6 +209,7 @@ function ConfigAccount() {
                             <div className="col-lg-3 d-flex flex-column justify-content-center align-itens-center mt-5">
                                 <label className="text-center">Tema da Página</label>
                                 <Select id="theme" name="theme" onChange={handleThemeButton}>
+                                    <option value="select">Selecionar</option>
                                     <option value="dark">Escuro</option>
                                     <option value="light">Claro</option>
                                 </Select>
@@ -220,12 +219,12 @@ function ConfigAccount() {
                                 <Select
                                     id="textSize"
                                     name="textSize"
-                                    value={preferences.textSize}
-                                    onChange={handleChange}
+                                    onChange={handleFontChange}
                                 >
-                                    <option value="1">Padrão</option>
-                                    <option value="2">120%</option>
-                                    <option value="3">130%</option>
+                                    <option value="select">Selecionar</option>
+                                    <option value="SMALL">Padrão</option>
+                                    <option value="DEFAULT">120%</option>
+                                    <option value="LARGE">130%</option>
                                 </Select>
                             </div>
                             <div className="col-lg-3 d-flex flex-column justify-content-center align-itens-center mt-5">
@@ -233,11 +232,10 @@ function ConfigAccount() {
                                 <Select
                                     id="notifications"
                                     name="notifications"
-                                    value={preferences.notifications}
-                                    onChange={handleChange}
                                 >
-                                    <option value="1">Sempre</option>
-                                    <option value="2">Nunca</option>
+                                    <option value="select">Selecionar</option>
+                                    <option value="ALWAYS">Sempre</option>
+                                    <option value="NEVER">Nunca</option>
                                 </Select>
                             </div>
                         </div>

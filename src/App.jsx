@@ -20,7 +20,6 @@ import CoursePythonView from "./Components/Pages/Courses/components/PYTHON/Cours
 import CourseReactView from "./Components/Pages/Courses/components/REACTJS/CourseReactView";
 import CourseSASSView from "./Components/Pages/Courses/components/SASS/CourseSASSView";
 
-
 function App() {
   return (
     <Router>
@@ -29,20 +28,12 @@ function App() {
         <Route path="/" element={<Login />} />
 
         {/* Rota de recuperação de senha */}
-        <Route
-          path="/login/password_recovery"
-          element={
-            <ProtectedRoute>
-              <PasswordRecovery />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/login/password_recovery" element={<PasswordRecovery />} />
 
         {/* Rota Home com Outlet para páginas internas, protegida por ProtectedRoute */}
         <Route
           path="/home"
           element={
-
             <ProtectedRoute>
               <Home />
             </ProtectedRoute>

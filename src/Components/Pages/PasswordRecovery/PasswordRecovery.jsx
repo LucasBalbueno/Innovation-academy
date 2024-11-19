@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import { decodeJwt } from "jose";
+import axios from "axios";
+import Swal from 'sweetalert2';
+import Loading from "../../assets/Loading";
 
 const Body = styled.div`
   background-color: var(--main-color);
@@ -77,6 +80,8 @@ const Button = styled.button`
 `;
 
 function PasswordRecovery() {
+  const [decodedToken, setDecodedToken] = useState({});
+  const [loading, setLoading] = useState(false);
   const [senha, setSenha] = useState("");
   const [erroSenha, setErroSenha] = useState("");
   const [senhaIgual, setSenhaIgual] = useState("");
@@ -89,13 +94,14 @@ function PasswordRecovery() {
     const token = new URLSearchParams(location.search).get("token");
     const currentTime = Date.now() / 1000;
     const decoded = decodeJwt(token);
+    setDecodedToken(decoded);
 
     if (decoded.exp < currentTime) {
       setValidToken(false);
     }
   }, [location.search]);
 
-  const alterarSenha = () => {
+  const alterarSenha = async () => {
     setErroSenha("");
     setErroSenhaIgual("");
     if (senha === "") {
@@ -110,33 +116,60 @@ function PasswordRecovery() {
       setErroSenhaIgual("As senhas não são iguais!");
       return;
     }
-    setSenhaAlterada(true);
+    try {
+      setLoading(true);
+      const response = await axios.get(
+        `http://localhost:8080/api/users/by-email?email=${decodedToken.sub}`
+      );
+      const alterar = await axios.patch(
+        `http://localhost:8080/api/users/${response.data.userId}`,
+        {
+          password: senha,
+        }
+      );
+      setLoading(false);
+      setSenhaAlterada(true);
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Senha não alterada!',
+        text: 'Não foi possível alterar a senha, tente novamente.',
+        confirmButtonText: 'OK'
+      });
+    }
   };
 
   return (
     <Body>
       <Content>
-        {validToken ? (
-          <>
-            <Title>Altere sua senha</Title>
-            <InputContent>
-              <LabelInput>Nova senha</LabelInput>
-              <Input
-                type="password"
-                onChange={(event) => setSenha(event.target.value)}
-              />
-              <ErroSenha>{erroSenha}</ErroSenha>
-              <LabelInput>Repita sua senha</LabelInput>
-              <Input
-                type="password"
-                onChange={(event) => setSenhaIgual(event.target.value)}
-              />
-              <ErroSenha>{erroSenhaIgual}</ErroSenha>
-              <Button type="button" onClick={alterarSenha}>
-                Alterar
-              </Button>
-            </InputContent>
-          </>
+        {loading ? (
+          <Loading />
+        ) : validToken ? (
+          senhaAlterada ? (
+            <p>Sua senha foi alterada com sucesso! Já pode fechar essa aba.</p>
+          ) : (
+            <>
+              <Title>Altere sua senha</Title>
+              <InputContent>
+                <LabelInput>Nova senha</LabelInput>
+                <Input
+                  type="password"
+                  onChange={(event) => setSenha(event.target.value)}
+                />
+                <ErroSenha>{erroSenha}</ErroSenha>
+                <LabelInput>Repita sua senha</LabelInput>
+                <Input
+                  type="password"
+                  onChange={(event) => setSenhaIgual(event.target.value)}
+                />
+                <ErroSenha>{erroSenhaIgual}</ErroSenha>
+                <Button type="button" onClick={alterarSenha}>
+                  Alterar
+                </Button>
+              </InputContent>
+            </>
+          )
         ) : (
           <p>O tempo para alteração de senha expirou! Solicite um novo link.</p>
         )}
