@@ -11,8 +11,8 @@ import profile from "../../assets/profile/logo_reprograma.jpg"
 
 const CourseReactView = () => {
     const [activeTab, setActiveTab] = useState('1');
-    const [currentLesson, setCurrentLesson] = useState('https://www.youtube.com/embed/sj0p9O85AIg?si=fv017COdYUIng7vb');
-    const [selectedLesson, setSelectedLesson] = useState('Aula 1 - Criando novo projeto');
+    const [currentLesson, setCurrentLesson] = useState('https://www.youtube.com/embed/hd2B7XQAFls?si=yelzbirWJIC9lP9V');
+    const [selectedLesson, setSelectedLesson] = useState('Aula 1 - Curso de React Para Iniciantes');
     const navigate = useNavigate();
     const [open, setOpen] = useState('1');
 
@@ -32,14 +32,8 @@ const CourseReactView = () => {
     };
 
     const lessons = [
-        { title: 'Aula 1 - Criando novo projeto', url: 'https://www.youtube.com/embed/sj0p9O85AIg?si=fv017COdYUIng7vb' },
-        { title: 'Aula 2 - Estrutura Básica', url: 'https://www.youtube.com/embed/MOd8PCyEB88?si=2PHHivfdG5LxspNo' },
-        { title: 'Aula 3 - Meta Tags, Cabeçalho e Parágrafo', url: 'https://www.youtube.com/embed/1ntb19o-2MI?si=tz3qfeaDxQPxEHfn' },
-        { title: 'Aula 4 - Formatação de Texto', url: 'https://www.youtube.com/embed/RiGo7BN1Wps?si=odWEY1xnJfNCwHHt' },
-        { title: 'Aula 5 - Elementos de Citação', url: 'https://www.youtube.com/embed/bzWtE7GFi0Y?si=Nuu4E8S5vhqzHNGb' },
-        { title: 'Aula 6 - Comentários', url: 'https://www.youtube.com/embed/Sl0edqPVrGg?si=IAYSoPrMEkA-sSR5' },
-        { title: 'Aula 7 - Links', url: 'https://www.youtube.com/embed/eb5tPfOeexI?si=Qwj0-2-mdVj703xu' },
-    ]
+        { title: 'Aula 1 - Curso de React Para Iniciantes', url:'https://www.youtube.com/embed/hd2B7XQAFls?si=yelzbirWJIC9lP9V' },
+        ]
 
     return (
         <div className='layout-courses container-fluid'>
@@ -116,7 +110,7 @@ const CourseReactView = () => {
                             <TabPane tabId="1">
                                 <h5 className='mb-3'>Sobre a trilha</h5>
                                 <div className="lesson-description">
-                                    Seja muito bem-vindo(a) ao curso de HTML, onde você aprenderá desde o básico até técnicas importantes para criar sites bem estruturados e semânticos. O curso é focado no aprendizado prático, com aulas curtas e objetivas, ideais para quem está começando na área.
+                                Curso de React Para Iniciantes. Prepare-se para dar os primeiros passos no mundo incrível do React! Neste curso de React de 1 hora, você aprenderá os conceitos básicos desta poderosa biblioteca de código aberto e estará pronto para criar projetos incríveis, incluindo componentes, JSX, estado e props, e rotas, de forma clara e concisa. Não importa se você é um iniciante completo ou tem alguma experiência com desenvolvimento web, este curso foi criado especificamente para você.
                                 </div>
 
                                 <div className="profile d-flex align-items-center mt-5">
@@ -171,7 +165,7 @@ const CourseReactView = () => {
                     </div>
                     <div className="lesson-description d-lg-block d-none">
                         <h3>Sobre a trilha</h3>
-                        Seja muito bem-vindo(a) ao curso de HTML, onde você aprenderá desde o básico até técnicas importantes para criar sites bem estruturados e semânticos.
+                        Curso de React Para Iniciantes. Prepare-se para dar os primeiros passos no mundo incrível do React! Neste curso de React de 1 hora, você aprenderá os conceitos básicos desta poderosa biblioteca de código aberto e estará pronto para criar projetos incríveis, incluindo componentes, JSX, estado e props, e rotas, de forma clara e concisa. Não importa se você é um iniciante completo ou tem alguma experiência com desenvolvimento web, este curso foi criado especificamente para você.
                     </div>
 
                     <div className="profile d-flex align-items-center mt-5 d-lg-block d-none">
