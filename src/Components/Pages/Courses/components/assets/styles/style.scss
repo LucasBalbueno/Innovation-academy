@@ -307,6 +307,10 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
                     background-color: #ffffff10;
                     border-radius: 100%;
 
+                    img {
+                        width: 100%;
+                    }
+
                     @media screen and (max-width: 450px) {
                         flex-direction: column;
                         align-self: start;
@@ -367,6 +371,9 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
 
     }
 
+    @media screen and (max-width: 991px) {
+        height: auto;
+    }
 
     @media (max-width: 768px) {
 
