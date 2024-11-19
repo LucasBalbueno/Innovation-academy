@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import {
     Badge, Nav, NavItem, NavLink, Row, TabContent, TabPane,
@@ -7,12 +6,12 @@ import {
 import "../assets/styles/style.scss";
 import { useNavigate } from 'react-router-dom';
 
-import profile from "../../assets/profile/logo_reprograma.jpg"
+import profile from "../../assets/profile/edson_maia_profile.jpg"
 
 const CourseNodeView = () => {
     const [activeTab, setActiveTab] = useState('1');
-    const [currentLesson, setCurrentLesson] = useState('https://www.youtube.com/embed/sj0p9O85AIg?si=fv017COdYUIng7vb');
-    const [selectedLesson, setSelectedLesson] = useState('Aula 1 - Criando novo projeto');
+    const [currentLesson, setCurrentLesson] = useState('https://www.youtube.com/embed/05WeJCU8CJ4?si=r3wT2sOeRjXDhCNQ');
+    const [selectedLesson, setSelectedLesson] = useState('Aula 1 - Baixar e instalar o Node JS. Testar e instalar ferramentas extras');
     const navigate = useNavigate();
     const [open, setOpen] = useState('1');
 
@@ -32,13 +31,13 @@ const CourseNodeView = () => {
     };
 
     const lessons = [
-        { title: 'Aula 1 - Criando novo projeto', url: 'https://www.youtube.com/embed/sj0p9O85AIg?si=fv017COdYUIng7vb' },
-        { title: 'Aula 2 - Estrutura Básica', url: 'https://www.youtube.com/embed/MOd8PCyEB88?si=2PHHivfdG5LxspNo' },
-        { title: 'Aula 3 - Meta Tags, Cabeçalho e Parágrafo', url: 'https://www.youtube.com/embed/1ntb19o-2MI?si=tz3qfeaDxQPxEHfn' },
-        { title: 'Aula 4 - Formatação de Texto', url: 'https://www.youtube.com/embed/RiGo7BN1Wps?si=odWEY1xnJfNCwHHt' },
-        { title: 'Aula 5 - Elementos de Citação', url: 'https://www.youtube.com/embed/bzWtE7GFi0Y?si=Nuu4E8S5vhqzHNGb' },
-        { title: 'Aula 6 - Comentários', url: 'https://www.youtube.com/embed/Sl0edqPVrGg?si=IAYSoPrMEkA-sSR5' },
-        { title: 'Aula 7 - Links', url: 'https://www.youtube.com/embed/eb5tPfOeexI?si=Qwj0-2-mdVj703xu' },
+        { title: 'Aula 1 - Baixar e instalar o Node JS. Testar e instalar ferramentas extras', url: 'https://www.youtube.com/embed/05WeJCU8CJ4?si=r3wT2sOeRjXDhCNQ' },
+        { title: 'Aula 2 - Criar projeto. API REST. Express. Rotas. Nodemon', url: 'https://www.youtube.com/embed/V3PUGubaSQo?si=Q6EK62RptDdTtXgm' },
+        { title: 'Aula 3 - Criar Rotas GET com Express, Refatorar Código, Extensão JSON Viewer', url: 'https://www.youtube.com/embed/4GdHVfqWxOw?si=5lNHgIxewTV9RZXK' },
+        { title: 'Aula 4 - Criar Rotas POST com Express, Como usar o Insomnia', url: 'https://www.youtube.com/embed/67GVpULYJ3k?si=U1_niIf1y4LCnD_1' },
+        { title: 'Aula 5 - Criar Rotas GET com parâmetro no Express, Criar rota DELETE no Express', url: 'https://www.youtube.com/embed/IsomhYdkg_0?si=4NfqVtfuTT5YClsR' },
+        { title: 'Aula 6 - Criar Rota PUT com parâmetro no Express para atualizar dados', url: 'https://www.youtube.com/embed/mp2aP5KoXcY?si=txJW7N8zZTfSbOGC' },
+        { title: 'Aula 7 - Persistência de Dados com o MySQL, baixar, instalar e conectar', url: 'https://www.youtube.com/embed/f-hBybIPl8A?si=kfxSrxiZTiJw5o4_' },
     ]
 
     return (
@@ -62,7 +61,7 @@ const CourseNodeView = () => {
                                 color: "#00FF7E"
                             }}
                         ></i>
-                        FRONTEND
+                        BACKEND
                     </Badge>
                     <Badge
                         className='bg-transparent rounded-pill me-2 px-3 py-2'
@@ -116,7 +115,7 @@ const CourseNodeView = () => {
                             <TabPane tabId="1">
                                 <h5 className='mb-3'>Sobre a trilha</h5>
                                 <div className="lesson-description">
-                                    Seja muito bem-vindo(a) ao curso de HTML, onde você aprenderá desde o básico até técnicas importantes para criar sites bem estruturados e semânticos. O curso é focado no aprendizado prático, com aulas curtas e objetivas, ideais para quem está começando na área.
+                                    Seja muito bem-vindo(a) ao curso de Node.js, onde você aprenderá a criar APIs RESTful com o Node.js e Express, além de integrar com bancos de dados como MySQL. O curso é voltado para iniciantes e segue uma abordagem prática, focando em resultados rápidos e eficientes.
                                 </div>
 
                                 <div className="profile d-flex align-items-center mt-5">
@@ -128,16 +127,14 @@ const CourseNodeView = () => {
                                                     <div className='container-profile d-flex align-items-center '>
                                                         <div className='profile-photo me-3 d-flex justify-content-center align-items-center'><img src={profile} alt="PROFESSOR" /></div>
                                                         <p className='m-0'>
-                                                            <strong>DIMITRI TEIXEIRA</strong>
-
-                                                            <p className='description-p m-0 mt-1'>Web Fullstack Developer</p>
-
+                                                            <strong>EDSON MAIA</strong>
+                                                            <p className='description-p m-0 mt-1'>Professor de Geografia e Informática | Desenvolvedor Web, Mobile e de Jogos | Designer</p>
                                                         </p>
                                                     </div>
                                                 </div>
                                             </AccordionHeader>
                                             <AccordionBody accordionId="1">
-                                                Dimitri Teixeira é um desenvolvedor web Fullstack com vasta experiência no mercado de tecnologia. Ao longo dos anos, ele tem ajudado milhares de alunos a se tornarem desenvolvedores completos, dominando tanto o Frontend quanto o Backend. Além disso, seu estilo de ensino é descontraído e muito prático, com o objetivo de tornar o aprendizado de tecnologias como HTML, CSS, JavaScript, Node.js e PHP acessível e divertido para todos.
+                                                Edson Maia é um professor experiente nas áreas de Geografia e Informática, com vasta experiência como desenvolvedor web, mobile e de jogos. Além disso, é designer e tem um estilo de ensino focado na prática e na aplicação de conhecimentos em projetos reais.
                                             </AccordionBody>
                                         </AccordionItem>
                                     </Accordion>
@@ -171,7 +168,7 @@ const CourseNodeView = () => {
                     </div>
                     <div className="lesson-description d-lg-block d-none">
                         <h3>Sobre a trilha</h3>
-                        Seja muito bem-vindo(a) ao curso de HTML, onde você aprenderá desde o básico até técnicas importantes para criar sites bem estruturados e semânticos.
+                        Seja muito bem-vindo(a) ao curso de Node.js, onde você aprenderá a criar APIs RESTful com Node.js e Express.
                     </div>
 
                     <div className="profile d-flex align-items-center mt-5 d-lg-block d-none">
@@ -181,16 +178,16 @@ const CourseNodeView = () => {
                                 <AccordionHeader targetId="1">
                                     <div className='w-100'>
                                         <div className='d-flex align-items-center '>
-                                            <div className='profile-photo me-3 d-flex justify-content-center align-items-center'>Foto</div>
+                                            <div className='profile-photo me-3 d-flex justify-content-center align-items-center'><img src={profile} alt="PROFESSOR" /></div>
                                             <p className='m-0'>
-                                                <strong>DIMITRI TEIXEIRA</strong>
-                                                <p className='description-p m-0 mt-1'>Web Fullstack Developer</p>
+                                                <strong>EDSON MAIA</strong>
+                                                <p className='description-p m-0 mt-1'>Professor de Geografia e Informática | Desenvolvedor Web, Mobile e de Jogos | Designer</p>
                                             </p>
                                         </div>
                                     </div>
                                 </AccordionHeader>
                                 <AccordionBody accordionId="1">
-                                    Dimitri Teixeira é um desenvolvedor web Fullstack com vasta experiência no mercado de tecnologia. Ao longo dos anos, ele tem ajudado milhares de alunos a se tornarem desenvolvedores completos, dominando tanto o Frontend quanto o Backend. Além disso, seu estilo de ensino é descontraído e muito prático, com o objetivo de tornar o aprendizado de tecnologias como HTML, CSS, JavaScript, Node.js e PHP acessível e divertido para todos.
+                                    Edson Maia é um professor experiente nas áreas de Geografia e Informática, além de ser desenvolvedor web, mobile e de jogos, e também designer. Ele adota um estilo de ensino prático e voltado para o mercado.
                                 </AccordionBody>
                             </AccordionItem>
                         </Accordion>

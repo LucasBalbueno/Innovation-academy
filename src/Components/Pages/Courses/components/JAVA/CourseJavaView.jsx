@@ -7,12 +7,12 @@ import {
 import "../assets/styles/style.scss";
 import { useNavigate } from 'react-router-dom';
 
-import profile from "../../assets/profile/logo_reprograma.jpg"
+import profile from "../../assets/profile/daylton_dutra_profile.jpg"
 
 const CourseJavaView = () => {
     const [activeTab, setActiveTab] = useState('1');
-    const [currentLesson, setCurrentLesson] = useState('https://www.youtube.com/embed/sj0p9O85AIg?si=fv017COdYUIng7vb');
-    const [selectedLesson, setSelectedLesson] = useState('Aula 1 - Criando novo projeto');
+    const [currentLesson, setCurrentLesson] = useState('https://www.youtube.com/embed/aL5RZtkAne0?si=ayV_B7GgNaB9bZ03');
+    const [selectedLesson, setSelectedLesson] = useState('Aula 1 - Instalação do Java e Eclipse');
     const navigate = useNavigate();
     const [open, setOpen] = useState('1');
 
@@ -32,13 +32,13 @@ const CourseJavaView = () => {
     };
 
     const lessons = [
-        { title: 'Aula 1 - Criando novo projeto', url: 'https://www.youtube.com/embed/sj0p9O85AIg?si=fv017COdYUIng7vb' },
-        { title: 'Aula 2 - Estrutura Básica', url: 'https://www.youtube.com/embed/MOd8PCyEB88?si=2PHHivfdG5LxspNo' },
-        { title: 'Aula 3 - Meta Tags, Cabeçalho e Parágrafo', url: 'https://www.youtube.com/embed/1ntb19o-2MI?si=tz3qfeaDxQPxEHfn' },
-        { title: 'Aula 4 - Formatação de Texto', url: 'https://www.youtube.com/embed/RiGo7BN1Wps?si=odWEY1xnJfNCwHHt' },
-        { title: 'Aula 5 - Elementos de Citação', url: 'https://www.youtube.com/embed/bzWtE7GFi0Y?si=Nuu4E8S5vhqzHNGb' },
-        { title: 'Aula 6 - Comentários', url: 'https://www.youtube.com/embed/Sl0edqPVrGg?si=IAYSoPrMEkA-sSR5' },
-        { title: 'Aula 7 - Links', url: 'https://www.youtube.com/embed/eb5tPfOeexI?si=Qwj0-2-mdVj703xu' },
+        { title: 'Aula 1 - Instalação do Java e Eclipse', url: 'https://www.youtube.com/embed/aL5RZtkAne0?si=ayV_B7GgNaB9bZ03' },
+        { title: 'Aula 2 - Primeiro projeto', url: 'https://www.youtube.com/embed/GlJreULBTU4?si=dWW3n3DyAX-2nq9B' },
+        { title: 'Aula 3 - Variáveis do tipo primitivo', url: 'https://www.youtube.com/embed/NfUI69Q4DqM?si=QyO_o-Ts_kQ_T5am' },
+        { title: 'Aula 4 - Variáveis do tipo String', url: 'https://www.youtube.com/embed/hL99MThfudI?si=rfva615JRqFAgXZt' },
+        { title: 'Aula 5 - Variáveis do tipo String', url: 'https://www.youtube.com/embed/wj3LPVOyfrY?si=jZXtyQ9Zd8hdyMAu' },
+        { title: 'Aula 6 - Classe Scanner', url: 'https://www.youtube.com/embed/iqjogiO8WK0?si=LkkkfdpSufq7CHij' },
+        { title: 'Aula 7 - Objetos equivalentes a Primitivos', url: 'https://www.youtube.com/embed/SGaw7SeW4pY?si=Iz1ot1s1FZS5LGDN' },
     ]
 
     return (
@@ -62,7 +62,7 @@ const CourseJavaView = () => {
                                 color: "#00FF7E"
                             }}
                         ></i>
-                        FRONTEND
+                        BACKEND
                     </Badge>
                     <Badge
                         className='bg-transparent rounded-pill me-2 px-3 py-2'
@@ -116,7 +116,7 @@ const CourseJavaView = () => {
                             <TabPane tabId="1">
                                 <h5 className='mb-3'>Sobre a trilha</h5>
                                 <div className="lesson-description">
-                                    Seja muito bem-vindo(a) ao curso de HTML, onde você aprenderá desde o básico até técnicas importantes para criar sites bem estruturados e semânticos. O curso é focado no aprendizado prático, com aulas curtas e objetivas, ideais para quem está começando na área.
+                                    Neste curso, você aprenderá o básico da linguagem Java, ideal para quem está começando. Vamos começar com a instalação do Java e Eclipse, criar seu primeiro projeto, e aprender sobre variáveis e tipos de dados. Você também vai aprender a capturar entradas do usuário e entender como os dados são tratados em Java. O curso é prático e focado em te ajudar a programar de forma rápida e eficiente.
                                 </div>
 
                                 <div className="profile d-flex align-items-center mt-5">
@@ -128,17 +128,15 @@ const CourseJavaView = () => {
                                                     <div className='container-profile d-flex align-items-center '>
                                                         <div className='profile-photo me-3 d-flex justify-content-center align-items-center'><img src={profile} alt="PROFESSOR" /></div>
                                                         <p className='m-0'>
-                                                            <strong>DIMITRI TEIXEIRA</strong>
+                                                            <strong>DAYLTON DUTRA</strong>
 
-                                                            <p className='description-p m-0 mt-1'>Web Fullstack Developer</p>
+                                                            <p className='description-p m-0 mt-1'>Back End | Fullstack Developer</p>
 
                                                         </p>
                                                     </div>
                                                 </div>
                                             </AccordionHeader>
-                                            <AccordionBody accordionId="1">
-                                                Dimitri Teixeira é um desenvolvedor web Fullstack com vasta experiência no mercado de tecnologia. Ao longo dos anos, ele tem ajudado milhares de alunos a se tornarem desenvolvedores completos, dominando tanto o Frontend quanto o Backend. Além disso, seu estilo de ensino é descontraído e muito prático, com o objetivo de tornar o aprendizado de tecnologias como HTML, CSS, JavaScript, Node.js e PHP acessível e divertido para todos.
-                                            </AccordionBody>
+                                            <AccordionBody accordionId="1">Daylton Dutra é desenvolvedor e instrutor de programação. Ele tem experiência em Java, Node.js e outras tecnologias de Backend. Seu estilo de ensino é simples e direto, com foco em aprender fazendo. Ele acredita que a melhor forma de aprender é praticando, e está aqui para te ajudar a dominar o Java e se tornar um programador de sucesso.</AccordionBody>
                                         </AccordionItem>
                                     </Accordion>
                                 </div>
@@ -171,7 +169,7 @@ const CourseJavaView = () => {
                     </div>
                     <div className="lesson-description d-lg-block d-none">
                         <h3>Sobre a trilha</h3>
-                        Seja muito bem-vindo(a) ao curso de HTML, onde você aprenderá desde o básico até técnicas importantes para criar sites bem estruturados e semânticos.
+                        Neste curso, você aprenderá o básico da linguagem Java, ideal para quem está começando. Vamos começar com a instalação do Java e Eclipse, criar seu primeiro projeto, e aprender sobre variáveis e tipos de dados. Você também vai aprender a capturar entradas do usuário e entender como os dados são tratados em Java. O curso é prático e focado em te ajudar a programar de forma rápida e eficiente.
                     </div>
 
                     <div className="profile d-flex align-items-center mt-5 d-lg-block d-none">
@@ -181,17 +179,15 @@ const CourseJavaView = () => {
                                 <AccordionHeader targetId="1">
                                     <div className='w-100'>
                                         <div className='d-flex align-items-center '>
-                                            <div className='profile-photo me-3 d-flex justify-content-center align-items-center'>Foto</div>
+                                            <div className='profile-photo me-3 d-flex justify-content-center align-items-center'><img src={profile} alt="PROFESSOR" /></div>
                                             <p className='m-0'>
-                                                <strong>DIMITRI TEIXEIRA</strong>
-                                                <p className='description-p m-0 mt-1'>Web Fullstack Developer</p>
+                                                <strong>DAYLTON DUTRA</strong>
+                                                <p className='description-p m-0 mt-1'>Back End | Fullstack Developer</p>
                                             </p>
                                         </div>
                                     </div>
                                 </AccordionHeader>
-                                <AccordionBody accordionId="1">
-                                    Dimitri Teixeira é um desenvolvedor web Fullstack com vasta experiência no mercado de tecnologia. Ao longo dos anos, ele tem ajudado milhares de alunos a se tornarem desenvolvedores completos, dominando tanto o Frontend quanto o Backend. Além disso, seu estilo de ensino é descontraído e muito prático, com o objetivo de tornar o aprendizado de tecnologias como HTML, CSS, JavaScript, Node.js e PHP acessível e divertido para todos.
-                                </AccordionBody>
+                                <AccordionBody accordionId="1">Daylton Dutra é desenvolvedor e instrutor de programação. Ele tem experiência em Java, Node.js e outras tecnologias de Backend. Seu estilo de ensino é simples e direto, com foco em aprender fazendo. Ele acredita que a melhor forma de aprender é praticando, e está aqui para te ajudar a dominar o Java e se tornar um programador de sucesso.</AccordionBody>
                             </AccordionItem>
                         </Accordion>
                     </div>

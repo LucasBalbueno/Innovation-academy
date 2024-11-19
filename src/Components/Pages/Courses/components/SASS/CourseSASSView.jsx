@@ -181,7 +181,7 @@ const CourseSASSView = () => {
                                 <AccordionHeader targetId="1">
                                     <div className='w-100'>
                                         <div className='d-flex align-items-center '>
-                                            <div className='profile-photo me-3 d-flex justify-content-center align-items-center'>Foto</div>
+                                            <div className='profile-photo me-3 d-flex justify-content-center align-items-center'><img src={profile} alt="PROFESSOR" /></div>
                                             <p className='m-0'>
                                                 <strong>DIMITRI TEIXEIRA</strong>
                                                 <p className='description-p m-0 mt-1'>Web Fullstack Developer</p>

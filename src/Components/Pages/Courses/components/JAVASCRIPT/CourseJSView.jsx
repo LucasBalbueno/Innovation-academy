@@ -7,12 +7,12 @@ import {
 import "../assets/styles/style.scss";
 import { useNavigate } from 'react-router-dom';
 
-import profile from "../../assets/profile/logo_reprograma.jpg"
+import profile from "../../assets/profile/dev_club_profile.jpg"
 
 const CourseJSView = () => {
     const [activeTab, setActiveTab] = useState('1');
-    const [currentLesson, setCurrentLesson] = useState('https://www.youtube.com/embed/sj0p9O85AIg?si=fv017COdYUIng7vb');
-    const [selectedLesson, setSelectedLesson] = useState('Aula 1 - Criando novo projeto');
+    const [currentLesson, setCurrentLesson] = useState('https://www.youtube.com/embed/UVLT52VcRkY?si=HdPnLHSNfIAtNSOc');
+    const [selectedLesson, setSelectedLesson] = useState('Aula 1 - Aprenda Programação e torne-se um Programador do ZERO');
     const navigate = useNavigate();
     const [open, setOpen] = useState('1');
 
@@ -32,13 +32,13 @@ const CourseJSView = () => {
     };
 
     const lessons = [
-        { title: 'Aula 1 - Criando novo projeto', url: 'https://www.youtube.com/embed/sj0p9O85AIg?si=fv017COdYUIng7vb' },
-        { title: 'Aula 2 - Estrutura Básica', url: 'https://www.youtube.com/embed/MOd8PCyEB88?si=2PHHivfdG5LxspNo' },
-        { title: 'Aula 3 - Meta Tags, Cabeçalho e Parágrafo', url: 'https://www.youtube.com/embed/1ntb19o-2MI?si=tz3qfeaDxQPxEHfn' },
-        { title: 'Aula 4 - Formatação de Texto', url: 'https://www.youtube.com/embed/RiGo7BN1Wps?si=odWEY1xnJfNCwHHt' },
-        { title: 'Aula 5 - Elementos de Citação', url: 'https://www.youtube.com/embed/bzWtE7GFi0Y?si=Nuu4E8S5vhqzHNGb' },
-        { title: 'Aula 6 - Comentários', url: 'https://www.youtube.com/embed/Sl0edqPVrGg?si=IAYSoPrMEkA-sSR5' },
-        { title: 'Aula 7 - Links', url: 'https://www.youtube.com/embed/eb5tPfOeexI?si=Qwj0-2-mdVj703xu' },
+        { title: 'Aula 1 - Aprenda Programação e torne-se um Programador do ZERO', url: 'https://www.youtube.com/embed/UVLT52VcRkY?si=HdPnLHSNfIAtNSOc' },
+        { title: 'Aula 2 - Dominando Variáveis e Tipos de Dados', url: 'https://www.youtube.com/embed/4Y87KSByqOY?si=C9p0xEe5mPu_n_LG' },
+        { title: 'Aula 3 - If & Else', url: 'https://www.youtube.com/embed/K0osjIl2BBw?si=FnEAK9pJ4-RQu-Wb' },
+        { title: 'Aula 4 - APRENDA FUNÇÕES EM JAVASCRIPT', url: 'https://www.youtube.com/embed/RTfMHMQp2e4?si=Md4WZmd8CZb_7QbT' },
+        { title: 'Aula 5 - JavaScript WEB e a DOM', url: 'https://www.youtube.com/embed/DcN49TD7it0?si=izbcpdErWUeA2eDD' },
+        { title: 'Aula 6 - For | For Of | For In', url: 'https://www.youtube.com/embed/Ah_PWZw6pNQ?si=w4Ml9RLtl_-1dE5t' },
+        { title: 'Aula 7 - ForEach', url: 'https://www.youtube.com/embed/9I8_AxWWNkg?si=8w5T77thF9MmLNgi' },
     ]
 
     return (
@@ -63,6 +63,17 @@ const CourseJSView = () => {
                             }}
                         ></i>
                         FRONTEND
+                    </Badge>
+                    <Badge
+                        className='bg-transparent rounded-pill me-lg-2 px-3 py-2'
+                        style={{ border: '1px solid #94939340', fontSize: '0.7rem', cursor: "auto", color: 'var(--text-color)' }}
+                    >
+                        <i className='fa fa-code me-2'
+                            style={{
+                                color: "#00FF7E"
+                            }}
+                        ></i>
+                        BACKEND
                     </Badge>
                     <Badge
                         className='bg-transparent rounded-pill me-2 px-3 py-2'
@@ -116,7 +127,7 @@ const CourseJSView = () => {
                             <TabPane tabId="1">
                                 <h5 className='mb-3'>Sobre a trilha</h5>
                                 <div className="lesson-description">
-                                    Seja muito bem-vindo(a) ao curso de HTML, onde você aprenderá desde o básico até técnicas importantes para criar sites bem estruturados e semânticos. O curso é focado no aprendizado prático, com aulas curtas e objetivas, ideais para quem está começando na área.
+                                    Neste curso, você vai aprender a programar com JavaScript desde o início. Vamos começar com os conceitos básicos, como variáveis, tipos de dados e estruturas de controle. A cada aula, você vai desenvolver habilidades para escrever códigos mais complexos, como funções, loops e interações com a página web. Este curso é totalmente voltado para iniciantes, e a ideia é te ensinar de maneira simples e prática.
                                 </div>
 
                                 <div className="profile d-flex align-items-center mt-5">
@@ -128,7 +139,7 @@ const CourseJSView = () => {
                                                     <div className='container-profile d-flex align-items-center '>
                                                         <div className='profile-photo me-3 d-flex justify-content-center align-items-center'><img src={profile} alt="PROFESSOR" /></div>
                                                         <p className='m-0'>
-                                                            <strong>DIMITRI TEIXEIRA</strong>
+                                                            <strong>RODOLFO MORI</strong>
 
                                                             <p className='description-p m-0 mt-1'>Web Fullstack Developer</p>
 
@@ -137,7 +148,7 @@ const CourseJSView = () => {
                                                 </div>
                                             </AccordionHeader>
                                             <AccordionBody accordionId="1">
-                                                Dimitri Teixeira é um desenvolvedor web Fullstack com vasta experiência no mercado de tecnologia. Ao longo dos anos, ele tem ajudado milhares de alunos a se tornarem desenvolvedores completos, dominando tanto o Frontend quanto o Backend. Além disso, seu estilo de ensino é descontraído e muito prático, com o objetivo de tornar o aprendizado de tecnologias como HTML, CSS, JavaScript, Node.js e PHP acessível e divertido para todos.
+                                                A programação mudou minha vida, e o meu objetivo aqui é fazer com que ela mude a sua também. Vou te mostrar que o mundo da tecnologia é mais simples do que você imagina. Vamos aprender juntos, com uma abordagem prática e descontraída. Meu foco é tornar o aprendizado de JavaScript e outras tecnologias acessível, divertido e direto ao ponto. Vamos lá! 🚀
                                             </AccordionBody>
                                         </AccordionItem>
                                     </Accordion>
@@ -171,7 +182,7 @@ const CourseJSView = () => {
                     </div>
                     <div className="lesson-description d-lg-block d-none">
                         <h3>Sobre a trilha</h3>
-                        Seja muito bem-vindo(a) ao curso de HTML, onde você aprenderá desde o básico até técnicas importantes para criar sites bem estruturados e semânticos.
+                        Neste curso, você vai aprender a programar com JavaScript desde o início. Vamos começar com os conceitos básicos, como variáveis, tipos de dados e estruturas de controle. A cada aula, você vai desenvolver habilidades para escrever códigos mais complexos, como funções, loops e interações com a página web. Este curso é totalmente voltado para iniciantes, e a ideia é te ensinar de maneira simples e prática.
                     </div>
 
                     <div className="profile d-flex align-items-center mt-5 d-lg-block d-none">
@@ -181,16 +192,16 @@ const CourseJSView = () => {
                                 <AccordionHeader targetId="1">
                                     <div className='w-100'>
                                         <div className='d-flex align-items-center '>
-                                            <div className='profile-photo me-3 d-flex justify-content-center align-items-center'>Foto</div>
+                                            <div className='profile-photo me-3 d-flex justify-content-center align-items-center'><img src={profile} alt="PROFESSOR" /></div>
                                             <p className='m-0'>
-                                                <strong>DIMITRI TEIXEIRA</strong>
+                                                <strong>RODOLFO MORI</strong>
                                                 <p className='description-p m-0 mt-1'>Web Fullstack Developer</p>
                                             </p>
                                         </div>
                                     </div>
                                 </AccordionHeader>
                                 <AccordionBody accordionId="1">
-                                    Dimitri Teixeira é um desenvolvedor web Fullstack com vasta experiência no mercado de tecnologia. Ao longo dos anos, ele tem ajudado milhares de alunos a se tornarem desenvolvedores completos, dominando tanto o Frontend quanto o Backend. Além disso, seu estilo de ensino é descontraído e muito prático, com o objetivo de tornar o aprendizado de tecnologias como HTML, CSS, JavaScript, Node.js e PHP acessível e divertido para todos.
+                                    A programação mudou minha vida, e o meu objetivo aqui é fazer com que ela mude a sua também. Vou te mostrar que o mundo da tecnologia é mais simples do que você imagina. Vamos aprender juntos, com uma abordagem prática e descontraída. Meu foco é tornar o aprendizado de JavaScript e outras tecnologias acessível, divertido e direto ao ponto. Vamos lá! 🚀
                                 </AccordionBody>
                             </AccordionItem>
                         </Accordion>

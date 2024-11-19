@@ -89,6 +89,18 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
                     height: 50px;
                     background-color: #ffffff10;
                     border-radius: 100%;
+
+                    img {
+                        width: 100%;
+                        border-radius: 100%;
+                    }
+
+                    @media screen and (max-width: 450px) {
+                        flex-direction: column;
+                        align-self: start;
+                        margin-left: 10px;
+                        margin-bottom: 5px;
+                    }
                 }
 
                 .description-p {
@@ -309,6 +321,7 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
 
                     img {
                         width: 100%;
+                        border-radius: 100%;
                     }
 
                     @media screen and (max-width: 450px) {
@@ -373,9 +386,12 @@ $box-shadow-color: rgba(0, 0, 0, 0.1);
 
     @media screen and (max-width: 991px) {
         height: auto;
+        padding-bottom: 100px;
     }
 
     @media (max-width: 768px) {
+        height: auto;
+
 
         .left-side,
         .right-side {

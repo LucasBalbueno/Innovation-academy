@@ -7,12 +7,12 @@ import {
 import "../assets/styles/style.scss";
 import { useNavigate } from 'react-router-dom';
 
-import profile from "../../assets/profile/logo_reprograma.jpg"
+import profile from "../../assets/profile/node_studio_profile.jpg"
 
 const CourseCSSView = () => {
     const [activeTab, setActiveTab] = useState('1');
-    const [currentLesson, setCurrentLesson] = useState('https://www.youtube.com/embed/sj0p9O85AIg?si=fv017COdYUIng7vb');
-    const [selectedLesson, setSelectedLesson] = useState('Aula 1 - Criando novo projeto');
+    const [currentLesson, setCurrentLesson] = useState('https://www.youtube.com/embed/FRhM6sMOTfg?si=jRf45WJeZiMetYR5');
+    const [selectedLesson, setSelectedLesson] = useState('Aula 1 - Introdução ao CSS');
     const navigate = useNavigate();
     const [open, setOpen] = useState('1');
 
@@ -32,13 +32,13 @@ const CourseCSSView = () => {
     };
 
     const lessons = [
-        { title: 'Aula 1 - Criando novo projeto', url: 'https://www.youtube.com/embed/sj0p9O85AIg?si=fv017COdYUIng7vb' },
-        { title: 'Aula 2 - Estrutura Básica', url: 'https://www.youtube.com/embed/MOd8PCyEB88?si=2PHHivfdG5LxspNo' },
-        { title: 'Aula 3 - Meta Tags, Cabeçalho e Parágrafo', url: 'https://www.youtube.com/embed/1ntb19o-2MI?si=tz3qfeaDxQPxEHfn' },
-        { title: 'Aula 4 - Formatação de Texto', url: 'https://www.youtube.com/embed/RiGo7BN1Wps?si=odWEY1xnJfNCwHHt' },
-        { title: 'Aula 5 - Elementos de Citação', url: 'https://www.youtube.com/embed/bzWtE7GFi0Y?si=Nuu4E8S5vhqzHNGb' },
-        { title: 'Aula 6 - Comentários', url: 'https://www.youtube.com/embed/Sl0edqPVrGg?si=IAYSoPrMEkA-sSR5' },
-        { title: 'Aula 7 - Links', url: 'https://www.youtube.com/embed/eb5tPfOeexI?si=Qwj0-2-mdVj703xu' },
+        { title: 'Aula 1 - Introdução ao CSS', url: 'https://www.youtube.com/embed/FRhM6sMOTfg?si=jRf45WJeZiMetYR5' },
+        { title: 'Aula 2 - Aplicando CSS e Sintaxe', url: 'https://www.youtube.com/embed/JOz8I_EWve8?si=6F01z2pzPMgGwxmm' },
+        { title: 'Aula 3 - Seletor universal, Seletor tipo, Seletor atributo', url: 'https://www.youtube.com/embed/-vU1WZ0IYq8?si=sBj1i3RWJdQqs7Xn' },
+        { title: 'Aula 4 - Agrupamento de Seletores', url: 'https://www.youtube.com/embed/S4O5_aiZ3Tc?si=YFoIjWe4L0EX2iht' },
+        { title: 'Aula 5 - Seletor Id e Class', url: 'https://www.youtube.com/embed/C6gZd3vCN1c?si=XsjHo89nGeb4iNDD' },
+        { title: 'Aula 6 - Dimensão (Width, Height, Max e Min)', url: 'https://www.youtube.com/embed/URgJTug9BlI?si=rj7ieQuW2101lLhs' },
+        { title: 'Aula 7 - Margin e Padding', url: 'https://www.youtube.com/embed/5TIhtyMDr90?si=D5b5JV_Szx3CqAOR' },
     ]
 
     return (
@@ -116,7 +116,7 @@ const CourseCSSView = () => {
                             <TabPane tabId="1">
                                 <h5 className='mb-3'>Sobre a trilha</h5>
                                 <div className="lesson-description">
-                                    Seja muito bem-vindo(a) ao curso de HTML, onde você aprenderá desde o básico até técnicas importantes para criar sites bem estruturados e semânticos. O curso é focado no aprendizado prático, com aulas curtas e objetivas, ideais para quem está começando na área.
+                                    Seja bem-vindo ao curso de CSS para Iniciantes! Neste curso, você aprenderá como estilizar páginas web, deixando o conteúdo mais bonito e organizado. Vamos ensinar desde os conceitos básicos de CSS até técnicas importantes para criar layouts responsivos e aplicar estilos em elementos HTML. O curso é prático e direto, ideal para quem está começando no desenvolvimento web.
                                 </div>
 
                                 <div className="profile d-flex align-items-center mt-5">
@@ -128,7 +128,7 @@ const CourseCSSView = () => {
                                                     <div className='container-profile d-flex align-items-center '>
                                                         <div className='profile-photo me-3 d-flex justify-content-center align-items-center'><img src={profile} alt="PROFESSOR" /></div>
                                                         <p className='m-0'>
-                                                            <strong>DIMITRI TEIXEIRA</strong>
+                                                            <strong>RODRIGO SANTOS</strong>
 
                                                             <p className='description-p m-0 mt-1'>Web Fullstack Developer</p>
 
@@ -137,7 +137,7 @@ const CourseCSSView = () => {
                                                 </div>
                                             </AccordionHeader>
                                             <AccordionBody accordionId="1">
-                                                Dimitri Teixeira é um desenvolvedor web Fullstack com vasta experiência no mercado de tecnologia. Ao longo dos anos, ele tem ajudado milhares de alunos a se tornarem desenvolvedores completos, dominando tanto o Frontend quanto o Backend. Além disso, seu estilo de ensino é descontraído e muito prático, com o objetivo de tornar o aprendizado de tecnologias como HTML, CSS, JavaScript, Node.js e PHP acessível e divertido para todos.
+                                                Rodrigo Santos é um desenvolvedor web Fullstack com vasta experiência no mercado de tecnologia. Ao longo dos anos, ele tem ajudado milhares de alunos a se tornarem desenvolvedores completos, dominando tanto o Frontend quanto o Backend. Além disso, seu estilo de ensino é descontraído e muito prático, com o objetivo de tornar o aprendizado de tecnologias como HTML, CSS, JavaScript, Node.js e PHP acessível e divertido para todos.
                                             </AccordionBody>
                                         </AccordionItem>
                                     </Accordion>
@@ -171,7 +171,7 @@ const CourseCSSView = () => {
                     </div>
                     <div className="lesson-description d-lg-block d-none">
                         <h3>Sobre a trilha</h3>
-                        Seja muito bem-vindo(a) ao curso de HTML, onde você aprenderá desde o básico até técnicas importantes para criar sites bem estruturados e semânticos.
+                        Seja bem-vindo ao curso de CSS para Iniciantes! Neste curso, você aprenderá como estilizar páginas web, deixando o conteúdo mais bonito e organizado. Vamos ensinar desde os conceitos básicos de CSS até técnicas importantes para criar layouts responsivos e aplicar estilos em elementos HTML. O curso é prático e direto, ideal para quem está começando no desenvolvimento web.
                     </div>
 
                     <div className="profile d-flex align-items-center mt-5 d-lg-block d-none">
@@ -181,16 +181,16 @@ const CourseCSSView = () => {
                                 <AccordionHeader targetId="1">
                                     <div className='w-100'>
                                         <div className='d-flex align-items-center '>
-                                            <div className='profile-photo me-3 d-flex justify-content-center align-items-center'>Foto</div>
+                                            <div className='profile-photo me-3 d-flex justify-content-center align-items-center'><img src={profile} alt="PROFESSOR" /></div>
                                             <p className='m-0'>
-                                                <strong>DIMITRI TEIXEIRA</strong>
+                                                <strong>RODRIGO SANTOS</strong>
                                                 <p className='description-p m-0 mt-1'>Web Fullstack Developer</p>
                                             </p>
                                         </div>
                                     </div>
                                 </AccordionHeader>
                                 <AccordionBody accordionId="1">
-                                    Dimitri Teixeira é um desenvolvedor web Fullstack com vasta experiência no mercado de tecnologia. Ao longo dos anos, ele tem ajudado milhares de alunos a se tornarem desenvolvedores completos, dominando tanto o Frontend quanto o Backend. Além disso, seu estilo de ensino é descontraído e muito prático, com o objetivo de tornar o aprendizado de tecnologias como HTML, CSS, JavaScript, Node.js e PHP acessível e divertido para todos.
+                                    Rodrigo Santos Teixeira é um desenvolvedor web Fullstack com vasta experiência no mercado de tecnologia. Ao longo dos anos, ele tem ajudado milhares de alunos a se tornarem desenvolvedores completos, dominando tanto o Frontend quanto o Backend. Além disso, seu estilo de ensino é descontraído e muito prático, com o objetivo de tornar o aprendizado de tecnologias como HTML, CSS, JavaScript, Node.js e PHP acessível e divertido para todos.
                                 </AccordionBody>
                             </AccordionItem>
                         </Accordion>
