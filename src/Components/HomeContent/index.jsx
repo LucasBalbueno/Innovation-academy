@@ -72,13 +72,6 @@ function HomeContent() {
             </span>
             !
           </h1>
-          <p>Cursos e materiais recentes</p>
-          <div className="containerRecents">
-            <RecentsCard />
-            <RecentsCard />
-            <RecentsCard />
-            <RecentsCard />
-          </div>
         </ContainerInitial>
 
         <ContainerBanners>
