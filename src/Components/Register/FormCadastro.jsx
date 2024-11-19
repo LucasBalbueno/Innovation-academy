@@ -269,6 +269,7 @@ function FormCadastro() {
         email: email,
         password: senha,
       });
+      console.log(response.data)
       alert("Cadastro realizado com sucesso!");
     } catch (error) {
       console.log(error);
