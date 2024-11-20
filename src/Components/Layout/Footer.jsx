@@ -12,6 +12,8 @@ const Container = styled.div`
   min-height: 500px;
   display: flex;
   flex-direction: column;
+  padding-left: 5%;
+  padding-right: 5%;
 
   @media (max-width: 768px) {
     padding-bottom: 45%;
@@ -112,6 +114,11 @@ const Itens = styled.li`
   font-family: var(--font-poopins);
   font-size: 16px;
   padding: 5px 0px;
+
+  &:hover {
+    cursor: pointer;
+    color: var(--contrast-color);
+  }
 `;
 
 const SocialMedias = styled.div`
@@ -170,7 +177,7 @@ function Footer() {
               <Subject>Início</Subject>
               <Itens>Home</Itens>
               <Itens>Cursos</Itens>
-              <Itens>Downloard</Itens>
+              <Itens>Downloads</Itens>
             </Box>
 
             <Box>
@@ -182,9 +189,9 @@ function Footer() {
 
             <Box>
               <Subject>Suporte</Subject>
-              <Itens>Informações da Empresa</Itens>
-              <Itens>Contato</Itens>
-              <Itens>Blog</Itens>
+              <Itens>FAQ</Itens>
+              <Itens>Telefones</Itens>
+              <Itens>Chats</Itens>
             </Box>
           </LinksUtillities>
           <SocialMedias>

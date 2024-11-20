@@ -2,11 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
-
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20%;
 `;
 
 export const ContainerForm = styled.div`
@@ -16,10 +15,14 @@ export const ContainerForm = styled.div`
 
   h1 {
     color: var(--contrast-color);
+
+    @media screen and (max-width: 728px) {
+      font-size: 1.5rem !important;
+    }
   }
 
   button {
-    width: 30rem;
+    width: 100%;
     height: 2.5rem;
     border-radius: 10px;
     background-color: var(--contrast-color);
@@ -80,10 +83,6 @@ export const ContainerForm = styled.div`
 
   @media screen and (max-width: 520px) {
     form {
-      display: none;
-    }
-
-    form {
       > label {
         input,
         select,
@@ -112,6 +111,10 @@ export const ContainerAllFeedbacks = styled.div`
   h1 {
     color: var(--contrast-color);
     margin-top: 4rem;
+
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem !important;
+    }
   }
 
   @media screen and (max-width: 1380px) {
