@@ -6,10 +6,12 @@ import {
 import "../assets/styles/style.scss";
 import { useNavigate } from 'react-router-dom';
 
+import profile from "../../assets/profile/edson_maia_profile.jpg"
+
 const CourseNodeView = () => {
     const [activeTab, setActiveTab] = useState('1');
-    const [currentLesson, setCurrentLesson] = useState('https://www.youtube.com/embed/yjmhSn0j8ac');
-    const [selectedLesson, setSelectedLesson] = useState('Aula 1 - Introdução e Apresentação');
+    const [currentLesson, setCurrentLesson] = useState('https://www.youtube.com/embed/05WeJCU8CJ4?si=r3wT2sOeRjXDhCNQ');
+    const [selectedLesson, setSelectedLesson] = useState('Aula 1 - Baixar e instalar o Node JS. Testar e instalar ferramentas extras');
     const navigate = useNavigate();
     const [open, setOpen] = useState('1');
 
@@ -29,13 +31,13 @@ const CourseNodeView = () => {
     };
 
     const lessons = [
-        { title: 'Aula 1 - Introdução e Apresentação', url: 'https://www.youtube.com/embed/yjmhSn0j8ac' },
-        { title: 'Aula 2 - Introdução e Apresentação', url: 'https://www.youtube.com/embed/yjmhSn0j8ac' },
-        { title: 'Aula 3 - Introdução e Apresentação', url: 'https://www.youtube.com/embed/yjmhSn0j8ac' },
-        { title: 'Aula 4 - Introdução e Apresentação', url: 'https://www.youtube.com/embed/yjmhSn0j8ac' },
-        { title: 'Aula 5 - Introdução e Apresentação', url: 'https://www.youtube.com/embed/yjmhSn0j8ac' },
-        { title: 'Aula 6 - Introdução e Apresentação', url: 'https://www.youtube.com/embed/yjmhSn0j8ac' },
-        { title: 'Aula 7 - Introdução e Apresentação', url: 'https://www.youtube.com/embed/yjmhSn0j8ac' },
+        { title: 'Aula 1 - Baixar e instalar o Node JS. Testar e instalar ferramentas extras', url: 'https://www.youtube.com/embed/05WeJCU8CJ4?si=r3wT2sOeRjXDhCNQ' },
+        { title: 'Aula 2 - Criar projeto. API REST. Express. Rotas. Nodemon', url: 'https://www.youtube.com/embed/V3PUGubaSQo?si=Q6EK62RptDdTtXgm' },
+        { title: 'Aula 3 - Criar Rotas GET com Express, Refatorar Código, Extensão JSON Viewer', url: 'https://www.youtube.com/embed/4GdHVfqWxOw?si=5lNHgIxewTV9RZXK' },
+        { title: 'Aula 4 - Criar Rotas POST com Express, Como usar o Insomnia', url: 'https://www.youtube.com/embed/67GVpULYJ3k?si=U1_niIf1y4LCnD_1' },
+        { title: 'Aula 5 - Criar Rotas GET com parâmetro no Express, Criar rota DELETE no Express', url: 'https://www.youtube.com/embed/IsomhYdkg_0?si=4NfqVtfuTT5YClsR' },
+        { title: 'Aula 6 - Criar Rota PUT com parâmetro no Express para atualizar dados', url: 'https://www.youtube.com/embed/mp2aP5KoXcY?si=txJW7N8zZTfSbOGC' },
+        { title: 'Aula 7 - Persistência de Dados com o MySQL, baixar, instalar e conectar', url: 'https://www.youtube.com/embed/f-hBybIPl8A?si=kfxSrxiZTiJw5o4_' },
     ]
 
     return (
@@ -48,7 +50,7 @@ const CourseNodeView = () => {
                     <p className='m-0'>Voltar</p>
                 </div>
 
-                <h3 className='my-3 text-sm-start text-center'>CURSO NODEJS - INICIANTE</h3>
+                <h3 className='my-3 text-sm-start text-center'>CURSO NODE - INICIANTE</h3>
                 <div className="d-flex align-items-sm-start justify-content-sm-start align-items-center justify-content-center">
                     <Badge
                         className='bg-transparent rounded-pill me-lg-2 px-3 py-2'
@@ -59,7 +61,7 @@ const CourseNodeView = () => {
                                 color: "#00FF7E"
                             }}
                         ></i>
-                        FRONTEND
+                        BACKEND
                     </Badge>
                     <Badge
                         className='bg-transparent rounded-pill me-2 px-3 py-2'
@@ -113,7 +115,7 @@ const CourseNodeView = () => {
                             <TabPane tabId="1">
                                 <h5 className='mb-3'>Sobre a trilha</h5>
                                 <div className="lesson-description">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus, asperiores. Facere iusto nulla dolorum fugit in architecto similique culpa perferendis neque officiis id labore molestias fuga nemo debitis odit consectetur atque adipisci, explicabo temporibus praesentium quia nihil soluta? Recusandae quas ad, dolores incidunt molestias laborum! Ab aliquam cumque blanditiis beatae. Natus asperiores libero quasi possimus ea deleniti at, illum assumenda soluta minima nulla facilis obcaecati saepe, magnam enim ex omnis delectus, iure in modi ad! Deleniti, a minima assumenda vitae dolor beatae ad blanditiis nulla laborum temporibus id quo officia, rem consequatur ipsa, commodi atque ullam expedita quam nisi excepturi.
+                                    Seja muito bem-vindo(a) ao curso de Node.js, onde você aprenderá a criar APIs RESTful com o Node.js e Express, além de integrar com bancos de dados como MySQL. O curso é voltado para iniciantes e segue uma abordagem prática, focando em resultados rápidos e eficientes.
                                 </div>
 
                                 <div className="profile d-flex align-items-center mt-5">
@@ -123,18 +125,16 @@ const CourseNodeView = () => {
                                             <AccordionHeader targetId="1">
                                                 <div className='w-100'>
                                                     <div className='container-profile d-flex align-items-center '>
-                                                        <div className='profile-photo me-3 d-flex justify-content-center align-items-center'>Foto</div>
+                                                        <div className='profile-photo me-3 d-flex justify-content-center align-items-center'><img src={profile} alt="PROFESSOR" /></div>
                                                         <p className='m-0'>
-                                                            <strong>Nome do Professor</strong>
-
-                                                            <p className='description-p m-0 mt-1'>Lorem ipsum dolor | Quas, voluptatum!</p>
-
+                                                            <strong>EDSON MAIA</strong>
+                                                            <p className='description-p m-0 mt-1'>Professor de Geografia e Informática | Desenvolvedor Web, Mobile e de Jogos | Designer</p>
                                                         </p>
                                                     </div>
                                                 </div>
                                             </AccordionHeader>
                                             <AccordionBody accordionId="1">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique dolor dicta porro ab cum odio necessitatibus, sed quisquam quos maiores eum illum sit harum a deleniti quod temporibus ipsam. Pariatur!
+                                                Edson Maia é um professor experiente nas áreas de Geografia e Informática, com vasta experiência como desenvolvedor web, mobile e de jogos. Além disso, é designer e tem um estilo de ensino focado na prática e na aplicação de conhecimentos em projetos reais.
                                             </AccordionBody>
                                         </AccordionItem>
                                     </Accordion>
@@ -158,16 +158,17 @@ const CourseNodeView = () => {
                             <TabPane tabId="3" className='tab-pane'>
                                 <h5 className='mb-5 align-self-start'>Materiais Extras</h5>
                                 <div className='d-flex flex-column align-items-center'>
-                                    <h1 className='text-muted text-center'>
+                                    <h1 className='text-white text-center'>
                                         <i className="fa-regular fa-copy"></i>
                                     </h1>
-                                    <p className='text-center text-muted material-text'>Não existem materiais extras relacionados a esta matéria</p>
+                                    <p className='text-center text-white material-text'>Não existem materiais extras relacionados a esta matéria</p>
                                 </div>
                             </TabPane>
-                        </TabContent></div>
+                        </TabContent>
+                    </div>
                     <div className="lesson-description d-lg-block d-none">
                         <h3>Sobre a trilha</h3>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus, asperiores. Facere iusto nulla dolorum fugit in architecto similique culpa perferendis neque officiis id labore molestias fuga nemo debitis odit consectetur atque adipisci, explicabo temporibus praesentium quia nihil soluta? Recusandae quas ad, dolores incidunt molestias laborum! Ab aliquam cumque blanditiis beatae. Natus asperiores libero quasi possimus ea deleniti at, illum assumenda soluta minima nulla facilis obcaecati saepe, magnam enim ex omnis delectus, iure in modi ad! Deleniti, a minima assumenda vitae dolor beatae ad blanditiis nulla laborum temporibus id quo officia, rem consequatur ipsa, commodi atque ullam expedita quam nisi excepturi.
+                        Seja muito bem-vindo(a) ao curso de Node.js, onde você aprenderá a criar APIs RESTful com Node.js e Express.
                     </div>
 
                     <div className="profile d-flex align-items-center mt-5 d-lg-block d-none">
@@ -177,16 +178,16 @@ const CourseNodeView = () => {
                                 <AccordionHeader targetId="1">
                                     <div className='w-100'>
                                         <div className='d-flex align-items-center '>
-                                            <div className='profile-photo me-3 d-flex justify-content-center align-items-center'>Foto</div>
+                                            <div className='profile-photo me-3 d-flex justify-content-center align-items-center'><img src={profile} alt="PROFESSOR" /></div>
                                             <p className='m-0'>
-                                                <strong>Nome do Professor</strong>
-                                                <p className='description-p m-0 mt-1'>Lorem ipsum dolor | Quas, voluptatum!</p>
+                                                <strong>EDSON MAIA</strong>
+                                                <p className='description-p m-0 mt-1'>Professor de Geografia e Informática | Desenvolvedor Web, Mobile e de Jogos | Designer</p>
                                             </p>
                                         </div>
                                     </div>
                                 </AccordionHeader>
                                 <AccordionBody accordionId="1">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique dolor dicta porro ab cum odio necessitatibus, sed quisquam quos maiores eum illum sit harum a deleniti quod temporibus ipsam. Pariatur!
+                                    Edson Maia é um professor experiente nas áreas de Geografia e Informática, além de ser desenvolvedor web, mobile e de jogos, e também designer. Ele adota um estilo de ensino prático e voltado para o mercado.
                                 </AccordionBody>
                             </AccordionItem>
                         </Accordion>
@@ -231,10 +232,10 @@ const CourseNodeView = () => {
                         <TabPane tabId="2" className='tab-pane'>
                             <h5 className='mb-5 align-self-start'>Materiais Extras</h5>
                             <div className='d-flex flex-column align-items-center'>
-                                <h1 className='text-muted text-center'>
+                                <h1 className='text-white text-center'>
                                     <i className="fa-regular fa-copy"></i>
                                 </h1>
-                                <p className='text-center text-muted material-text'>Não existem materiais extras relacionados a esta matéria</p>
+                                <p className='text-center material-text text-white'>Não existem materiais extras relacionados a esta matéria</p>
                             </div>
                         </TabPane>
                     </TabContent>
