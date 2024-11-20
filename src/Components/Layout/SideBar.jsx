@@ -113,17 +113,6 @@ const Sidebar = ({ isOpen }) => {
       <Menu>
         {routes.map((route) => (
           <MenuItem key={route.path || route.href} isActive={activeRoute === route.path}>
-            {route.href ? (
-              <ExternalLink
-                href={route.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleCommunityClick}
-              >
-                <Icon>{route.icon}</Icon>
-                {route.name}
-              </ExternalLink>
-            ) : (
               <StyledLink
                 to={route.path}
                 onClick={() => setActiveRoute(route.path)}
@@ -131,7 +120,6 @@ const Sidebar = ({ isOpen }) => {
                 <Icon>{route.icon}</Icon>
                 {route.name}
               </StyledLink>
-            )}
           </MenuItem>
         ))}
       </Menu>

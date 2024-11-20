@@ -19,6 +19,8 @@ import CourseNodeView from "./Components/Pages/Courses/components/NODEJS/CourseN
 import CoursePythonView from "./Components/Pages/Courses/components/PYTHON/CoursePythonView";
 import CourseReactView from "./Components/Pages/Courses/components/REACTJS/CourseReactView";
 import CourseSASSView from "./Components/Pages/Courses/components/SASS/CourseSASSView";
+import { Help } from "./Components/Pages/help";
+import { AboutUs } from "./Components/Pages/aboutUs";
 
 function App() {
   return (
@@ -35,7 +37,7 @@ function App() {
           path="/home"
           element={
             // <ProtectedRoute>
-              <Home />
+            <Home />
             // </ProtectedRoute>
           }
         >
@@ -55,6 +57,8 @@ function App() {
           <Route path="cursos/nodejs" element={<CourseNodeView />} />
           <Route path="cursos/sass" element={<CourseSASSView />} />
           <Route path="cursos/reactjs" element={<CourseReactView />} />
+          <Route path="help" element={<Help />} />
+          <Route path="sobrenos" element={<AboutUs />} />
         </Route>
       </Routes>
     </Router>
