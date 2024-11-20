@@ -127,23 +127,6 @@ const BtnCriar = styled.button`
   }
 `;
 
-const DivBtnGithub_Google = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-`;
-
-const IconeGithub = styled.img`
-  margin-right: 5%;
-  transition: 0.3s ease;
-`;
-
-const IconeGoogle = styled.img`
-  width: 20%;
-  margin-right: 5%;
-  transition: 0.3s ease;
-`;
-
 const BtnGithub = styled.button`
   height: 100%;
   margin-left: 2%;
@@ -163,35 +146,6 @@ const BtnGithub = styled.button`
   &:hover {
     cursor: pointer;
     background-color: var(--gray-color);
-  }
-
-  &:hover ${IconeGithub} {
-    transform: rotate(45deg);
-  }
-`;
-
-const BtnGoogle = styled.button`
-  margin-left: 2%;
-  font-family: var(--font-poopins);
-  border-radius: 5px 5px 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  background-color: var(--main-color);
-  border: none;
-  color: var(--text-color);
-  padding: 2%;
-  font-size: 12px;
-  transition: 0.3s ease;
-
-  &:hover {
-    cursor: pointer;
-    background-color: var(--gray-color);
-  }
-
-  &:hover ${IconeGoogle} {
-    transform: rotate(45deg);
   }
 `;
 
@@ -273,7 +227,7 @@ function FormCadastro() {
 
       const responsePreferences = await axios.post(`http://localhost:8080/api/preferences/user/${response.data.userId}`, {
         theme: "DARK",
-        textSize: "DEFAULT",
+        textSize: "SMALL",
         notification: "ALWAYS"
     });
 
@@ -376,17 +330,6 @@ function FormCadastro() {
         nossa <a href="#">política de privacidade</a>
       </Termos>
       <BtnCriar onClick={criarConta}>Criar Conta</BtnCriar>
-      <DivBtnGithub_Google>
-        <span>Ou se preferir</span>
-        <BtnGithub>
-          <IconeGithub src={iconeGithub} alt="" srcSet="" />
-          Entre com o Github
-        </BtnGithub>
-        <BtnGoogle>
-          <IconeGoogle src={iconeGoogle} alt="" srcSet="" />
-          Entre com o Google
-        </BtnGoogle>
-      </DivBtnGithub_Google>
       <QuebraLinha src={quebraLinha} alt="" srcSet="" />
     </>
   );

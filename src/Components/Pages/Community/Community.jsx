@@ -1,7 +1,7 @@
 import '../../../Styles/Global.css'
 import styled from 'styled-components';
 
-const GreenBtn = styled.button ` 
+const GreenBtn = styled.a` 
     background-color: var(--contrast-color);
     border: none;
     padding: 3%;
@@ -12,17 +12,12 @@ const GreenBtn = styled.button `
     font-size: 15px;
     transition: 0.3s ease;
     width: 100%;
-
-    &:hover {
-        cursor: pointer;
-        background-color: var(--contrast-color-hover);
-    } 
+    text-align: center;
+    font-size: 25px;
+    color: var(--main-color);
+    cursor: pointer;
+    text-decoration: none;
     `;
-
-const inviteLink = (e) => {
-    e.preventDefault();
-    window.location.href='#'
-} 
 
 function Community() {
   
@@ -33,7 +28,7 @@ function Community() {
             <h1>Comunidade</h1>
             <h3>Entre no nosso Discord!</h3>
             <div className='d-flex align-items-center justify-content-center'>
-                <GreenBtn onClick={inviteLink}>
+                <GreenBtn href='https://discord.gg/aJAE8jk8' target='_blank'>
                     Link do nosso Discord
                 </GreenBtn>
             </div>

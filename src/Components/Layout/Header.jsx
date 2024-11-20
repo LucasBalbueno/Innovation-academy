@@ -1,6 +1,4 @@
-import { useState } from "react"; // Import useState para controlar o estado
 import { FaBars } from "react-icons/fa";
-import { CgProfile } from "react-icons/cg";
 import styled from "styled-components";
 import { FaFire } from "react-icons/fa";
 import "../../Styles/Global.css";

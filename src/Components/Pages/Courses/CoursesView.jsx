@@ -37,10 +37,10 @@ const CoursesView = () => {
   ];
 
   const events = [
-    { name: 'Aula sobre IA', data: "28 DE AGOSTO - 19 HORAS", description: 'Iniciante' },
-    { name: 'Algoritmos', data: "30 DE AGOSTO - 19 HORAS", description: 'Iniciante' },
-    { name: 'React Routers', data: "28 DE SETEMBRO - 19 HORAS", description: 'Avançado' },
-    { name: 'Orientação a Objetos', data: "28 DE OUTUBRO - 20 HORAS", description: 'Avançado' }
+    { name: 'Aula sobre IA', data: "28 DE AGOSTO - 19 HORAS", description: 'Iniciante', link: 'https://www.youtube.com/watch?v=jQMbuK6URws&list=PLHz_AreHm4dm24MhlWJYiR_Rm7TFtvs6S&ab_channel=CursoemV%C3%ADdeo' },
+    { name: 'Algoritmos', data: "30 DE AGOSTO - 19 HORAS", description: 'Iniciante', link: 'https://www.youtube.com/watch?v=JaTf3dhx464&ab_channel=Sharpax' },
+    { name: 'React Routers', data: "28 DE SETEMBRO - 19 HORAS", description: 'Avançado', link: 'https://www.youtube.com/watch?v=7b42lVMdEjE&ab_channel=MatheusBattisti-HoradeCodar' },
+    { name: 'Orientação a Objetos', data: "28 DE OUTUBRO - 20 HORAS", description: 'Avançado', link: 'https://www.youtube.com/watch?v=f-aDDLRmugU&ab_channel=Sharpax' }
   ];
 
   const recentAccess = [
@@ -54,11 +54,6 @@ const CoursesView = () => {
       <div className="container">
         <h1>Cursos</h1>
         <h3>Aproveite todos os nossos cursos!</h3>
-        <input
-          type="text"
-          className='form-input'
-          placeholder="Pesquisar"
-        />
 
         <div className='container-card'>
           {courses.map((course, index) => (
@@ -73,28 +68,6 @@ const CoursesView = () => {
               </CardFooter>
             </Card>
           ))}
-        </div>
-
-        <div className="recent-access">
-          <h2 className='mb-5'>Acesso recente</h2>
-          <div className="courses-access d-flex flex-lg-row flex-column align-items-center justify-content-between">
-            {recentAccess.map((item, index) => (
-              <Card key={index} className='recent-access-card d-flex align-items-stretch border-0'>
-                <CardHeader className='border-0 d-flex align-items-center'>
-                  <img src={item.image} alt={`Logo ${item.name}`} />
-                  <h3 className='m-0'>{item.name}</h3>
-                </CardHeader>
-                <CardBody className='card-body'>
-                  <p>CARGA {item.hours}</p>
-                  <strong>{item.lesson}</strong>
-                </CardBody>
-                <CardFooter className='border-0 footer py-0 m-0 d-flex align-items-center bg-transparent'>
-                  <div className="states"></div>
-                  <p className='number-status m-0'>{item.progress}</p>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
         </div>
 
         <div className="courses-recomended">
@@ -126,7 +99,7 @@ const CoursesView = () => {
         </div>
 
         <div className="events">
-          <h2 className='mb-5'>Eventos online</h2>
+          <h2 className='mb-5'>Complementos online</h2>
           <div className='container-cards-events d-flex align-items-center justify-content-between'>
             {events.map((event, index) => (
               <Card className='card-event d-flex align-items-stretch border-0'>
@@ -141,7 +114,7 @@ const CoursesView = () => {
                   <p>{event.data}</p>
                   <div className='d-flex align-items-sm-center justify-content-between flex-sm-row flex-column'>
                     <strong>{event.description}</strong>
-                    <a target='_blank' href='#'>ACESSAR</a>
+                    <a target='_blank' href={event.link}>ACESSAR</a>
                   </div>
                 </CardBody>
               </Card>

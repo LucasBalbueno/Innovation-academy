@@ -12,7 +12,7 @@ const routes = [
   { path: "/home/cursos", name: "Cursos", icon: <FaLaptop /> },
   { path: "/home/profile", name: "Perfil", icon: <FaRegUser /> },
   { path: "/home/agenda", name: "Eventos", icon: <TfiAgenda /> },
-  { href: "https://www.google.com", name: "Ajuda", icon: <BsQuestionCircle /> },
+  { href: "#", name: "Ajuda", icon: <BsQuestionCircle /> },
   { path: "/home/comunidade", name: "Comunidade", icon: <FaDiscord /> },
 ];
 
