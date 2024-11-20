@@ -111,7 +111,7 @@ function Header({ setIsSidebarOpen, setIsPopupProfileOpen }) {
         <MenuIcon onClick={toggleSidebar}>
           <FaBars />
         </MenuIcon>
-        <H1>
+        <H1 className="fs-1">
           IAacademy <Span>Premium</Span>
         </H1>
       </DivOne>
