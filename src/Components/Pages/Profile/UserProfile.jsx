@@ -7,7 +7,7 @@ import { decodeJwt } from "jose";
 import Swal from "sweetalert2";
 import Loading from "../../assets/Loading";
 import { faBullseye } from "@fortawesome/free-solid-svg-icons";
-import profileIcon from '../../assets/avatar-1.jpg';
+import profileIcon from "../../assets/avatar-1.jpg";
 
 const Input = styled.input`
   background: var(--background-color);
@@ -134,22 +134,25 @@ function UserProfile() {
       ) : (
         <>
           <div className="container-fluid layout">
-            <div className="container d-flex align-items-center justify-content-center p-3 gap-3">
+            <div className="container d-flex flex-column flex-md-row align-items-center justify-content-center p-3 gap-3">
               <div className="mx-2">
                 <img
+                  className=""
                   src={profileIcon}
                   alt="Profile"
                   style={{
-                  borderRadius: "50%",
-                  width: "10rem",
-                  border: "5px solid #00FF7E",
+                    borderRadius: "50%",
+                    width: "10rem",
+                    border: "5px solid #00FF7E",
                   }}
                 />
               </div>
 
-              <div>
-                <h1>{name}</h1>
-                <h1 style={{ color: "#00FF7E" }}>@{username}</h1>
+              <div className="flex flex-colunm just">
+                <h1 className="fs-1">{name}</h1>
+                <h1 className="fs-2" style={{ color: "#00FF7E" }}>
+                  @{username}
+                </h1>
                 <span style={{ color: "#00FF7E" }}>{job}</span>
                 <p className="my-3">{biography}</p>
                 <span style={{ color: "#00FF7E" }}>{technologies}</span>
