@@ -15,6 +15,7 @@ function Events({ onAddToCalendar, events }) {
                 
                 
                 {events && events.map(event => (
+                    (console.log(event)),
                     <NavItem key={event.eventId}>
                         <img src={event.eventImage} alt={event.eventName} />
                         <h3>{event.eventName}</h3>
@@ -22,7 +23,7 @@ function Events({ onAddToCalendar, events }) {
                         <p>Fim: {new Date(event.eventDateEnd).toLocaleDateString()}</p>
                         <p>Acesse o evento online:</p>
                         <Button style={{ backgroundColor: 'var(--contrast-color)', color: 'var(--text-color)' }}>
-                            <NavLink href={event.eventURL} target="_blank" rel="noopener noreferrer" className="m-0">Clique aqui</NavLink>
+                            <a href={event.eventURL} target='_blank' rel="noopener noreferrer" className="m-0" style={{textDecoration: "none"}}>Clique aqui</a>
                         </Button>
                         <Button style={{ backgroundColor: 'rgb(69, 69, 69)', color: 'var(--text-color)', marginLeft: '10px' }} onClick={() => onAddToCalendar(event)}>
                             Incluir no calendário

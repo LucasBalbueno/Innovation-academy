@@ -33,34 +33,34 @@ function HomeContent() {
   const [description, setDescription] = useState("");
   const [feedbacks, setFeedbacks] = useState([]);
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   const token = localStorage.getItem("jwt");
-  //   if (token == null) {
-  //     navigate("/");
-  //     return;
-  //   }
-  //   (async () => {
-  //     try {
-  //       const decoded = decodeJwt(token);
-  //       const response = await axios.get(
-  //         `http://localhost:8080/api/users/by-email?email=${decoded.sub}`
-  //       );
-  //       setUsername(response.data.username);
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (token == null) {
+      navigate("/");
+      return;
+    }
+    (async () => {
+      try {
+        const decoded = decodeJwt(token);
+        const response = await axios.get(
+          `http://localhost:8080/api/users/by-email?email=${decoded.sub}`
+        );
+        setUsername(response.data.username);
 
-  //       const allFeedbacks = await axios.get(
-  //         "http://localhost:8080/api/feedbacks"
-  //       );
-  //       setFeedbacks(allFeedbacks.data);
-  //     } catch (error) {
-  //       Swal.fire({
-  //         icon: "error",
-  //         title: "Erro!",
-  //         text: "Erro ao carregar os dados do usuario.",
-  //         confirmButtonText: "OK",
-  //       });
-  //     }
-  //   })();
-  // }, []);
+        const allFeedbacks = await axios.get(
+          "http://localhost:8080/api/feedbacks"
+        );
+        setFeedbacks(allFeedbacks.data);
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Erro!",
+          text: "Erro ao carregar os dados do usuario.",
+          confirmButtonText: "OK",
+        });
+      }
+    })();
+  }, []);
   return (
     <>
       <Container>
