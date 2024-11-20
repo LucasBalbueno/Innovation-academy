@@ -28,11 +28,7 @@ const EventModal = ({event, onClose, removeEvent}) =>{
                     
                 </Form>
             </Modal.Body>
-            <Modal.Footer className='justify-content-between'>
-                <Button variant='danger' onClick={() => removeEvent(event)}>
-                    Apagar
-                </Button>
-            </Modal.Footer>
+            
         </Modal>
     )
 }
