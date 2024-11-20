@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Carousel } from "react-bootstrap";
+import Footer from "../Layout/Footer";
 
 import {
   Container,
@@ -174,6 +175,7 @@ function HomeContent() {
         </ContainerFeedback>
 
         <h2 className="font2P">Decole conosco você também!</h2>
+        <Footer />
       </Container>
     </>
   );
