@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import Loading from "../../assets/Loading";
 import { faBullseye } from "@fortawesome/free-solid-svg-icons";
 import profileIcon from "../../assets/avatar-1.jpg";
+import Footer from "../../Layout/Footer";
 
 const Input = styled.input`
   background: var(--background-color);
@@ -251,6 +252,7 @@ function UserProfile() {
           </div>
         </>
       )}
+      <Footer />
     </>
   );
 }

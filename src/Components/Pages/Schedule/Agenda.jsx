@@ -10,6 +10,7 @@
   import axios from 'axios';
 import defaultEvents from './components/DefaultEvents';
 import { UserContext } from '../../../Context/UserContext';
+import Footer from "../../Layout/Footer";
 
   function Agenda() {
     const [events, setEvents] = useState([])
@@ -222,6 +223,7 @@ import { UserContext } from '../../../Context/UserContext';
 
         
         </CalendarContent>
+ <Footer />
       </>
     )
   }

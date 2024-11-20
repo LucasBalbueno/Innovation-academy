@@ -225,11 +225,14 @@ function FormCadastro() {
         password: senha,
       });
 
-      const responsePreferences = await axios.post(`http://localhost:8080/api/preferences/user/${response.data.userId}`, {
-        theme: "DARK",
-        textSize: "SMALL",
-        notification: "ALWAYS"
-    });
+      const responsePreferences = await axios.post(
+        `http://localhost:8080/api/preferences/user/${response.data.userId}`,
+        {
+          theme: "DARK",
+          textSize: "SMALL",
+          notification: "ALWAYS",
+        }
+      );
 
       Swal.fire({
         icon: "success",
