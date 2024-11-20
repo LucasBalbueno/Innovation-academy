@@ -20,10 +20,11 @@ import Banner5 from "./images/BannerNovidades2.png";
 import Banner6 from "./images/BannerNovidades3.png";
 import { FeedbackCard } from "./FeedbackCard";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
 import axios from "axios";
 import { decodeJwt } from "jose";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../Context/UserContext";
 
 function HomeContent() {
   const [name, setName] = useState("");
@@ -33,6 +34,7 @@ function HomeContent() {
   const [description, setDescription] = useState("");
   const [feedbacks, setFeedbacks] = useState([]);
   const navigate = useNavigate();
+  const {setUser} = useContext(UserContext)
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (token == null) {
@@ -46,6 +48,9 @@ function HomeContent() {
           `http://localhost:8080/api/users/by-email?email=${decoded.sub}`
         );
         setUsername(response.data.username);
+        console.log(response.data)
+        //setando o usuario em uma variavel global na aplicacao
+        setUser(response.data)
 
         const allFeedbacks = await axios.get(
           "http://localhost:8080/api/feedbacks"

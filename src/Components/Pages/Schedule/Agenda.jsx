@@ -1,7 +1,7 @@
   import styled from 'styled-components';
   import '../../../Styles/Global.css'
   import MyBigCalendar from './components/MyBigCalendar'
-  import { useEffect, useState } from 'react';
+  import { useContext, useEffect, useState } from 'react';
   import EventModal from './components/modal/EventModal';
 
   import Swal from 'sweetalert2';
@@ -9,11 +9,14 @@
   import Events from '../Events/Events' 
   import axios from 'axios';
 import defaultEvents from './components/DefaultEvents';
+import { UserContext } from '../../../Context/UserContext';
 
   function Agenda() {
     const [events, setEvents] = useState([])
     const [eventsCalendar, setEventsCalendar] = useState([])
     const [eventSelected, setEventSelected] = useState(null)
+    const { user} = useContext(UserContext)
+    const [countAdd, setCount]  = useState(0)
     
     const CalendarContent = styled.div`
       
@@ -28,6 +31,20 @@ import defaultEvents from './components/DefaultEvents';
       
       background-color: '#262626';
     `
+    const createScheduler = async ()=> {
+      try{
+        const response = await axios.post("http://localhost:8080/api/schedulers",{
+          idUser: user.userId
+        })
+
+        console.log(response.data)
+        if(response.data == ""|| response.data == null){
+          console.log("A agenda ja foi criada")
+        }
+      }catch(error){
+        console.log(error)
+      }
+    }
 
     const fetchEvents = async () => {
       try {
@@ -45,7 +62,6 @@ import defaultEvents from './components/DefaultEvents';
 
 
           setEvents(response.data);
-          console.log(response.data);
       } catch (error) {
           Swal.close();
 
@@ -59,9 +75,13 @@ import defaultEvents from './components/DefaultEvents';
   };
 
     useEffect(()=> {
-      fetchEvents()
-    },[])
+      if(user != null){
+        fetchEvents()
+        createScheduler()
+        changeFormattedEventsInScheduler()
 
+      }
+    },[])
     const moveEvents = (data) => {
       const { start, end } = data;
 
@@ -100,32 +120,89 @@ import defaultEvents from './components/DefaultEvents';
     }
 
     const removeEventCalendar = (eventCalendar) => {
-      console.log(eventCalendar)
       handleEventClose()
       setEventsCalendar(eventsCalendar.filter(event => event.id !== eventCalendar.id));
     } 
 
-    const handleAdd = (newEvent) => {
-
-      const formattedDateStart = changeIsoDate(newEvent.eventDateStart);
-      const formattedDateEnd = changeIsoDate(newEvent.eventDateEnd);
-
-      const newEventCalendar = {
-        id: newEvent.eventId,
-        title: newEvent.eventName,
-        description: newEvent.eventDescription,
-        start: formattedDateStart, 
-        end: formattedDateEnd,   
-        color: 'lightcoral' 
+    const getEventsForScheduler = async() => {
+      const idUser = user.userId
+      try{
+        const response = await axios.get(`http://localhost:8080/api/schedulers/getEventsScheduler/${idUser}`);
+        
+        return response.data;         
+      }catch(error){
+        console.log(error);
       }
-      console.log(newEventCalendar)
-      console.log(defaultEvents[0])
-      setEventsCalendar([...eventsCalendar, {...newEventCalendar,id:events.length + 1}]);
+
+
+    } 
+
+    const changeFormattedEventsInScheduler = async () => {
+      const listEventsInScheduler = await getEventsForScheduler();
+
+      for (let i = 0; i < listEventsInScheduler.length; i++) {
+        const formattedDateStart = changeIsoDate(listEventsInScheduler[i].eventDateStart);
+        const formattedDateEnd = changeIsoDate(listEventsInScheduler[i].eventDateEnd);
+
+        const eventCalendar = {
+          id: listEventsInScheduler[i].eventId,
+          title: listEventsInScheduler[i].eventName,
+          description: listEventsInScheduler[i].eventDescription,
+          start: formattedDateStart, 
+          end: formattedDateEnd,   
+          color: 'lightcoral' 
+        }
+
+        
+        setEventsCalendar([...eventsCalendar, eventCalendar]);
+
+      }
+    }
+
+    const addEventToScheduler = async(event) => {
+   
+
+      for (let i = 0; i < eventsCalendar.length; i++) {
+
+        if(eventsCalendar[i].id == event.eventId) {
+          console.log("Caindo fora!")
+          return;
+        };        
+      }
+
+      try{
+        const response = await axios.post(`http://localhost:8080/api/schedulers/addEventInScheduler`,{
+          userId: user.userId,
+          eventId: event.eventId,
+          eventName: event.eventName,
+          eventDateStart: event.eventDateStart,
+          eventDateEnd: event.eventDateEnd,
+          eventDescription: event.eventDescription,
+          eventImage: event.eventImage,
+          eventURL: event.eventURL,
+          eventLevel: event.eventLevel
+        })
+
+
+      }catch(error){
+        console.log(error)
+      }
+
+      changeFormattedEventsInScheduler()
+
+    }
+
+
+    const onAddToCalendar = (newEvent) => {
+      
+      //metodo para adicionar o evento no banco
+      addEventToScheduler(newEvent)
+
     }
 
     return (
       <>
-        <Events onAddToCalendar={handleAdd} events={events} />
+        <Events onAddToCalendar={onAddToCalendar} events={events} />
         <CalendarContent> 
             
               <MyBigCalendar
