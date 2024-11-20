@@ -2,11 +2,9 @@ import styled from "styled-components";
 import imgSrc from "./images/pexels-fauxels-3184454.jpg";
 
 import { useNavigate } from "react-router-dom";
-import Footer from "../../Footer";
 const Container = styled.div`
   background-color: #1e1e1e;
   color: #f5f5ff;
-  margin-bottom: 100px;
 `;
 const Div = styled.div`
   padding: 20px;
@@ -106,7 +104,6 @@ const CompanyInfo = () => {
           Junte-se a nós e faça parte dessa revolução educacional!
         </Button>
       </DivFlex>
-      <Footer />
     </Container>
   );
 };

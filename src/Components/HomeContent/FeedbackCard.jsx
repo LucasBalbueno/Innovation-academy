@@ -1,6 +1,6 @@
 import { EvaluationCard } from "./style";
 
-import profileIcon from "./images/profileIcon.png";
+import profileIcon from "../Layout/Images/Perfil-Avatar/avatar-1.jpg";
 import { FaStar, FaRegStar, FaPen } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
@@ -30,11 +30,16 @@ export function FeedbackCard({
         style={{
           border: "1px solid var(--contrast-color)",
           borderRadius: "10px 10px 10px",
+          backgroundColor: "var(--background-color)",
         }}
       >
         <EvaluationCard>
           <div className="profilePhoto">
-            <img src={profileIcon} alt="Foto do usuário" />
+            <img
+              className="img-fluid rounded-circle"
+              src={profileIcon}
+              alt="Foto do usuário"
+            />
           </div>
           <div className="feedbackContent">
             <h3>{name}</h3>
@@ -77,7 +82,11 @@ export function FeedbackCard({
   ) : (
     <EvaluationCard>
       <div className="profilePhoto">
-        <img src={profileIcon} alt="Foto do usuário" />
+        <img
+          className="img-fluid rounded-circle"
+          src={profileIcon}
+          alt="Foto do usuário"
+        />
       </div>
       <div className="feedbackContent">
         <h3>{name}</h3>

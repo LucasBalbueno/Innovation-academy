@@ -112,7 +112,7 @@ function Header({ setIsSidebarOpen, setIsPopupProfileOpen }) {
           <FaBars />
         </MenuIcon>
         <H1 className="fs-1">
-          IAacademy <Span>Premium</Span>
+          IAcademy <Span>Premium</Span>
         </H1>
       </DivOne>
 
