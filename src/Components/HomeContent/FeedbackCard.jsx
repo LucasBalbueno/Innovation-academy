@@ -5,6 +5,8 @@ import { FaStar, FaRegStar, FaPen } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
 import { MdDeleteForever } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export function FeedbackCard({
   name,
@@ -15,6 +17,7 @@ export function FeedbackCard({
   updateFeedback,
   deleteFeedback,
 }) {
+  const location = useLocation();
   const starElements = [];
   for (let i = 1; i <= 5; i++) {
     if (i <= stars) {
@@ -23,6 +26,8 @@ export function FeedbackCard({
       starElements.push(<FaRegStar key={i} />);
     }
   }
+  const shouldShowButtons =
+    myFeedback && location.pathname === "/home/feedbacks";
 
   return myFeedback ? (
     <div>
@@ -34,60 +39,34 @@ export function FeedbackCard({
         }}
       >
         <EvaluationCard>
-          <div className="profilePhoto">
-            <img
-              className="img-fluid rounded-circle"
-              src={profileIcon}
-              alt="Foto do usuário"
-            />
-          </div>
           <div className="feedbackContent">
             <h3>{name}</h3>
             <span>@{username}</span>
             <div>{starElements}</div>
             <p>{description}</p>
-            <p
-              style={{
-                color: " var(--contrast-color)",
-                marginTop: "5%",
-                display: "flex",
-                alignItems: "center",
-                gap: "5%",
-              }}
-            >
-              Sua Avaliação
-              <button
-                style={{
-                  background: "none",
-                  border: "none",
-                }}
-                onClick={deleteFeedback}
-              >
-                <MdDeleteForever style={{ fontSize: "30px" }} color="red" />
-              </button>
-              <button
-                style={{
-                  background: "none",
-                  border: "none",
-                }}
-                onClick={updateFeedback}
-              >
-                <FaPen color="white" />
-              </button>
-            </p>
+            {shouldShowButtons && (
+              <div>
+                {" "}
+                <button
+                  style={{ background: "none", border: "none" }}
+                  onClick={deleteFeedback}
+                >
+                  <MdDeleteForever style={{ fontSize: "30px" }} color="red" />
+                </button>
+                <button
+                  style={{ background: "none", border: "none" }}
+                  onClick={updateFeedback}
+                >
+                  <FaPen color="white" />
+                </button>
+              </div>
+            )}
           </div>
         </EvaluationCard>
       </div>
     </div>
   ) : (
     <EvaluationCard>
-      <div className="profilePhoto">
-        <img
-          className="img-fluid rounded-circle"
-          src={profileIcon}
-          alt="Foto do usuário"
-        />
-      </div>
       <div className="feedbackContent">
         <h3>{name}</h3>
         <span>@{username}</span>
