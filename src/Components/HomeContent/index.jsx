@@ -49,7 +49,7 @@ function HomeContent() {
           `http://localhost:8080/api/users/by-email?email=${decoded.sub}`
         );
         setUsername(response.data.username);
-        console.log(response.data)
+
         //setando o usuario em uma variavel global na aplicacao
         setUser(response.data)
 
